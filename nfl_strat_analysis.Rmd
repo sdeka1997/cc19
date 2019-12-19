@@ -18,16 +18,16 @@ library(gridBase)
 ```
 
 ```{r,include=FALSE,results='hide'}
-NFL2010 <- read.csv("2010_nfl_pbp_data.csv")
-NFL2011 <- read.csv("2011_nfl_pbp_data.csv")
-NFL2012 <- read.csv("2012_nfl_pbp_data.csv")
-NFL2013 <- read.csv("2013_nfl_pbp_data_through_wk_12.csv")
-teams <- read.csv("teams.csv")
-weather_table <- read.csv(paste0("weather.csv"))
-merged <- readxl::read_excel("AllMerged.xlsx")
+NFL2010 <- read.csv("https://drive.google.com/open?id=1VCxo53CKGq1IMj2Pn2c7tel8F6pJSXtx")
+NFL2011 <- read.csv("https://drive.google.com/open?id=1b3iXgSrxkpNcjOCm9ukWWFXsW5jwCUDW")
+NFL2012 <- read.csv("https://drive.google.com/open?id=1vYpj25dLsoOow9DOrR4z8dBzwu4oNxNW")
+NFL2013 <- read.csv("https://drive.google.com/open?id=1xjouqScJMqM5qBju1xM6R0JrD_rGb_yV")
+teams <- read.csv("https://drive.google.com/open?id=1NzBXDkChZd41oBWnWo4PRGZlvETFtdbY")
+weather_table <- read.csv(paste0("https://drive.google.com/open?id=1LkJzZ72RzwrER3NpYEr8DdncQHiE7730"))
+merged <- read.csv("https://drive.google.com/open?id=1E0Ill7A_a3lHFBhgG0dAP4rQRCWb6g5Y")
 
 
-dcon <- dbConnect(SQLite(), dbname = "STAT405_605.sqlite")
+dcon <- dbConnect(SQLite(), dbname = "nfl.sqlite")
 dbSendQuery(conn = dcon, "
 PRAGMA foreign_keys = ON;
             ")
@@ -159,7 +159,7 @@ mydf <- mydf %>%
   mutate(date=sapply(gameid,date))
 
 #turn mydf into csv to import into SQL
-write.csv(mydf,file='maindata.csv')
+#write.csv(mydf,file='maindata.csv')
 ```
 
 ```{r create_sql_tables, include=FALSE}
@@ -810,7 +810,7 @@ kable(reg.table)
 ## Simulation - Risky Pass was Incomplete {.flexbox .vcenter}
 46.5% Touchdown Rate on 1000 trials...one example simulation shown
 ```{r, echo=FALSE,warning=FALSE,message=FALSE}
-dcon <- dbConnect(SQLite(), dbname = "STAT405_605.sqlite")
+dcon <- dbConnect(SQLite(), dbname = "nfl.sqlite")
 
 res <- dbSendQuery(conn = dcon, "
                    SELECT w.id, w.home_team, w.home_score, w.away_team, w.away_score, w.temperature, 
