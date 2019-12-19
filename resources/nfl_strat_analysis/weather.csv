@@ -1,0 +1,842 @@
+X,id,home_team,home_score,away_team,away_score,temperature,wind_chill,humidity,wind_mph,weather,date,date_format
+1,201009120pit,Pittsburgh Steelers,15,Atlanta Falcons,9,65,NA,67%,9,65 degrees- relative humidity 67%- wind 9 mph,9/12/2010,20100912
+2,201009120oti,Tennessee Titans,38,Oakland Raiders,13,77,NA,45%,9,77 degrees- relative humidity 45%- wind 9 mph,9/12/2010,20100912
+3,201009120buf,Buffalo Bills,10,Miami Dolphins,15,62,NA,81%,7,62 degrees- relative humidity 81%- wind 7 mph,9/12/2010,20100912
+4,201009120phi,Philadelphia Eagles,20,Green Bay Packers,27,69,NA,72%,4,69 degrees- relative humidity 72%- wind 4 mph,9/12/2010,20100912
+5,201009120chi,Chicago Bears,19,Detroit Lions,14,75,NA,45%,1,75 degrees- relative humidity 45%- wind 1 mph,9/12/2010,20100912
+6,201009120jax,Jacksonville Jaguars,24,Denver Broncos,17,90,NA,67%,1,90 degrees- relative humidity 67%- wind 1 mph,9/12/2010,20100912
+7,201009120was,Washington Redskins,13,Dallas Cowboys,7,66,NA,85%,2,66 degrees- relative humidity 85%- wind 2 mph,9/12/2010,20100912
+8,201009120htx,Houston Texans,34,Indianapolis Colts,24,89,NA,NA,5,89 degrees- wind 5 mph,9/12/2010,20100912
+9,201009120tam,Tampa Bay Buccaneers,17,Cleveland Browns,14,87,NA,78%,6,87 degrees- relative humidity 78%- wind 6 mph,9/12/2010,20100912
+10,201009120nyg,New York Giants,31,Carolina Panthers,18,64,NA,67%,1,64 degrees- relative humidity 67%- wind 1 mph,9/12/2010,20100912
+11,201009130kan,Kansas City Chiefs,21,San Diego Chargers,14,78,NA,75%,1,78 degrees- relative humidity 75%- wind 1 mph,9/13/2010,20100913
+12,201009130nyj,New York Jets,9,Baltimore Ravens,10,67,NA,100%,1,67 degrees- relative humidity 100%- wind 1 mph,9/13/2010,20100913
+13,201009190clt,Indianapolis Colts,38,New York Giants,14,74,NA,NA,3,74 degrees- wind 3 mph,9/19/2010,20100919
+14,201009190oti,Tennessee Titans,11,Pittsburgh Steelers,19,87,NA,49%,3,87 degrees- relative humidity 49%- wind 3 mph,9/19/2010,20100919
+15,201009190rai,Oakland Raiders,16,St. Louis Rams,14,72,NA,60%,6,72 degrees- relative humidity 60%- wind 6 mph,9/19/2010,20100919
+16,201009190cin,Cincinnati Bengals,15,Baltimore Ravens,10,78,NA,52%,1,78 degrees- relative humidity 52%- wind 1 mph,9/19/2010,20100919
+17,201009190den,Denver Broncos,31,Seattle Seahawks,14,91,NA,4%,9,91 degrees- relative humidity 4%- wind 9 mph,9/19/2010,20100919
+18,201009190car,Carolina Panthers,7,Tampa Bay Buccaneers,20,89,NA,39%,4,89 degrees- relative humidity 39%- wind 4 mph,9/19/2010,20100919
+19,201009190nyj,New York Jets,28,New England Patriots,14,81,NA,36%,6,81 degrees- relative humidity 36%- wind 6 mph,9/19/2010,20100919
+20,201009190cle,Cleveland Browns,14,Kansas City Chiefs,16,65,NA,0%,1,65 degrees- relative humidity 0%- wind 1 mph,9/19/2010,20100919
+21,201009190sdg,San Diego Chargers,38,Jacksonville Jaguars,13,76,NA,63%,8,76 degrees- relative humidity 63%- wind 8 mph,9/19/2010,20100919
+22,201009190was,Washington Redskins,27,Houston Texans,30,85,NA,43%,6,85 degrees- relative humidity 43%- wind 6 mph,9/19/2010,20100919
+23,201009190gnb,Green Bay Packers,34,Buffalo Bills,7,58,NA,51%,4,58 degrees- relative humidity 51%- wind 4 mph,9/19/2010,20100919
+24,201009200sfo,San Francisco 49ers,22,New Orleans Saints,25,65,NA,60%,1,65 degrees- relative humidity 60%- wind 1 mph,9/20/2010,20100920
+25,201009260nyg,New York Giants,10,Tennessee Titans,29,70,NA,48%,3,70 degrees- relative humidity 48%- wind 3 mph,9/26/2010,20100926
+26,201009260jax,Jacksonville Jaguars,3,Philadelphia Eagles,28,89,NA,67%,5,89 degrees- relative humidity 67%- wind 5 mph,9/26/2010,20100926
+27,201009260tam,Tampa Bay Buccaneers,13,Pittsburgh Steelers,38,90,NA,62%,7,90 degrees- relative humidity 62%- wind 7 mph,9/26/2010,20100926
+28,201009260kan,Kansas City Chiefs,31,San Francisco 49ers,10,55,NA,72%,1,55 degrees- relative humidity 72%- wind 1 mph,9/26/2010,20100926
+29,201009260mia,Miami Dolphins,23,New York Jets,31,83,NA,77%,9,83 degrees- relative humidity 77%- wind 9 mph,9/26/2010,20100926
+30,201009260htx,Houston Texans,13,Dallas Cowboys,27,81,NA,NA,8,81 degrees- wind 8 mph,9/26/2010,20100926
+31,201009260den,Denver Broncos,13,Indianapolis Colts,27,85,NA,12%,6,85 degrees- relative humidity 12%- wind 6 mph,9/26/2010,20100926
+32,201009260rav,Baltimore Ravens,24,Cleveland Browns,17,64,NA,83%,6,64 degrees- relative humidity 83%- wind 6 mph,9/26/2010,20100926
+33,201009260car,Carolina Panthers,7,Cincinnati Bengals,20,67,NA,86%,8,67 degrees- relative humidity 86%- wind 8 mph,9/26/2010,20100926
+34,201009270chi,Chicago Bears,20,Green Bay Packers,17,56,NA,75%,6,56 degrees- relative humidity 75%- wind 6 mph,9/27/2010,20100927
+35,201010030phi,Philadelphia Eagles,12,Washington Redskins,17,63,NA,57%,1,63 degrees- relative humidity 57%- wind 1 mph,10/3/2010,20101003
+36,201010030pit,Pittsburgh Steelers,14,Baltimore Ravens,17,52,NA,86%,5,52 degrees- relative humidity 86%- wind 5 mph,10/3/2010,20101003
+37,201010030buf,Buffalo Bills,14,New York Jets,38,51,NA,66%,1,51 degrees- relative humidity 66%- wind 1 mph,10/3/2010,20101003
+38,201010030rai,Oakland Raiders,24,Houston Texans,31,71,NA,53%,1,71 degrees- relative humidity 53%- wind 1 mph,10/3/2010,20101003
+39,201010030gnb,Green Bay Packers,28,Detroit Lions,26,52,NA,61%,8,52 degrees- relative humidity 61%- wind 8 mph,10/3/2010,20101003
+40,201010030oti,Tennessee Titans,20,Denver Broncos,26,54,NA,67%,1,54 degrees- relative humidity 67%- wind 1 mph,10/3/2010,20101003
+41,201010030nyg,New York Giants,17,Chicago Bears,3,59,NA,52%,1,59 degrees- relative humidity 52%- wind 1 mph,10/3/2010,20101003
+42,201010030jax,Jacksonville Jaguars,31,Indianapolis Colts,28,80,NA,30%,1,80 degrees- relative humidity 30%- wind 1 mph,10/3/2010,20101003
+43,201010030sdg,San Diego Chargers,41,Arizona Cardinals,10,72,NA,67%,8,72 degrees- relative humidity 67%- wind 8 mph,10/3/2010,20101003
+44,201010040mia,Miami Dolphins,14,New England Patriots,41,80,NA,60%,1,80 degrees- relative humidity 60%- wind 1 mph,10/4/2010,20101004
+45,201010100htx,Houston Texans,10,New York Giants,34,78,NA,NA,6,78 degrees- wind 6 mph,10/10/2010,20101010
+46,201010100sfo,San Francisco 49ers,24,Philadelphia Eagles,27,71,NA,51%,1,71 degrees- relative humidity 51%- wind 1 mph,10/10/2010,20101010
+47,201010100cin,Cincinnati Bengals,21,Tampa Bay Buccaneers,24,81,NA,32%,2,81 degrees- relative humidity 32%- wind 2 mph,10/10/2010,20101010
+48,201010100clt,Indianapolis Colts,19,Kansas City Chiefs,9,83,NA,NA,NA,83 degrees- no wind,10/10/2010,20101010
+49,201010100buf,Buffalo Bills,26,Jacksonville Jaguars,36,62,NA,52%,1,62 degrees- relative humidity 52%- wind 1 mph,10/10/2010,20101010
+50,201010100was,Washington Redskins,16,Green Bay Packers,13,72,NA,46%,NA,72 degrees- relative humidity 46%- no wind,10/10/2010,20101010
+51,201010100rav,Baltimore Ravens,31,Denver Broncos,17,67,NA,40%,6,67 degrees- relative humidity 40%- wind 6 mph,10/10/2010,20101010
+52,201010100car,Carolina Panthers,6,Chicago Bears,23,81,NA,29%,2,81 degrees- relative humidity 29%- wind 2 mph,10/10/2010,20101010
+53,201010110nyj,New York Jets,29,Minnesota Vikings,20,72,NA,56%,1,72 degrees- relative humidity 56%- wind 1 mph,10/11/2010,20101011
+54,201010170chi,Chicago Bears,20,Seattle Seahawks,23,61,NA,49%,9,61 degrees- relative humidity 49%- wind 9 mph,10/17/2010,20101017
+55,201010170sfo,San Francisco 49ers,17,Oakland Raiders,9,53,NA,72%,1,53 degrees- relative humidity 72%- wind 1 mph,10/17/2010,20101017
+56,201010170den,Denver Broncos,20,New York Jets,24,73,NA,13%,4,73 degrees- relative humidity 13%- wind 4 mph,10/17/2010,20101017
+57,201010170tam,Tampa Bay Buccaneers,6,New Orleans Saints,31,81,NA,48%,9,81 degrees- relative humidity 48%- wind 9 mph,10/17/2010,20101017
+58,201010170gnb,Green Bay Packers,20,Miami Dolphins,23,57,NA,45%,1,57 degrees- relative humidity 45%- wind 1 mph,10/17/2010,20101017
+59,201010170htx,Houston Texans,35,Kansas City Chiefs,31,78,NA,NA,3,78 degrees- wind 3 mph,10/17/2010,20101017
+60,201010170nyg,New York Giants,28,Detroit Lions,20,63,NA,44%,9,63 degrees- relative humidity 44%- wind 9 mph,10/17/2010,20101017
+61,201010170phi,Philadelphia Eagles,31,Atlanta Falcons,17,66,NA,45%,1,66 degrees- relative humidity 45%- wind 1 mph,10/17/2010,20101017
+62,201010170pit,Pittsburgh Steelers,28,Cleveland Browns,10,61,NA,48%,1,61 degrees- relative humidity 48%- wind 1 mph,10/17/2010,20101017
+63,201010170was,Washington Redskins,24,Indianapolis Colts,27,70,NA,46%,7,70 degrees- relative humidity 46%- wind 7 mph,10/17/2010,20101017
+64,201010180jax,Jacksonville Jaguars,3,Tennessee Titans,30,0,NA,0%,NA,0 degrees- relative humidity 0%- no wind,10/18/2010,20101018
+65,201010240mia,Miami Dolphins,22,Pittsburgh Steelers,23,80,NA,84%,1,80 degrees- relative humidity 84%- wind 1 mph,10/24/2010,20101024
+66,201010240sdg,San Diego Chargers,20,New England Patriots,23,69,NA,68%,7,69 degrees- relative humidity 68%- wind 7 mph,10/24/2010,20101024
+67,201010240rav,Baltimore Ravens,37,Buffalo Bills,34,70,NA,52%,5,70 degrees- relative humidity 52%- wind 5 mph,10/24/2010,20101024
+68,201010240car,Carolina Panthers,23,San Francisco 49ers,20,75,NA,57%,9,75 degrees- relative humidity 57%- wind 9 mph,10/24/2010,20101024
+69,201010240tam,Tampa Bay Buccaneers,18,St. Louis Rams,17,84,NA,62%,9,84 degrees- relative humidity 62%- wind 9 mph,10/24/2010,20101024
+70,201010240den,Denver Broncos,14,Oakland Raiders,59,63,NA,23%,9,63 degrees- relative humidity 23%- wind 9 mph,10/24/2010,20101024
+71,201010240gnb,Green Bay Packers,28,Minnesota Vikings,24,58,NA,96%,4,58 degrees- relative humidity 96%- wind 4 mph,10/24/2010,20101024
+72,201010240kan,Kansas City Chiefs,42,Jacksonville Jaguars,20,63,NA,80%,1,63 degrees- relative humidity 80%- wind 1 mph,10/24/2010,20101024
+73,201010240chi,Chicago Bears,14,Washington Redskins,17,67,NA,65%,1,67 degrees- relative humidity 65%- wind 1 mph,10/24/2010,20101024
+74,201010240oti,Tennessee Titans,37,Philadelphia Eagles,19,78,NA,39%,2,78 degrees- relative humidity 39%- wind 2 mph,10/24/2010,20101024
+75,201010250dal,Dallas Cowboys,35,New York Giants,41,84,NA,NA,2,84 degrees- wind 2 mph,10/25/2010,20101025
+76,201010310cin,Cincinnati Bengals,14,Miami Dolphins,22,54,NA,57%,1,54 degrees- relative humidity 57%- wind 1 mph,10/31/2010,20101031
+77,201010310kan,Kansas City Chiefs,13,Buffalo Bills,10,51,NA,60%,1,51 degrees- relative humidity 60%- wind 1 mph,10/31/2010,20101031
+78,201010310sdg,San Diego Chargers,33,Tennessee Titans,25,65,NA,65%,1,65 degrees- relative humidity 65%- wind 1 mph,10/31/2010,20101031
+79,201010310nyj,New York Jets,0,Green Bay Packers,9,57,NA,41%,1,57 degrees- relative humidity 41%- wind 1 mph,10/31/2010,20101031
+80,201010310rai,Oakland Raiders,33,Seattle Seahawks,3,66,NA,60%,5,66 degrees- relative humidity 60%- wind 5 mph,10/31/2010,20101031
+81,201011010clt,Indianapolis Colts,30,Houston Texans,17,47,NA,NA,1,47 degrees- wind 1 mph,11/1/2010,20101101
+82,201011070htx,Houston Texans,23,San Diego Chargers,29,63,NA,NA,8,63 degrees- wind 8 mph,11/7/2010,20101107
+83,201011070car,Carolina Panthers,3,New Orleans Saints,34,50,NA,33%,7,50 degrees- relative humidity 33%- wind 7 mph,11/7/2010,20101107
+84,201011070phi,Philadelphia Eagles,26,Indianapolis Colts,24,52,NA,34%,1,52 degrees- relative humidity 34%- wind 1 mph,11/7/2010,20101107
+85,201011070gnb,Green Bay Packers,45,Dallas Cowboys,7,43,NA,62%,3,43 degrees- relative humidity 62%- wind 3 mph,11/7/2010,20101107
+86,201011070rai,Oakland Raiders,23,Kansas City Chiefs,20,62,NA,82%,9,62 degrees- relative humidity 82%- wind 9 mph,11/7/2010,20101107
+87,201011070rav,Baltimore Ravens,26,Miami Dolphins,10,50,NA,38%,1,50 degrees- relative humidity 38%- wind 1 mph,11/7/2010,20101107
+88,201011080cin,Cincinnati Bengals,21,Pittsburgh Steelers,27,44,NA,65%,2,44 degrees- relative humidity 65%- wind 2 mph,11/8/2010,20101108
+89,201011140sfo,San Francisco 49ers,23,St. Louis Rams,20,74,NA,50%,5,74 degrees- relative humidity 50%- wind 5 mph,11/14/2010,20101114
+90,201011140mia,Miami Dolphins,29,Tennessee Titans,17,79,NA,46%,9,79 degrees- relative humidity 46%- wind 9 mph,11/14/2010,20101114
+91,201011140cle,Cleveland Browns,20,New York Jets,26,46,NA,77%,1,46 degrees- relative humidity 77%- wind 1 mph,11/14/2010,20101114
+92,201011140pit,Pittsburgh Steelers,26,New England Patriots,39,49,NA,86%,8,49 degrees- relative humidity 86%- wind 8 mph,11/14/2010,20101114
+93,201011140chi,Chicago Bears,27,Minnesota Vikings,13,44,NA,57%,2,44 degrees- relative humidity 57%- wind 2 mph,11/14/2010,20101114
+94,201011140den,Denver Broncos,49,Kansas City Chiefs,29,43,NA,34%,6,43 degrees- relative humidity 34%- wind 6 mph,11/14/2010,20101114
+95,201011140tam,Tampa Bay Buccaneers,31,Carolina Panthers,16,73,NA,57%,7,73 degrees- relative humidity 57%- wind 7 mph,11/14/2010,20101114
+96,201011140clt,Indianapolis Colts,23,Cincinnati Bengals,17,46,NA,NA,1,46 degrees- wind 1 mph,11/14/2010,20101114
+97,201011140nyg,New York Giants,20,Dallas Cowboys,33,60,NA,45%,8,60 degrees- relative humidity 45%- wind 8 mph,11/14/2010,20101114
+98,201011140buf,Buffalo Bills,14,Detroit Lions,12,58,NA,36%,1,58 degrees- relative humidity 36%- wind 1 mph,11/14/2010,20101114
+99,201011140jax,Jacksonville Jaguars,31,Houston Texans,24,70,NA,50%,5,70 degrees- relative humidity 50%- wind 5 mph,11/14/2010,20101114
+100,201011150was,Washington Redskins,28,Philadelphia Eagles,59,52,NA,67%,3,52 degrees- relative humidity 67%- wind 3 mph,11/15/2010,20101115
+101,201011180mia,Miami Dolphins,0,Chicago Bears,16,75,NA,77%,8,75 degrees- relative humidity 77%- wind 8 mph,11/18/2010,20101118
+102,201011210phi,Philadelphia Eagles,27,New York Giants,17,45,NA,68%,7,45 degrees- relative humidity 68%- wind 7 mph,11/21/2010,20101121
+103,201011210pit,Pittsburgh Steelers,35,Oakland Raiders,3,57,NA,62%,9,57 degrees- relative humidity 62%- wind 9 mph,11/21/2010,20101121
+104,201011210car,Carolina Panthers,13,Baltimore Ravens,37,65,NA,43%,6,65 degrees- relative humidity 43%- wind 6 mph,11/21/2010,20101121
+105,201011210sfo,San Francisco 49ers,0,Tampa Bay Buccaneers,21,54,NA,65%,2,54 degrees- relative humidity 65%- wind 2 mph,11/21/2010,20101121
+106,201011210oti,Tennessee Titans,16,Washington Redskins,19,66,NA,53%,1,66 degrees- relative humidity 53%- wind 1 mph,11/21/2010,20101121
+107,201011210nyj,New York Jets,30,Houston Texans,27,46,NA,37%,1,46 degrees- relative humidity 37%- wind 1 mph,11/21/2010,20101121
+108,201011210kan,Kansas City Chiefs,31,Arizona Cardinals,13,66,NA,65%,2,66 degrees- relative humidity 65%- wind 2 mph,11/21/2010,20101121
+109,201011210jax,Jacksonville Jaguars,24,Cleveland Browns,20,0,NA,0%,NA,0 degrees- relative humidity 0%- no wind,11/21/2010,20101121
+110,201011210cin,Cincinnati Bengals,31,Buffalo Bills,49,65,NA,56%,1,65 degrees- relative humidity 56%- wind 1 mph,11/21/2010,20101121
+111,201011220sdg,San Diego Chargers,35,Denver Broncos,14,55,NA,69%,5,55 degrees- relative humidity 69%- wind 5 mph,11/22/2010,20101122
+112,201011250nyj,New York Jets,26,Cincinnati Bengals,10,39,NA,87%,6,39 degrees- relative humidity 87%- wind 6 mph,11/25/2010,20101125
+113,201011280rav,Baltimore Ravens,17,Tampa Bay Buccaneers,10,48,NA,37%,3,48 degrees- relative humidity 37%- wind 3 mph,11/28/2010,20101128
+114,201011280clt,Indianapolis Colts,14,San Diego Chargers,36,38,NA,NA,8,38 degrees- wind 8 mph,11/28/2010,20101128
+115,201011280den,Denver Broncos,33,St. Louis Rams,36,45,NA,23%,1,45 degrees- relative humidity 23%- wind 1 mph,11/28/2010,20101128
+116,201011280buf,Buffalo Bills,16,Pittsburgh Steelers,19,36,NA,78%,1,36 degrees- relative humidity 78%- wind 1 mph,11/28/2010,20101128
+117,201011280chi,Chicago Bears,31,Philadelphia Eagles,26,45,NA,57%,1,45 degrees- relative humidity 57%- wind 1 mph,11/28/2010,20101128
+118,201011280htx,Houston Texans,20,Tennessee Titans,0,58,NA,NA,5,58 degrees- wind 5 mph,11/28/2010,20101128
+119,201011280was,Washington Redskins,13,Minnesota Vikings,17,47,NA,44%,5,47 degrees- relative humidity 44%- wind 5 mph,11/28/2010,20101128
+120,201011280rai,Oakland Raiders,17,Miami Dolphins,33,54,NA,49%,1,54 degrees- relative humidity 49%- wind 1 mph,11/28/2010,20101128
+121,201011280nyg,New York Giants,24,Jacksonville Jaguars,20,43,NA,43%,6,43 degrees- relative humidity 43%- wind 6 mph,11/28/2010,20101128
+122,201012020phi,Philadelphia Eagles,34,Houston Texans,24,36,NA,55%,5,36 degrees- relative humidity 55%- wind 5 mph,12/2/2010,20101202
+123,201012050nyg,New York Giants,31,Washington Redskins,7,33,NA,51%,1,33 degrees- relative humidity 51%- wind 1 mph,12/5/2010,20101205
+124,201012050crd,Arizona Cardinals,6,St. Louis Rams,19,67,NA,NA,NA,67 degrees- no wind,12/5/2010,20101205
+125,201012050sdg,San Diego Chargers,13,Oakland Raiders,28,67,NA,39%,5,67 degrees- relative humidity 39%- wind 5 mph,12/5/2010,20101205
+126,201012050rav,Baltimore Ravens,10,Pittsburgh Steelers,13,35,NA,48%,NA,35 degrees- relative humidity 48%- no wind,12/5/2010,20101205
+127,201012050cin,Cincinnati Bengals,30,New Orleans Saints,34,32,NA,68%,1,32 degrees- relative humidity 68%- wind 1 mph,12/5/2010,20101205
+128,201012050oti,Tennessee Titans,6,Jacksonville Jaguars,17,35,NA,70%,1,35 degrees- relative humidity 70%- wind 1 mph,12/5/2010,20101205
+129,201012050gnb,Green Bay Packers,34,San Francisco 49ers,16,26,NA,60%,1,26 degrees- relative humidity 60%- wind 1 mph,12/5/2010,20101205
+130,201012050kan,Kansas City Chiefs,10,Denver Broncos,6,26,NA,55%,8,26 degrees- relative humidity 55%- wind 8 mph,12/5/2010,20101205
+131,201012050tam,Tampa Bay Buccaneers,24,Atlanta Falcons,28,72,NA,53%,9,72 degrees- relative humidity 53%- wind 9 mph,12/5/2010,20101205
+132,201012050mia,Miami Dolphins,10,Cleveland Browns,13,76,NA,52%,1,76 degrees- relative humidity 52%- wind 1 mph,12/5/2010,20101205
+133,201012050clt,Indianapolis Colts,35,Dallas Cowboys,38,25,NA,NA,1,25 degrees- wind 1 mph,12/5/2010,20101205
+134,201012090oti,Tennessee Titans,28,Indianapolis Colts,30,35,NA,46%,6,35 degrees- relative humidity 46%- wind 6 mph,12/9/2010,20101209
+135,201012120jax,Jacksonville Jaguars,38,Oakland Raiders,31,54,NA,86%,1,54 degrees- relative humidity 86%- wind 1 mph,12/12/2010,20101212
+136,201012120sfo,San Francisco 49ers,40,Seattle Seahawks,21,55,NA,90%,3,55 degrees- relative humidity 90%- wind 3 mph,12/12/2010,20101212
+137,201012120was,Washington Redskins,16,Tampa Bay Buccaneers,17,43,NA,96%,5,43 degrees- relative humidity 96%- wind 5 mph,12/12/2010,20101212
+138,201012120chi,Chicago Bears,7,New England Patriots,36,26,NA,81%,3,26 degrees- relative humidity 81%- wind 3 mph,12/12/2010,20101212
+139,201012120nyj,New York Jets,6,Miami Dolphins,10,53,NA,83%,8,53 degrees- relative humidity 83%- wind 8 mph,12/12/2010,20101212
+140,201012120sdg,San Diego Chargers,31,Kansas City Chiefs,0,86,NA,22%,5,86 degrees- relative humidity 22%- wind 5 mph,12/12/2010,20101212
+141,201012120car,Carolina Panthers,10,Atlanta Falcons,31,44,NA,94%,1,44 degrees- relative humidity 94%- wind 1 mph,12/12/2010,20101212
+142,201012120pit,Pittsburgh Steelers,23,Cincinnati Bengals,7,37,NA,89%,8,37 degrees- relative humidity 89%- wind 8 mph,12/12/2010,20101212
+143,201012120buf,Buffalo Bills,13,Cleveland Browns,6,36,NA,95%,6,36 degrees- relative humidity 95%- wind 6 mph,12/12/2010,20101212
+144,201012130htx,Houston Texans,28,Baltimore Ravens,34,0,NA,NA,NA,0 degrees- no wind,12/13/2010,20101213
+145,201012160sdg,San Diego Chargers,34,San Francisco 49ers,7,56,NA,69%,7,56 degrees- relative humidity 69%- wind 7 mph,12/16/2010,20101216
+146,201012190clt,Indianapolis Colts,34,Jacksonville Jaguars,24,26,NA,NA,6,26 degrees- wind 6 mph,12/19/2010,20101219
+147,201012190rav,Baltimore Ravens,30,New Orleans Saints,24,34,NA,40%,1,34 degrees- relative humidity 40%- wind 1 mph,12/19/2010,20101219
+148,201012190pit,Pittsburgh Steelers,17,New York Jets,22,25,NA,62%,9,25 degrees- relative humidity 62%- wind 9 mph,12/19/2010,20101219
+149,201012190nyg,New York Giants,31,Philadelphia Eagles,38,33,NA,58%,6,33 degrees- relative humidity 58%- wind 6 mph,12/19/2010,20101219
+150,201012190dal,Dallas Cowboys,33,Washington Redskins,30,51,NA,NA,NA,51 degrees- no wind,12/19/2010,20101219
+151,201012190oti,Tennessee Titans,31,Houston Texans,17,36,NA,56%,4,36 degrees- relative humidity 56%- wind 4 mph,12/19/2010,20101219
+152,201012190tam,Tampa Bay Buccaneers,20,Detroit Lions,23,54,NA,96%,1,54 degrees- relative humidity 96%- wind 1 mph,12/19/2010,20101219
+153,201012190car,Carolina Panthers,19,Arizona Cardinals,12,42,NA,57%,6,42 degrees- relative humidity 57%- wind 6 mph,12/19/2010,20101219
+154,201012190cin,Cincinnati Bengals,19,Cleveland Browns,17,28,NA,59%,8,28 degrees- relative humidity 59%- wind 8 mph,12/19/2010,20101219
+155,201012190mia,Miami Dolphins,14,Buffalo Bills,17,67,NA,74%,1,67 degrees- relative humidity 74%- wind 1 mph,12/19/2010,20101219
+156,201012200min,Minnesota Vikings,14,Chicago Bears,40,23,NA,NA,1,23 degrees- wind 1 mph,12/20/2010,20101220
+157,201012230pit,Pittsburgh Steelers,27,Carolina Panthers,3,27,NA,70%,1,27 degrees- relative humidity 70%- wind 1 mph,12/23/2010,20101223
+158,201012250crd,Arizona Cardinals,27,Dallas Cowboys,26,64,NA,NA,7,64 degrees- wind 7 mph,12/25/2010,20101225
+159,201012260jax,Jacksonville Jaguars,17,Washington Redskins,20,38,NA,64%,NA,38 degrees- relative humidity 64%- no wind,12/26/2010,20101226
+160,201012260tam,Tampa Bay Buccaneers,38,Seattle Seahawks,15,49,NA,56%,1,49 degrees- relative humidity 56%- wind 1 mph,12/26/2010,20101226
+161,201012260cin,Cincinnati Bengals,34,San Diego Chargers,20,29,NA,62%,1,29 degrees- relative humidity 62%- wind 1 mph,12/26/2010,20101226
+162,201012260cle,Cleveland Browns,10,Baltimore Ravens,20,26,NA,73%,1,26 degrees- relative humidity 73%- wind 1 mph,12/26/2010,20101226
+163,201012260kan,Kansas City Chiefs,34,Tennessee Titans,14,19,NA,77%,7,19 degrees- relative humidity 77%- wind 7 mph,12/26/2010,20101226
+164,201012260chi,Chicago Bears,38,New York Jets,34,33,NA,85%,9,33 degrees- relative humidity 85%- wind 9 mph,12/26/2010,20101226
+165,201012260gnb,Green Bay Packers,45,New York Giants,17,25,NA,74%,5,25 degrees- relative humidity 74%- wind 5 mph,12/26/2010,20101226
+166,201012260rai,Oakland Raiders,26,Indianapolis Colts,31,58,NA,65%,5,58 degrees- relative humidity 65%- wind 5 mph,12/26/2010,20101226
+167,201012260mia,Miami Dolphins,27,Detroit Lions,34,69,NA,47%,2,69 degrees- relative humidity 47%- wind 2 mph,12/26/2010,20101226
+168,201012260den,Denver Broncos,24,Houston Texans,23,50,NA,18%,7,50 degrees- relative humidity 18%- wind 7 mph,12/26/2010,20101226
+169,201012260buf,Buffalo Bills,3,New England Patriots,34,22,NA,69%,1,22 degrees- relative humidity 69%- wind 1 mph,12/26/2010,20101226
+170,201012280phi,Philadelphia Eagles,14,Minnesota Vikings,24,32,NA,46%,1,32 degrees- relative humidity 46%- wind 1 mph,12/28/2010,20101228
+171,201101020was,Washington Redskins,14,New York Giants,17,37,NA,79%,7,37 degrees- relative humidity 79%- wind 7 mph,1/2/2011,20110102
+172,201101020clt,Indianapolis Colts,23,Tennessee Titans,20,28,NA,NA,1,28 degrees- wind 1 mph,1/2/2011,20110102
+173,201101020cle,Cleveland Browns,9,Pittsburgh Steelers,41,25,NA,51%,1,25 degrees- relative humidity 51%- wind 1 mph,1/2/2011,20110102
+174,201101020kan,Kansas City Chiefs,10,Oakland Raiders,31,30,NA,40%,1,30 degrees- relative humidity 40%- wind 1 mph,1/2/2011,20110102
+175,201101020den,Denver Broncos,28,San Diego Chargers,33,42,NA,22%,4,42 degrees- relative humidity 22%- wind 4 mph,1/2/2011,20110102
+176,201101020nwe,New England Patriots,38,Miami Dolphins,7,47,NA,91%,5,47 degrees- relative humidity 91%- wind 5 mph,1/2/2011,20110102
+177,201101020nyj,New York Jets,38,Buffalo Bills,7,48,NA,78%,5,48 degrees- relative humidity 78%- wind 5 mph,1/2/2011,20110102
+178,201101020gnb,Green Bay Packers,10,Chicago Bears,3,19,NA,49%,1,19 degrees- relative humidity 49%- wind 1 mph,1/2/2011,20110102
+179,201101020rav,Baltimore Ravens,13,Cincinnati Bengals,7,51,NA,73%,7,51 degrees- relative humidity 73%- wind 7 mph,1/2/2011,20110102
+180,201101020sfo,San Francisco 49ers,38,Arizona Cardinals,7,49,NA,85%,3,49 degrees- relative humidity 85%- wind 3 mph,1/2/2011,20110102
+181,201101020phi,Philadelphia Eagles,13,Dallas Cowboys,14,40,NA,66%,1,40 degrees- relative humidity 66%- wind 1 mph,1/2/2011,20110102
+182,201101020htx,Houston Texans,34,Jacksonville Jaguars,17,60,NA,NA,1,60 degrees- wind 1 mph,1/2/2011,20110102
+183,201101080clt,Indianapolis Colts,16,New York Jets,17,15,NA,NA,7,15 degrees- wind 7 mph,1/8/2011,20110108
+184,201101090phi,Philadelphia Eagles,16,Green Bay Packers,21,30,NA,42%,1,30 degrees- relative humidity 42%- wind 1 mph,1/9/2011,20110109
+185,201101090kan,Kansas City Chiefs,7,Baltimore Ravens,30,26,NA,53%,1,26 degrees- relative humidity 53%- wind 1 mph,1/9/2011,20110109
+186,201101150pit,Pittsburgh Steelers,31,Baltimore Ravens,24,36,NA,58%,1,36 degrees- relative humidity 58%- wind 1 mph,1/15/2011,20110115
+187,201101160chi,Chicago Bears,35,Seattle Seahawks,24,24,NA,55%,4,24 degrees- relative humidity 55%- wind 4 mph,1/16/2011,20110116
+188,201101230chi,Chicago Bears,14,Green Bay Packers,21,20,NA,34%,1,20 degrees- relative humidity 34%- wind 1 mph,1/23/2011,20110123
+189,201101230pit,Pittsburgh Steelers,24,New York Jets,19,17,NA,44%,1,17 degrees- relative humidity 44%- wind 1 mph,1/23/2011,20110123
+190,201102060gnb,Green Bay Packers,31,Pittsburgh Steelers,25,72,NA,0%,NA,72 degrees- relative humidity 0%- no wind,2/6/2011,20110206
+191,201109080gnb,Green Bay Packers,42,New Orleans Saints,34,68,NA,67%,5,68 degrees- relative humidity 67%- wind 5 mph,9/8/2011,20110908
+192,201109110sfo,San Francisco 49ers,33,Seattle Seahawks,17,68,NA,63%,1,68 degrees- relative humidity 63%- wind 1 mph,9/11/2011,20110911
+193,201109110was,Washington Redskins,28,New York Giants,14,87,NA,38%,5,87 degrees- relative humidity 38%- wind 5 mph,9/11/2011,20110911
+194,201109110nyj,New York Jets,27,Dallas Cowboys,24,70,NA,89%,6,70 degrees- relative humidity 89%- wind 6 mph,9/11/2011,20110911
+195,201109110sdg,San Diego Chargers,24,Minnesota Vikings,17,74,NA,52%,7,74 degrees- relative humidity 52%- wind 7 mph,9/11/2011,20110911
+196,201109110chi,Chicago Bears,30,Atlanta Falcons,12,76,NA,57%,7,76 degrees- relative humidity 57%- wind 7 mph,9/11/2011,20110911
+197,201109110htx,Houston Texans,34,Indianapolis Colts,7,84,NA,NA,4,84 degrees- wind 4 mph,9/11/2011,20110911
+198,201109110rav,Baltimore Ravens,35,Pittsburgh Steelers,7,75,NA,71%,2,75 degrees- relative humidity 71%- wind 2 mph,9/11/2011,20110911
+199,201109110kan,Kansas City Chiefs,7,Buffalo Bills,41,75,NA,65%,NA,75 degrees- relative humidity 65%- no wind,9/11/2011,20110911
+200,201109110tam,Tampa Bay Buccaneers,20,Detroit Lions,27,86,NA,55%,6,86 degrees- relative humidity 55%- wind 6 mph,9/11/2011,20110911
+201,201109110jax,Jacksonville Jaguars,16,Tennessee Titans,14,87,NA,52%,5,87 degrees- relative humidity 52%- wind 5 mph,9/11/2011,20110911
+202,201109120mia,Miami Dolphins,24,New England Patriots,38,82,NA,73%,1,82 degrees- relative humidity 73%- wind 1 mph,9/12/2011,20110912
+203,201109120den,Denver Broncos,20,Oakland Raiders,23,75,NA,29%,6,75 degrees- relative humidity 29%- wind 6 mph,9/12/2011,20110912
+204,201109180buf,Buffalo Bills,38,Oakland Raiders,35,65,NA,47%,5,65 degrees- relative humidity 47%- wind 5 mph,9/18/2011,20110918
+205,201109180sfo,San Francisco 49ers,24,Dallas Cowboys,27,70,NA,60%,3,70 degrees- relative humidity 60%- wind 3 mph,9/18/2011,20110918
+206,201109180pit,Pittsburgh Steelers,24,Seattle Seahawks,0,63,NA,59%,1,63 degrees- relative humidity 59%- wind 1 mph,9/18/2011,20110918
+207,201109180mia,Miami Dolphins,13,Houston Texans,23,87,NA,59%,1,87 degrees- relative humidity 59%- wind 1 mph,9/18/2011,20110918
+208,201109180car,Carolina Panthers,23,Green Bay Packers,30,64,NA,67%,1,64 degrees- relative humidity 67%- wind 1 mph,9/18/2011,20110918
+209,201109180nor,New Orleans Saints,30,Chicago Bears,13,80,NA,NA,4,80 degrees- wind 4 mph,9/18/2011,20110918
+210,201109180nyj,New York Jets,32,Jacksonville Jaguars,3,66,NA,71%,1,66 degrees- relative humidity 71%- wind 1 mph,9/18/2011,20110918
+211,201109180clt,Indianapolis Colts,19,Cleveland Browns,27,65,NA,NA,9,65 degrees- wind 9 mph,9/18/2011,20110918
+212,201109180was,Washington Redskins,22,Arizona Cardinals,21,66,NA,71%,7,66 degrees- relative humidity 71%- wind 7 mph,9/18/2011,20110918
+213,201109180oti,Tennessee Titans,26,Baltimore Ravens,13,76,NA,54%,1,76 degrees- relative humidity 54%- wind 1 mph,9/18/2011,20110918
+214,201109180den,Denver Broncos,24,Cincinnati Bengals,22,69,NA,27%,6,69 degrees- relative humidity 27%- wind 6 mph,9/18/2011,20110918
+215,201109190nyg,New York Giants,28,St. Louis Rams,16,60,NA,72%,6,60 degrees- relative humidity 72%- wind 6 mph,9/19/2011,20110919
+216,201109250chi,Chicago Bears,17,Green Bay Packers,27,61,NA,85%,1,61 degrees- relative humidity 85%- wind 1 mph,9/25/2011,20110925
+217,201109250cle,Cleveland Browns,17,Miami Dolphins,16,70,NA,72%,5,70 degrees- relative humidity 72%- wind 5 mph,9/25/2011,20110925
+218,201109250nor,New Orleans Saints,40,Houston Texans,33,85,NA,NA,8,85 degrees- wind 8 mph,9/25/2011,20110925
+219,201109250cin,Cincinnati Bengals,8,San Francisco 49ers,13,71,NA,61%,2,71 degrees- relative humidity 61%- wind 2 mph,9/25/2011,20110925
+220,201109250clt,Indianapolis Colts,20,Pittsburgh Steelers,23,57,NA,NA,7,57 degrees- wind 7 mph,9/25/2011,20110925
+221,201109250sdg,San Diego Chargers,20,Kansas City Chiefs,17,67,NA,68%,8,67 degrees- relative humidity 68%- wind 8 mph,9/25/2011,20110925
+222,201109250oti,Tennessee Titans,17,Denver Broncos,14,73,NA,51%,1,73 degrees- relative humidity 51%- wind 1 mph,9/25/2011,20110925
+223,201109250tam,Tampa Bay Buccaneers,16,Atlanta Falcons,13,89,NA,94%,9,89 degrees- relative humidity 94%- wind 9 mph,9/25/2011,20110925
+224,201109250buf,Buffalo Bills,34,New England Patriots,31,78,NA,60%,8,78 degrees- relative humidity 60%- wind 8 mph,9/25/2011,20110925
+225,201109250phi,Philadelphia Eagles,16,New York Giants,29,76,NA,79%,5,76 degrees- relative humidity 79%- wind 5 mph,9/25/2011,20110925
+226,201109250rai,Oakland Raiders,34,New York Jets,24,70,NA,70%,7,70 degrees- relative humidity 70%- wind 7 mph,9/25/2011,20110925
+227,201109250car,Carolina Panthers,16,Jacksonville Jaguars,10,75,NA,87%,4,75 degrees- relative humidity 87%- wind 4 mph,9/25/2011,20110925
+228,201110020rai,Oakland Raiders,19,New England Patriots,31,71,NA,50%,6,71 degrees- relative humidity 50%- wind 6 mph,10/2/2011,20111002
+229,201110020gnb,Green Bay Packers,49,Denver Broncos,23,67,NA,37%,1,67 degrees- relative humidity 37%- wind 1 mph,10/2/2011,20111002
+230,201110020chi,Chicago Bears,34,Carolina Panthers,29,60,NA,50%,8,60 degrees- relative humidity 50%- wind 8 mph,10/2/2011,20111002
+231,201110020phi,Philadelphia Eagles,23,San Francisco 49ers,24,54,NA,78%,2,54 degrees- relative humidity 78%- wind 2 mph,10/2/2011,20111002
+232,201110020rav,Baltimore Ravens,34,New York Jets,17,51,NA,66%,6,51 degrees- relative humidity 66%- wind 6 mph,10/2/2011,20111002
+233,201110020cle,Cleveland Browns,13,Tennessee Titans,31,48,NA,0%,2,48 degrees- relative humidity 0%- wind 2 mph,10/2/2011,20111002
+234,201110020cin,Cincinnati Bengals,23,Buffalo Bills,20,57,NA,48%,1,57 degrees- relative humidity 48%- wind 1 mph,10/2/2011,20111002
+235,201110020kan,Kansas City Chiefs,22,Minnesota Vikings,17,65,NA,40%,7,65 degrees- relative humidity 40%- wind 7 mph,10/2/2011,20111002
+236,201110020htx,Houston Texans,17,Pittsburgh Steelers,10,75,NA,NA,1,75 degrees- wind 1 mph,10/2/2011,20111002
+237,201110020jax,Jacksonville Jaguars,10,New Orleans Saints,23,71,NA,40%,5,71 degrees- relative humidity 40%- wind 5 mph,10/2/2011,20111002
+238,201110020sdg,San Diego Chargers,26,Miami Dolphins,16,84,NA,32%,9,84 degrees- relative humidity 32%- wind 9 mph,10/2/2011,20111002
+239,201110090car,Carolina Panthers,27,New Orleans Saints,30,68,NA,50%,1,68 degrees- relative humidity 50%- wind 1 mph,10/9/2011,20111009
+240,201110090buf,Buffalo Bills,31,Philadelphia Eagles,24,74,NA,47%,6,74 degrees- relative humidity 47%- wind 6 mph,10/9/2011,20111009
+241,201110090pit,Pittsburgh Steelers,38,Tennessee Titans,17,70,NA,53%,3,70 degrees- relative humidity 53%- wind 3 mph,10/9/2011,20111009
+242,201110090jax,Jacksonville Jaguars,20,Cincinnati Bengals,30,79,NA,68%,1,79 degrees- relative humidity 68%- wind 1 mph,10/9/2011,20111009
+243,201110090nwe,New England Patriots,30,New York Jets,21,82,NA,40%,9,82 degrees- relative humidity 40%- wind 9 mph,10/9/2011,20111009
+244,201110090sfo,San Francisco 49ers,48,Tampa Bay Buccaneers,3,62,NA,75%,6,62 degrees- relative humidity 75%- wind 6 mph,10/9/2011,20111009
+245,201110090den,Denver Broncos,24,San Diego Chargers,29,52,NA,45%,6,52 degrees- relative humidity 45%- wind 6 mph,10/9/2011,20111009
+246,201110090htx,Houston Texans,20,Oakland Raiders,25,72,NA,NA,6,72 degrees- wind 6 mph,10/9/2011,20111009
+247,201110090nyg,New York Giants,25,Seattle Seahawks,36,81,NA,42%,4,81 degrees- relative humidity 42%- wind 4 mph,10/9/2011,20111009
+248,201110090clt,Indianapolis Colts,24,Kansas City Chiefs,28,72,NA,NA,1,72 degrees- wind 1 mph,10/9/2011,20111009
+249,201110160rai,Oakland Raiders,24,Cleveland Browns,17,71,NA,60%,8,71 degrees- relative humidity 60%- wind 8 mph,10/16/2011,20111016
+250,201110160was,Washington Redskins,13,Philadelphia Eagles,20,68,NA,26%,7,68 degrees- relative humidity 26%- wind 7 mph,10/16/2011,20111016
+251,201110160rav,Baltimore Ravens,29,Houston Texans,14,72,NA,29%,1,72 degrees- relative humidity 29%- wind 1 mph,10/16/2011,20111016
+252,201110160cin,Cincinnati Bengals,27,Indianapolis Colts,17,71,NA,41%,1,71 degrees- relative humidity 41%- wind 1 mph,10/16/2011,20111016
+253,201110160chi,Chicago Bears,39,Minnesota Vikings,10,56,NA,48%,1,56 degrees- relative humidity 48%- wind 1 mph,10/16/2011,20111016
+254,201110160nyg,New York Giants,27,Buffalo Bills,24,65,NA,40%,1,65 degrees- relative humidity 40%- wind 1 mph,10/16/2011,20111016
+255,201110160gnb,Green Bay Packers,24,St. Louis Rams,3,57,NA,41%,2,57 degrees- relative humidity 41%- wind 2 mph,10/16/2011,20111016
+256,201110160pit,Pittsburgh Steelers,17,Jacksonville Jaguars,13,58,NA,52%,1,58 degrees- relative humidity 52%- wind 1 mph,10/16/2011,20111016
+257,201110170nyj,New York Jets,24,Miami Dolphins,6,62,NA,37%,1,62 degrees- relative humidity 37%- wind 1 mph,10/17/2011,20111017
+258,201110230mia,Miami Dolphins,15,Denver Broncos,18,77,NA,57%,9,77 degrees- relative humidity 57%- wind 9 mph,10/23/2011,20111023
+259,201110230cle,Cleveland Browns,6,Seattle Seahawks,3,56,0,53%,7,56 degrees- relative humidity 53%- wind 7 mph- wind chill 0,10/23/2011,20111023
+260,201110230rai,Oakland Raiders,0,Kansas City Chiefs,28,79,NA,46%,6,79 degrees- relative humidity 46%- wind 6 mph,10/23/2011,20111023
+261,201110230nyj,New York Jets,27,San Diego Chargers,21,58,NA,46%,NA,58 degrees- relative humidity 46%- no wind,10/23/2011,20111023
+262,201110230oti,Tennessee Titans,7,Houston Texans,41,72,NA,35%,NA,72 degrees- relative humidity 35%- no wind,10/23/2011,20111023
+263,201110230tam,Tampa Bay Buccaneers,18,Chicago Bears,24,62,NA,54%,1,62 degrees- relative humidity 54%- wind 1 mph,10/23/2011,20111023
+264,201110230nor,New Orleans Saints,62,Indianapolis Colts,7,75,NA,NA,8,75 degrees- wind 8 mph,10/23/2011,20111023
+265,201110230car,Carolina Panthers,33,Washington Redskins,20,62,NA,56%,NA,62 degrees- relative humidity 56%- no wind,10/23/2011,20111023
+266,201110240jax,Jacksonville Jaguars,12,Baltimore Ravens,7,60,NA,77%,NA,60 degrees- relative humidity 77%- no wind,10/24/2011,20111024
+267,201110300sfo,San Francisco 49ers,20,Cleveland Browns,10,67,NA,68%,5,67 degrees- relative humidity 68%- wind 5 mph,10/30/2011,20111030
+268,201110300nyg,New York Giants,20,Miami Dolphins,17,41,NA,55%,1,41 degrees- relative humidity 55%- wind 1 mph,10/30/2011,20111030
+269,201110300den,Denver Broncos,10,Detroit Lions,45,56,NA,31%,5,56 degrees- relative humidity 31%- wind 5 mph,10/30/2011,20111030
+270,201110300pit,Pittsburgh Steelers,25,New England Patriots,17,40,NA,79%,3,40 degrees- relative humidity 79%- wind 3 mph,10/30/2011,20111030
+271,201110300phi,Philadelphia Eagles,34,Dallas Cowboys,7,42,NA,64%,5,42 degrees- relative humidity 64%- wind 5 mph,10/30/2011,20111030
+272,201110300rav,Baltimore Ravens,30,Arizona Cardinals,27,48,NA,49%,9,48 degrees- relative humidity 49%- wind 9 mph,10/30/2011,20111030
+273,201110300oti,Tennessee Titans,27,Indianapolis Colts,10,62,NA,35%,NA,62 degrees- relative humidity 35%- no wind,10/30/2011,20111030
+274,201110300car,Carolina Panthers,21,Minnesota Vikings,24,54,NA,52%,6,54 degrees- relative humidity 52%- wind 6 mph,10/30/2011,20111030
+275,201110300htx,Houston Texans,24,Jacksonville Jaguars,14,68,NA,NA,4,68 degrees- wind 4 mph,10/30/2011,20111030
+276,201110310kan,Kansas City Chiefs,23,San Diego Chargers,20,63,NA,31%,NA,63 degrees- relative humidity 31%- no wind,10/31/2011,20111031
+277,201111060was,Washington Redskins,11,San Francisco 49ers,19,56,NA,48%,6,56 degrees- relative humidity 48%- wind 6 mph,11/6/2011,20111106
+278,201111060buf,Buffalo Bills,11,New York Jets,27,57,NA,26%,8,57 degrees- relative humidity 26%- wind 8 mph,11/6/2011,20111106
+279,201111060htx,Houston Texans,30,Cleveland Browns,12,78,NA,NA,1,78 degrees- wind 1 mph,11/6/2011,20111106
+280,201111060kan,Kansas City Chiefs,3,Miami Dolphins,31,62,NA,45%,1,62 degrees- relative humidity 45%- wind 1 mph,11/6/2011,20111106
+281,201111060clt,Indianapolis Colts,7,Atlanta Falcons,31,57,NA,NA,1,57 degrees- wind 1 mph,11/6/2011,20111106
+282,201111060sdg,San Diego Chargers,38,Green Bay Packers,45,53,NA,90%,1,53 degrees- relative humidity 90%- wind 1 mph,11/6/2011,20111106
+283,201111060oti,Tennessee Titans,17,Cincinnati Bengals,24,68,NA,39%,1,68 degrees- relative humidity 39%- wind 1 mph,11/6/2011,20111106
+284,201111060pit,Pittsburgh Steelers,20,Baltimore Ravens,23,50,NA,43%,2,50 degrees- relative humidity 43%- wind 2 mph,11/6/2011,20111106
+285,201111060nor,New Orleans Saints,27,Tampa Bay Buccaneers,16,70,NA,NA,1,70 degrees- wind 1 mph,11/6/2011,20111106
+286,201111070phi,Philadelphia Eagles,24,Chicago Bears,30,51,NA,74%,2,51 degrees- relative humidity 74%- wind 2 mph,11/7/2011,20111107
+287,201111100sdg,San Diego Chargers,17,Oakland Raiders,24,69,NA,27%,5,69 degrees- relative humidity 27%- wind 5 mph,11/10/2011,20111110
+288,201111130mia,Miami Dolphins,20,Washington Redskins,9,79,NA,58%,1,79 degrees- relative humidity 58%- wind 1 mph,11/13/2011,20111113
+289,201111130kan,Kansas City Chiefs,10,Denver Broncos,17,67,NA,23%,1,67 degrees- relative humidity 23%- wind 1 mph,11/13/2011,20111113
+290,201111130nyj,New York Jets,16,New England Patriots,37,58,NA,37%,1,58 degrees- relative humidity 37%- wind 1 mph,11/13/2011,20111113
+291,201111130phi,Philadelphia Eagles,17,Arizona Cardinals,21,60,NA,40%,1,60 degrees- relative humidity 40%- wind 1 mph,11/13/2011,20111113
+292,201111130sfo,San Francisco 49ers,27,New York Giants,20,58,NA,74%,1,58 degrees- relative humidity 74%- wind 1 mph,11/13/2011,20111113
+293,201111130chi,Chicago Bears,37,Detroit Lions,13,69,NA,44%,2,69 degrees- relative humidity 44%- wind 2 mph,11/13/2011,20111113
+294,201111130car,Carolina Panthers,3,Tennessee Titans,30,57,NA,54%,1,57 degrees- relative humidity 54%- wind 1 mph,11/13/2011,20111113
+295,201111130cin,Cincinnati Bengals,17,Pittsburgh Steelers,24,62,NA,60%,2,62 degrees- relative humidity 60%- wind 2 mph,11/13/2011,20111113
+296,201111130tam,Tampa Bay Buccaneers,9,Houston Texans,37,77,NA,47%,9,77 degrees- relative humidity 47%- wind 9 mph,11/13/2011,20111113
+297,201111130clt,Indianapolis Colts,3,Jacksonville Jaguars,17,62,NA,NA,2,62 degrees- wind 2 mph,11/13/2011,20111113
+298,201111170den,Denver Broncos,17,New York Jets,13,54,NA,20%,3,54 degrees- relative humidity 20%- wind 3 mph,11/17/2011,20111117
+299,201111200mia,Miami Dolphins,35,Buffalo Bills,8,80,NA,79%,1,80 degrees- relative humidity 79%- wind 1 mph,11/20/2011,20111120
+300,201111200was,Washington Redskins,24,Dallas Cowboys,27,62,NA,55%,4,62 degrees- relative humidity 55%- wind 4 mph,11/20/2011,20111120
+301,201111200sfo,San Francisco 49ers,23,Arizona Cardinals,7,55,NA,72%,1,55 degrees- relative humidity 72%- wind 1 mph,11/20/2011,20111120
+302,201111200chi,Chicago Bears,31,San Diego Chargers,20,42,NA,78%,1,42 degrees- relative humidity 78%- wind 1 mph,11/20/2011,20111120
+303,201111200rav,Baltimore Ravens,31,Cincinnati Bengals,24,67,NA,59%,7,67 degrees- relative humidity 59%- wind 7 mph,11/20/2011,20111120
+304,201111200gnb,Green Bay Packers,35,Tampa Bay Buccaneers,26,32,25,66%,7,32 degrees- relative humidity 66%- wind 7 mph- wind chill 25,11/20/2011,20111120
+305,201111200nyg,New York Giants,10,Philadelphia Eagles,17,58,NA,66%,1,58 degrees- relative humidity 66%- wind 1 mph,11/20/2011,20111120
+306,201111200cle,Cleveland Browns,14,Jacksonville Jaguars,10,57,NA,5%,1,57 degrees- relative humidity 5%- wind 1 mph,11/20/2011,20111120
+307,201111240rav,Baltimore Ravens,16,San Francisco 49ers,6,53,NA,32%,5,53 degrees- relative humidity 32%- wind 5 mph,11/24/2011,20111124
+308,201111270oti,Tennessee Titans,23,Tampa Bay Buccaneers,17,47,NA,96%,2,47 degrees- relative humidity 96%- wind 2 mph,11/27/2011,20111127
+309,201111270sdg,San Diego Chargers,13,Denver Broncos,16,84,NA,12%,NA,84 degrees- relative humidity 12%- no wind,11/27/2011,20111127
+310,201111270jax,Jacksonville Jaguars,13,Houston Texans,20,75,NA,61%,1,75 degrees- relative humidity 61%- wind 1 mph,11/27/2011,20111127
+311,201111270rai,Oakland Raiders,25,Chicago Bears,20,59,0,76%,6,59 degrees- relative humidity 76%- wind 6 mph- wind chill 0,11/27/2011,20111127
+312,201111270phi,Philadelphia Eagles,20,New England Patriots,38,63,NA,56%,1,63 degrees- relative humidity 56%- wind 1 mph,11/27/2011,20111127
+313,201111270nyj,New York Jets,28,Buffalo Bills,24,60,NA,63%,1,60 degrees- relative humidity 63%- wind 1 mph,11/27/2011,20111127
+314,201111270clt,Indianapolis Colts,19,Carolina Panthers,27,45,NA,NA,7,45 degrees- wind 7 mph,11/27/2011,20111127
+315,201111270cin,Cincinnati Bengals,23,Cleveland Browns,20,57,NA,98%,7,57 degrees- relative humidity 98%- wind 7 mph,11/27/2011,20111127
+316,201111280nor,New Orleans Saints,49,New York Giants,24,45,NA,NA,2,45 degrees- wind 2 mph,11/28/2011,20111128
+317,201112040htx,Houston Texans,17,Atlanta Falcons,10,72,NA,NA,2,72 degrees- wind 2 mph,12/4/2011,20111204
+318,201112040buf,Buffalo Bills,17,Tennessee Titans,23,57,NA,41%,1,57 degrees- relative humidity 41%- wind 1 mph,12/4/2011,20111204
+319,201112040sfo,San Francisco 49ers,26,St. Louis Rams,0,53,NA,48%,2,53 degrees- relative humidity 48%- wind 2 mph,12/4/2011,20111204
+320,201112040nor,New Orleans Saints,31,Detroit Lions,17,70,NA,NA,1,70 degrees- wind 1 mph,12/4/2011,20111204
+321,201112040pit,Pittsburgh Steelers,35,Cincinnati Bengals,7,59,NA,28%,1,59 degrees- relative humidity 28%- wind 1 mph,12/4/2011,20111204
+322,201112040was,Washington Redskins,19,New York Jets,34,53,NA,57%,5,53 degrees- relative humidity 57%- wind 5 mph,12/4/2011,20111204
+323,201112040tam,Tampa Bay Buccaneers,19,Carolina Panthers,38,79,NA,46%,1,79 degrees- relative humidity 46%- wind 1 mph,12/4/2011,20111204
+324,201112040mia,Miami Dolphins,34,Oakland Raiders,14,80,NA,49%,2,80 degrees- relative humidity 49%- wind 2 mph,12/4/2011,20111204
+325,201112040nyg,New York Giants,35,Green Bay Packers,38,52,NA,67%,9,52 degrees- relative humidity 67%- wind 9 mph,12/4/2011,20111204
+326,201112040chi,Chicago Bears,3,Kansas City Chiefs,10,46,NA,79%,1,46 degrees- relative humidity 79%- wind 1 mph,12/4/2011,20111204
+327,201112050jax,Jacksonville Jaguars,14,San Diego Chargers,38,67,NA,81%,6,67 degrees- relative humidity 81%- wind 6 mph,12/5/2011,20111205
+328,201112080pit,Pittsburgh Steelers,14,Cleveland Browns,3,31,25,74%,6,31 degrees- relative humidity 74%- wind 6 mph- wind chill 25,12/8/2011,20111208
+329,201112110den,Denver Broncos,13,Chicago Bears,10,50,NA,22%,7,50 degrees- relative humidity 22%- wind 7 mph,12/11/2011,20111211
+330,201112110gnb,Green Bay Packers,46,Oakland Raiders,16,43,NA,55%,1,43 degrees- relative humidity 55%- wind 1 mph,12/11/2011,20111211
+331,201112110cin,Cincinnati Bengals,19,Houston Texans,20,34,30,47%,4,34 degrees- relative humidity 47%- wind 4 mph- wind chill 30,12/11/2011,20111211
+332,201112110rav,Baltimore Ravens,24,Indianapolis Colts,10,43,NA,34%,2,43 degrees- relative humidity 34%- wind 2 mph,12/11/2011,20111211
+333,201112110oti,Tennessee Titans,17,New Orleans Saints,22,41,NA,44%,7,41 degrees- relative humidity 44%- wind 7 mph,12/11/2011,20111211
+334,201112110car,Carolina Panthers,23,Atlanta Falcons,31,43,NA,45%,1,43 degrees- relative humidity 45%- wind 1 mph,12/11/2011,20111211
+335,201112110nyj,New York Jets,37,Kansas City Chiefs,10,37,NA,35%,5,37 degrees- relative humidity 35%- wind 5 mph,12/11/2011,20111211
+336,201112110mia,Miami Dolphins,10,Philadelphia Eagles,26,75,NA,83%,1,75 degrees- relative humidity 83%- wind 1 mph,12/11/2011,20111211
+337,201112110was,Washington Redskins,27,New England Patriots,34,40,NA,33%,NA,40 degrees- relative humidity 33%- no wind,12/11/2011,20111211
+338,201112110sdg,San Diego Chargers,37,Buffalo Bills,10,59,NA,61%,5,59 degrees- relative humidity 61%- wind 5 mph,12/11/2011,20111211
+339,201112170tam,Tampa Bay Buccaneers,15,Dallas Cowboys,31,66,NA,78%,3,66 degrees- relative humidity 78%- wind 3 mph,12/17/2011,20111217
+340,201112180sdg,San Diego Chargers,34,Baltimore Ravens,14,58,NA,67%,7,58 degrees- relative humidity 67%- wind 7 mph,12/18/2011,20111218
+341,201112180buf,Buffalo Bills,23,Miami Dolphins,30,31,NA,64%,1,31 degrees- relative humidity 64%- wind 1 mph,12/18/2011,20111218
+342,201112180htx,Houston Texans,13,Carolina Panthers,28,57,NA,NA,1,57 degrees- wind 1 mph,12/18/2011,20111218
+343,201112180nyg,New York Giants,10,Washington Redskins,23,29,20,34%,9,29 degrees- relative humidity 34%- wind 9 mph- wind chill 20,12/18/2011,20111218
+344,201112180den,Denver Broncos,23,New England Patriots,41,63,NA,16%,3,63 degrees- relative humidity 16%- wind 3 mph,12/18/2011,20111218
+345,201112180clt,Indianapolis Colts,27,Tennessee Titans,13,41,NA,NA,9,41 degrees- wind 9 mph,12/18/2011,20111218
+346,201112180phi,Philadelphia Eagles,45,New York Jets,19,35,28,41%,9,35 degrees- relative humidity 41%- wind 9 mph- wind chill 28,12/18/2011,20111218
+347,201112180chi,Chicago Bears,14,Seattle Seahawks,38,39,NA,65%,5,39 degrees- relative humidity 65%- wind 5 mph,12/18/2011,20111218
+348,201112180kan,Kansas City Chiefs,19,Green Bay Packers,14,50,NA,58%,1,50 degrees- relative humidity 58%- wind 1 mph,12/18/2011,20111218
+349,201112180rai,Oakland Raiders,27,Detroit Lions,28,50,NA,84%,1,50 degrees- relative humidity 84%- wind 1 mph,12/18/2011,20111218
+350,201112190sfo,San Francisco 49ers,20,Pittsburgh Steelers,3,51,NA,74%,1,51 degrees- relative humidity 74%- wind 1 mph,12/19/2011,20111219
+351,201112220clt,Indianapolis Colts,19,Houston Texans,16,42,NA,NA,2,42 degrees- wind 2 mph,12/22/2011,20111222
+352,201112240kan,Kansas City Chiefs,13,Oakland Raiders,16,38,NA,57%,7,38 degrees- relative humidity 57%- wind 7 mph,12/24/2011,20111224
+353,201112240oti,Tennessee Titans,23,Jacksonville Jaguars,17,44,NA,60%,2,44 degrees- relative humidity 60%- wind 2 mph,12/24/2011,20111224
+354,201112240cin,Cincinnati Bengals,23,Arizona Cardinals,16,38,NA,63%,8,38 degrees- relative humidity 63%- wind 8 mph,12/24/2011,20111224
+355,201112240pit,Pittsburgh Steelers,27,St. Louis Rams,0,36,NA,67%,4,36 degrees- relative humidity 67%- wind 4 mph,12/24/2011,20111224
+356,201112240buf,Buffalo Bills,40,Denver Broncos,14,30,NA,42%,2,30 degrees- relative humidity 42%- wind 2 mph,12/24/2011,20111224
+357,201112240rav,Baltimore Ravens,20,Cleveland Browns,14,44,NA,32%,1,44 degrees- relative humidity 32%- wind 1 mph,12/24/2011,20111224
+358,201112240was,Washington Redskins,26,Minnesota Vikings,33,45,NA,36%,9,45 degrees- relative humidity 36%- wind 9 mph,12/24/2011,20111224
+359,201112240car,Carolina Panthers,48,Tampa Bay Buccaneers,16,51,NA,57%,9,51 degrees- relative humidity 57%- wind 9 mph,12/24/2011,20111224
+360,201112250gnb,Green Bay Packers,35,Chicago Bears,21,37,29,64%,1,37 degrees- relative humidity 64%- wind 1 mph- wind chill 29,12/25/2011,20111225
+361,201112260nor,New Orleans Saints,45,Atlanta Falcons,16,67,NA,NA,5,67 degrees- wind 5 mph,12/26/2011,20111226
+362,201201010cin,Cincinnati Bengals,16,Baltimore Ravens,24,42,NA,68%,1,42 degrees- relative humidity 68%- wind 1 mph,1/1/2012,20120101
+363,201201010cle,Cleveland Browns,9,Pittsburgh Steelers,13,49,NA,66%,2,49 degrees- relative humidity 66%- wind 2 mph,1/1/2012,20120101
+364,201201010gnb,Green Bay Packers,45,Detroit Lions,41,31,19,78%,2,31 degrees- relative humidity 78%- wind 2 mph- wind chill 19,1/1/2012,20120101
+365,201201010nyg,New York Giants,31,Dallas Cowboys,14,48,NA,83%,7,48 degrees- relative humidity 83%- wind 7 mph,1/1/2012,20120101
+366,201201010nor,New Orleans Saints,45,Carolina Panthers,17,68,NA,NA,8,68 degrees- wind 8 mph,1/1/2012,20120101
+367,201201010phi,Philadelphia Eagles,34,Washington Redskins,10,53,NA,58%,1,53 degrees- relative humidity 58%- wind 1 mph,1/1/2012,20120101
+368,201201010mia,Miami Dolphins,19,New York Jets,17,78,NA,44%,8,78 degrees- relative humidity 44%- wind 8 mph,1/1/2012,20120101
+369,201201010den,Denver Broncos,3,Kansas City Chiefs,7,35,30,46%,6,35 degrees- relative humidity 46%- wind 6 mph- wind chill 30,1/1/2012,20120101
+370,201201010htx,Houston Texans,22,Tennessee Titans,23,63,NA,NA,1,63 degrees- wind 1 mph,1/1/2012,20120101
+371,201201010rai,Oakland Raiders,26,San Diego Chargers,38,56,NA,63%,8,56 degrees- relative humidity 63%- wind 8 mph,1/1/2012,20120101
+372,201201070htx,Houston Texans,31,Cincinnati Bengals,10,75,NA,NA,8,75 degrees- wind 8 mph,1/7/2012,20120107
+373,201201070nor,New Orleans Saints,45,Detroit Lions,28,66,NA,NA,8,66 degrees- wind 8 mph,1/7/2012,20120107
+374,201201080den,Denver Broncos,29,Pittsburgh Steelers,23,40,NA,38%,6,40 degrees- relative humidity 38%- wind 6 mph,1/8/2012,20120108
+375,201201150gnb,Green Bay Packers,20,New York Giants,37,31,NA,66%,2,31 degrees- relative humidity 66%- wind 2 mph,1/15/2012,20120115
+376,201209050nyg,New York Giants,17,Dallas Cowboys,24,77,NA,63%,5,77 degrees- relative humidity 63%- wind 5 mph,9/5/2012,20120905
+377,201209090cle,Cleveland Browns,16,Philadelphia Eagles,17,68,NA,57%,9,68 degrees- relative humidity 57%- wind 9 mph,9/9/2012,20120909
+378,201209090oti,Tennessee Titans,13,New England Patriots,34,74,NA,45%,4,74 degrees- relative humidity 45%- wind 4 mph,9/9/2012,20120909
+379,201209090den,Denver Broncos,31,Pittsburgh Steelers,19,85,NA,12%,1,85 degrees- relative humidity 12%- wind 1 mph,9/9/2012,20120909
+380,201209090gnb,Green Bay Packers,22,San Francisco 49ers,30,72,NA,40%,1,72 degrees- relative humidity 40%- wind 1 mph,9/9/2012,20120909
+381,201209090nor,New Orleans Saints,32,Washington Redskins,40,78,NA,NA,1,78 degrees- wind 1 mph,9/9/2012,20120909
+382,201209090chi,Chicago Bears,41,Indianapolis Colts,21,67,NA,66%,1,67 degrees- relative humidity 66%- wind 1 mph,9/9/2012,20120909
+383,201209090kan,Kansas City Chiefs,24,Atlanta Falcons,40,69,NA,47%,7,69 degrees- relative humidity 47%- wind 7 mph,9/9/2012,20120909
+384,201209090htx,Houston Texans,30,Miami Dolphins,10,81,NA,NA,1,81 degrees- wind 1 mph,9/9/2012,20120909
+385,201209090tam,Tampa Bay Buccaneers,16,Carolina Panthers,10,83,NA,79%,1,83 degrees- relative humidity 79%- wind 1 mph,9/9/2012,20120909
+386,201209090nyj,New York Jets,48,Buffalo Bills,28,74,NA,48%,1,74 degrees- relative humidity 48%- wind 1 mph,9/9/2012,20120909
+387,201209100rav,Baltimore Ravens,44,Cincinnati Bengals,13,74,NA,37%,1,74 degrees- relative humidity 37%- wind 1 mph,9/10/2012,20120910
+388,201209100rai,Oakland Raiders,14,San Diego Chargers,22,67,NA,59%,1,67 degrees- relative humidity 59%- wind 1 mph,9/10/2012,20120910
+389,201209130gnb,Green Bay Packers,23,Chicago Bears,10,60,NA,67%,NA,60 degrees- relative humidity 67%- no wind,9/13/2012,20120913
+390,201209160nyg,New York Giants,41,Tampa Bay Buccaneers,34,73,NA,39%,1,73 degrees- relative humidity 39%- wind 1 mph,9/16/2012,20120916
+391,201209160mia,Miami Dolphins,35,Oakland Raiders,13,80,NA,75%,8,80 degrees- relative humidity 75%- wind 8 mph,9/16/2012,20120916
+392,201209160car,Carolina Panthers,35,New Orleans Saints,27,71,NA,85%,4,71 degrees- relative humidity 85%- wind 4 mph,9/16/2012,20120916
+393,201209160sea,Seattle Seahawks,27,Dallas Cowboys,7,68,NA,56%,4,68 degrees- relative humidity 56%- wind 4 mph,9/16/2012,20120916
+394,201209160buf,Buffalo Bills,35,Kansas City Chiefs,17,66,NA,55%,1,66 degrees- relative humidity 55%- wind 1 mph,9/16/2012,20120916
+395,201209160cin,Cincinnati Bengals,34,Cleveland Browns,27,76,NA,37%,5,76 degrees- relative humidity 37%- wind 5 mph,9/16/2012,20120916
+396,201209160nwe,New England Patriots,18,Arizona Cardinals,20,64,NA,55%,2,64 degrees- relative humidity 55%- wind 2 mph,9/16/2012,20120916
+397,201209160jax,Jacksonville Jaguars,7,Houston Texans,27,83,NA,66%,5,83 degrees- relative humidity 66%- wind 5 mph,9/16/2012,20120916
+398,201209160phi,Philadelphia Eagles,24,Baltimore Ravens,23,72,NA,40%,5,72 degrees- relative humidity 40%- wind 5 mph,9/16/2012,20120916
+399,201209160clt,Indianapolis Colts,23,Minnesota Vikings,20,72,NA,NA,7,72 degrees- wind 7 mph,9/16/2012,20120916
+400,201209160pit,Pittsburgh Steelers,27,New York Jets,10,71,NA,36%,2,71 degrees- relative humidity 36%- wind 2 mph,9/16/2012,20120916
+401,201209160sdg,San Diego Chargers,38,Tennessee Titans,10,85,NA,37%,8,85 degrees- relative humidity 37%- wind 8 mph,9/16/2012,20120916
+402,201209160sfo,San Francisco 49ers,27,Detroit Lions,19,62,NA,62%,1,62 degrees- relative humidity 62%- wind 1 mph,9/16/2012,20120916
+403,201209200car,Carolina Panthers,7,New York Giants,36,75,NA,56%,3,75 degrees- relative humidity 56%- wind 3 mph,9/20/2012,20120920
+404,201209230rai,Oakland Raiders,34,Pittsburgh Steelers,31,69,NA,53%,1,69 degrees- relative humidity 53%- wind 1 mph,9/23/2012,20120923
+405,201209230chi,Chicago Bears,23,St. Louis Rams,6,56,NA,42%,1,56 degrees- relative humidity 42%- wind 1 mph,9/23/2012,20120923
+406,201209230clt,Indianapolis Colts,17,Jacksonville Jaguars,22,59,NA,NA,1,59 degrees- wind 1 mph,9/23/2012,20120923
+407,201209230oti,Tennessee Titans,44,Detroit Lions,41,68,NA,32%,5,68 degrees- relative humidity 32%- wind 5 mph,9/23/2012,20120923
+408,201209230sdg,San Diego Chargers,3,Atlanta Falcons,27,82,NA,52%,1,82 degrees- relative humidity 52%- wind 1 mph,9/23/2012,20120923
+409,201209230rav,Baltimore Ravens,31,New England Patriots,30,67,NA,39%,5,67 degrees- relative humidity 39%- wind 5 mph,9/23/2012,20120923
+410,201209230mia,Miami Dolphins,20,New York Jets,23,83,NA,76%,4,83 degrees- relative humidity 76%- wind 4 mph,9/23/2012,20120923
+411,201209230was,Washington Redskins,31,Cincinnati Bengals,38,65,NA,40%,6,65 degrees- relative humidity 40%- wind 6 mph,9/23/2012,20120923
+412,201209230den,Denver Broncos,25,Houston Texans,31,84,NA,10%,1,84 degrees- relative humidity 10%- wind 1 mph,9/23/2012,20120923
+413,201209230nor,New Orleans Saints,24,Kansas City Chiefs,27,84,NA,NA,6,84 degrees- wind 6 mph,9/23/2012,20120923
+414,201209230cle,Cleveland Browns,14,Buffalo Bills,24,53,NA,79%,9,53 degrees- relative humidity 79%- wind 9 mph,9/23/2012,20120923
+415,201209240sea,Seattle Seahawks,14,Green Bay Packers,12,67,NA,49%,3,67 degrees- relative humidity 49%- wind 3 mph,9/24/2012,20120924
+416,201209270rav,Baltimore Ravens,23,Cleveland Browns,16,77,NA,64%,5,77 degrees- relative humidity 64%- wind 5 mph,9/27/2012,20120927
+417,201209300htx,Houston Texans,38,Tennessee Titans,14,71,NA,NA,1,71 degrees- wind 1 mph,9/30/2012,20120930
+418,201209300tam,Tampa Bay Buccaneers,22,Washington Redskins,24,89,NA,52%,1,89 degrees- relative humidity 52%- wind 1 mph,9/30/2012,20120930
+419,201209300kan,Kansas City Chiefs,20,San Diego Chargers,37,67,NA,54%,NA,67 degrees- relative humidity 54%- no wind,9/30/2012,20120930
+420,201209300nyj,New York Jets,0,San Francisco 49ers,34,67,NA,50%,4,67 degrees- relative humidity 50%- wind 4 mph,9/30/2012,20120930
+421,201209300phi,Philadelphia Eagles,19,New York Giants,17,63,NA,59%,6,63 degrees- relative humidity 59%- wind 6 mph,9/30/2012,20120930
+422,201209300gnb,Green Bay Packers,28,New Orleans Saints,27,64,NA,58%,7,64 degrees- relative humidity 58%- wind 7 mph,9/30/2012,20120930
+423,201209300den,Denver Broncos,37,Oakland Raiders,6,72,NA,26%,6,72 degrees- relative humidity 26%- wind 6 mph,9/30/2012,20120930
+424,201209300buf,Buffalo Bills,28,New England Patriots,52,58,NA,72%,7,58 degrees- relative humidity 72%- wind 7 mph,9/30/2012,20120930
+425,201210010dal,Dallas Cowboys,18,Chicago Bears,34,80,NA,NA,3,80 degrees- wind 3 mph,10/1/2012,20121001
+426,201210070clt,Indianapolis Colts,30,Green Bay Packers,27,48,NA,NA,8,48 degrees- wind 8 mph,10/7/2012,20121007
+427,201210070pit,Pittsburgh Steelers,16,Philadelphia Eagles,14,48,NA,68%,4,48 degrees- relative humidity 68%- wind 4 mph,10/7/2012,20121007
+428,201210070nor,New Orleans Saints,31,San Diego Chargers,24,65,NA,NA,1,65 degrees- wind 1 mph,10/7/2012,20121007
+429,201210070nwe,New England Patriots,31,Denver Broncos,21,54,NA,65%,4,54 degrees- relative humidity 65%- wind 4 mph,10/7/2012,20121007
+430,201210070sfo,San Francisco 49ers,45,Buffalo Bills,3,62,NA,70%,8,62 degrees- relative humidity 70%- wind 8 mph,10/7/2012,20121007
+431,201210070jax,Jacksonville Jaguars,3,Chicago Bears,41,88,NA,53%,3,88 degrees- relative humidity 53%- wind 3 mph,10/7/2012,20121007
+432,201210070was,Washington Redskins,17,Atlanta Falcons,24,52,NA,77%,3,52 degrees- relative humidity 77%- wind 3 mph,10/7/2012,20121007
+433,201210070cin,Cincinnati Bengals,13,Miami Dolphins,17,49,NA,55%,6,49 degrees- relative humidity 55%- wind 6 mph,10/7/2012,20121007
+434,201210070kan,Kansas City Chiefs,6,Baltimore Ravens,9,47,NA,45%,NA,47 degrees- relative humidity 45%- no wind,10/7/2012,20121007
+435,201210070nyg,New York Giants,41,Cleveland Browns,27,51,NA,84%,2,51 degrees- relative humidity 84%- wind 2 mph,10/7/2012,20121007
+436,201210070car,Carolina Panthers,12,Seattle Seahawks,16,63,NA,69%,6,63 degrees- relative humidity 69%- wind 6 mph,10/7/2012,20121007
+437,201210110oti,Tennessee Titans,26,Pittsburgh Steelers,23,64,NA,52%,2,64 degrees- relative humidity 52%- wind 2 mph,10/11/2012,20121011
+438,201210140rav,Baltimore Ravens,31,Dallas Cowboys,29,69,NA,45%,1,69 degrees- relative humidity 45%- wind 1 mph,10/14/2012,20121014
+439,201210140phi,Philadelphia Eagles,23,Detroit Lions,26,66,NA,58%,1,66 degrees- relative humidity 58%- wind 1 mph,10/14/2012,20121014
+440,201210140htx,Houston Texans,24,Green Bay Packers,42,81,NA,NA,5,81 degrees- wind 5 mph,10/14/2012,20121014
+441,201210140sfo,San Francisco 49ers,3,New York Giants,26,61,NA,80%,7,61 degrees- relative humidity 80%- wind 7 mph,10/14/2012,20121014
+442,201210140tam,Tampa Bay Buccaneers,38,Kansas City Chiefs,10,85,NA,55%,9,85 degrees- relative humidity 55%- wind 9 mph,10/14/2012,20121014
+443,201210140sea,Seattle Seahawks,24,New England Patriots,23,63,NA,80%,9,63 degrees- relative humidity 80%- wind 9 mph,10/14/2012,20121014
+444,201210140mia,Miami Dolphins,17,St. Louis Rams,14,84,NA,72%,2,84 degrees- relative humidity 72%- wind 2 mph,10/14/2012,20121014
+445,201210140cle,Cleveland Browns,34,Cincinnati Bengals,24,70,NA,65%,1,70 degrees- relative humidity 65%- wind 1 mph,10/14/2012,20121014
+446,201210140was,Washington Redskins,38,Minnesota Vikings,26,74,NA,40%,1,74 degrees- relative humidity 40%- wind 1 mph,10/14/2012,20121014
+447,201210150sdg,San Diego Chargers,24,Denver Broncos,35,78,NA,50%,7,78 degrees- relative humidity 50%- wind 7 mph,10/15/2012,20121015
+448,201210180sfo,San Francisco 49ers,13,Seattle Seahawks,6,80,NA,30%,1,80 degrees- relative humidity 30%- wind 1 mph,10/18/2012,20121018
+449,201210210car,Carolina Panthers,14,Dallas Cowboys,19,62,NA,43%,8,62 degrees- relative humidity 43%- wind 8 mph,10/21/2012,20121021
+450,201210210rai,Oakland Raiders,26,Jacksonville Jaguars,23,62,NA,49%,1,62 degrees- relative humidity 49%- wind 1 mph,10/21/2012,20121021
+451,201210210tam,Tampa Bay Buccaneers,28,New Orleans Saints,35,77,NA,36%,8,77 degrees- relative humidity 36%- wind 8 mph,10/21/2012,20121021
+452,201210210htx,Houston Texans,43,Baltimore Ravens,13,84,NA,NA,1,84 degrees- wind 1 mph,10/21/2012,20121021
+453,201210210nwe,New England Patriots,29,New York Jets,26,62,NA,39%,1,62 degrees- relative humidity 39%- wind 1 mph,10/21/2012,20121021
+454,201210210cin,Cincinnati Bengals,17,Pittsburgh Steelers,24,55,NA,76%,1,55 degrees- relative humidity 76%- wind 1 mph,10/21/2012,20121021
+455,201210210clt,Indianapolis Colts,17,Cleveland Browns,13,60,NA,NA,9,60 degrees- wind 9 mph,10/21/2012,20121021
+456,201210210buf,Buffalo Bills,34,Tennessee Titans,35,55,NA,75%,1,55 degrees- relative humidity 75%- wind 1 mph,10/21/2012,20121021
+457,201210210nyg,New York Giants,27,Washington Redskins,23,61,NA,44%,1,61 degrees- relative humidity 44%- wind 1 mph,10/21/2012,20121021
+458,201210220chi,Chicago Bears,13,Detroit Lions,7,63,NA,89%,8,63 degrees- relative humidity 89%- wind 8 mph,10/22/2012,20121022
+459,201210280dal,Dallas Cowboys,24,New York Giants,29,62,NA,NA,1,62 degrees- wind 1 mph,10/28/2012,20121028
+460,201210280den,Denver Broncos,34,New Orleans Saints,14,59,NA,30%,5,59 degrees- relative humidity 30%- wind 5 mph,10/28/2012,20121028
+461,201210280oti,Tennessee Titans,13,Indianapolis Colts,19,52,NA,49%,1,52 degrees- relative humidity 49%- wind 1 mph,10/28/2012,20121028
+462,201210280chi,Chicago Bears,23,Carolina Panthers,22,49,NA,51%,1,49 degrees- relative humidity 51%- wind 1 mph,10/28/2012,20121028
+463,201210280pit,Pittsburgh Steelers,27,Washington Redskins,12,45,NA,88%,1,45 degrees- relative humidity 88%- wind 1 mph,10/28/2012,20121028
+464,201210280kan,Kansas City Chiefs,16,Oakland Raiders,26,50,NA,40%,3,50 degrees- relative humidity 40%- wind 3 mph,10/28/2012,20121028
+465,201210280phi,Philadelphia Eagles,17,Atlanta Falcons,30,58,NA,75%,1,58 degrees- relative humidity 75%- wind 1 mph,10/28/2012,20121028
+466,201210280gnb,Green Bay Packers,24,Jacksonville Jaguars,15,44,NA,47%,1,44 degrees- relative humidity 47%- wind 1 mph,10/28/2012,20121028
+467,201210280ram,St. Louis Rams,7,New England Patriots,45,49,NA,NA,9,49 degrees- wind 9 mph,10/28/2012,20121028
+468,201210280cle,Cleveland Browns,7,San Diego Chargers,6,44,NA,89%,1,44 degrees- relative humidity 89%- wind 1 mph,10/28/2012,20121028
+469,201210290crd,Arizona Cardinals,3,San Francisco 49ers,24,90,NA,NA,5,90 degrees- wind 5 mph,10/29/2012,20121029
+470,201211010sdg,San Diego Chargers,31,Kansas City Chiefs,13,63,NA,74%,1,63 degrees- relative humidity 74%- wind 1 mph,11/1/2012,20121101
+471,201211040cin,Cincinnati Bengals,23,Denver Broncos,31,48,NA,59%,1,48 degrees- relative humidity 59%- wind 1 mph,11/4/2012,20121104
+472,201211040was,Washington Redskins,13,Carolina Panthers,21,50,NA,44%,3,50 degrees- relative humidity 44%- wind 3 mph,11/4/2012,20121104
+473,201211040clt,Indianapolis Colts,23,Miami Dolphins,20,44,NA,NA,9,44 degrees- wind 9 mph,11/4/2012,20121104
+474,201211040htx,Houston Texans,21,Buffalo Bills,9,79,NA,NA,3,79 degrees- wind 3 mph,11/4/2012,20121104
+475,201211040oti,Tennessee Titans,20,Chicago Bears,51,50,NA,63%,6,50 degrees- relative humidity 63%- wind 6 mph,11/4/2012,20121104
+476,201211040rai,Oakland Raiders,32,Tampa Bay Buccaneers,42,71,NA,55%,7,71 degrees- relative humidity 55%- wind 7 mph,11/4/2012,20121104
+477,201211040cle,Cleveland Browns,15,Baltimore Ravens,25,39,NA,69%,8,39 degrees- relative humidity 69%- wind 8 mph,11/4/2012,20121104
+478,201211040sea,Seattle Seahawks,30,Minnesota Vikings,20,60,NA,89%,5,60 degrees- relative humidity 89%- wind 5 mph,11/4/2012,20121104
+479,201211040gnb,Green Bay Packers,31,Arizona Cardinals,17,39,NA,57%,7,39 degrees- relative humidity 57%- wind 7 mph,11/4/2012,20121104
+480,201211040nyg,New York Giants,20,Pittsburgh Steelers,24,44,NA,58%,5,44 degrees- relative humidity 58%- wind 5 mph,11/4/2012,20121104
+481,201211050nor,New Orleans Saints,28,Philadelphia Eagles,13,69,NA,NA,7,69 degrees- wind 7 mph,11/5/2012,20121105
+482,201211110chi,Chicago Bears,6,Houston Texans,13,54,NA,90%,8,54 degrees- relative humidity 90%- wind 8 mph,11/11/2012,20121111
+483,201211110rav,Baltimore Ravens,55,Oakland Raiders,20,61,NA,56%,6,61 degrees- relative humidity 56%- wind 6 mph,11/11/2012,20121111
+484,201211110nwe,New England Patriots,37,Buffalo Bills,31,60,NA,55%,1,60 degrees- relative humidity 55%- wind 1 mph,11/11/2012,20121111
+485,201211110cin,Cincinnati Bengals,31,New York Giants,13,69,NA,30%,1,69 degrees- relative humidity 30%- wind 1 mph,11/11/2012,20121111
+486,201211110phi,Philadelphia Eagles,23,Dallas Cowboys,38,63,NA,45%,7,63 degrees- relative humidity 45%- wind 7 mph,11/11/2012,20121111
+487,201211110sfo,San Francisco 49ers,24,St. Louis Rams,24,55,NA,59%,5,55 degrees- relative humidity 59%- wind 5 mph,11/11/2012,20121111
+488,201211110nor,New Orleans Saints,31,Atlanta Falcons,27,79,NA,NA,1,79 degrees- wind 1 mph,11/11/2012,20121111
+489,201211110sea,Seattle Seahawks,28,New York Jets,7,43,NA,66%,2,43 degrees- relative humidity 66%- wind 2 mph,11/11/2012,20121111
+490,201211110tam,Tampa Bay Buccaneers,34,San Diego Chargers,24,80,NA,51%,1,80 degrees- relative humidity 51%- wind 1 mph,11/11/2012,20121111
+491,201211110mia,Miami Dolphins,3,Tennessee Titans,37,78,NA,52%,2,78 degrees- relative humidity 52%- wind 2 mph,11/11/2012,20121111
+492,201211120pit,Pittsburgh Steelers,16,Kansas City Chiefs,13,45,NA,84%,1,45 degrees- relative humidity 84%- wind 1 mph,11/12/2012,20121112
+493,201211150buf,Buffalo Bills,19,Miami Dolphins,14,35,NA,73%,5,35 degrees- relative humidity 73%- wind 5 mph,11/15/2012,20121115
+494,201211180car,Carolina Panthers,21,Tampa Bay Buccaneers,27,53,NA,15%,9,53 degrees- relative humidity 15%- wind 9 mph,11/18/2012,20121118
+495,201211180rai,Oakland Raiders,17,New Orleans Saints,38,61,NA,62%,3,61 degrees- relative humidity 62%- wind 3 mph,11/18/2012,20121118
+496,201211180nwe,New England Patriots,59,Indianapolis Colts,24,42,NA,62%,1,42 degrees- relative humidity 62%- wind 1 mph,11/18/2012,20121118
+497,201211180kan,Kansas City Chiefs,6,Cincinnati Bengals,28,59,NA,37%,1,59 degrees- relative humidity 37%- wind 1 mph,11/18/2012,20121118
+498,201211180pit,Pittsburgh Steelers,10,Baltimore Ravens,13,46,NA,52%,5,46 degrees- relative humidity 52%- wind 5 mph,11/18/2012,20121118
+499,201211180den,Denver Broncos,30,San Diego Chargers,23,62,NA,22%,3,62 degrees- relative humidity 22%- wind 3 mph,11/18/2012,20121118
+500,201211180htx,Houston Texans,43,Jacksonville Jaguars,37,70,NA,NA,7,70 degrees- wind 7 mph,11/18/2012,20121118
+501,201211180was,Washington Redskins,31,Philadelphia Eagles,6,52,NA,55%,9,52 degrees- relative humidity 55%- wind 9 mph,11/18/2012,20121118
+502,201211190sfo,San Francisco 49ers,32,Chicago Bears,7,64,NA,52%,1,64 degrees- relative humidity 52%- wind 1 mph,11/19/2012,20121119
+503,201211220nyj,New York Jets,19,New England Patriots,49,46,NA,72%,2,46 degrees- relative humidity 72%- wind 2 mph,11/22/2012,20121122
+504,201211250clt,Indianapolis Colts,20,Buffalo Bills,13,45,NA,NA,1,45 degrees- wind 1 mph,11/25/2012,20121125
+505,201211250kan,Kansas City Chiefs,9,Denver Broncos,17,52,NA,38%,5,52 degrees- relative humidity 38%- wind 5 mph,11/25/2012,20121125
+506,201211250cle,Cleveland Browns,20,Pittsburgh Steelers,14,34,NA,65%,1,34 degrees- relative humidity 65%- wind 1 mph,11/25/2012,20121125
+507,201211250sdg,San Diego Chargers,13,Baltimore Ravens,16,59,NA,82%,1,59 degrees- relative humidity 82%- wind 1 mph,11/25/2012,20121125
+508,201211250tam,Tampa Bay Buccaneers,23,Atlanta Falcons,24,65,NA,30%,7,65 degrees- relative humidity 30%- wind 7 mph,11/25/2012,20121125
+509,201211250mia,Miami Dolphins,24,Seattle Seahawks,21,72,NA,51%,6,72 degrees- relative humidity 51%- wind 6 mph,11/25/2012,20121125
+510,201211250chi,Chicago Bears,28,Minnesota Vikings,10,41,NA,26%,5,41 degrees- relative humidity 26%- wind 5 mph,11/25/2012,20121125
+511,201211250nor,New Orleans Saints,21,San Francisco 49ers,31,66,NA,NA,5,66 degrees- wind 5 mph,11/25/2012,20121125
+512,201211250cin,Cincinnati Bengals,34,Oakland Raiders,10,41,NA,47%,9,41 degrees- relative humidity 47%- wind 9 mph,11/25/2012,20121125
+513,201211250nyg,New York Giants,38,Green Bay Packers,10,34,NA,60%,1,34 degrees- relative humidity 60%- wind 1 mph,11/25/2012,20121125
+514,201211260phi,Philadelphia Eagles,22,Carolina Panthers,30,36,NA,42%,2,36 degrees- relative humidity 42%- wind 2 mph,11/26/2012,20121126
+515,201212020rav,Baltimore Ravens,20,Pittsburgh Steelers,23,57,NA,62%,9,57 degrees- relative humidity 62%- wind 9 mph,12/2/2012,20121202
+516,201212020mia,Miami Dolphins,16,New England Patriots,23,77,NA,66%,1,77 degrees- relative humidity 66%- wind 1 mph,12/2/2012,20121202
+517,201212020den,Denver Broncos,31,Tampa Bay Buccaneers,23,64,NA,16%,4,64 degrees- relative humidity 16%- wind 4 mph,12/2/2012,20121202
+518,201212020rai,Oakland Raiders,17,Cleveland Browns,20,61,NA,84%,2,61 degrees- relative humidity 84%- wind 2 mph,12/2/2012,20121202
+519,201212020sdg,San Diego Chargers,13,Cincinnati Bengals,20,66,NA,65%,1,66 degrees- relative humidity 65%- wind 1 mph,12/2/2012,20121202
+520,201212020chi,Chicago Bears,17,Seattle Seahawks,23,61,NA,76%,4,61 degrees- relative humidity 76%- wind 4 mph,12/2/2012,20121202
+521,201212020oti,Tennessee Titans,10,Houston Texans,24,66,NA,60%,1,66 degrees- relative humidity 60%- wind 1 mph,12/2/2012,20121202
+522,201212020gnb,Green Bay Packers,23,Minnesota Vikings,14,45,NA,79%,8,45 degrees- relative humidity 79%- wind 8 mph,12/2/2012,20121202
+523,201212020buf,Buffalo Bills,34,Jacksonville Jaguars,18,52,NA,87%,1,52 degrees- relative humidity 87%- wind 1 mph,12/2/2012,20121202
+524,201212020kan,Kansas City Chiefs,27,Carolina Panthers,21,61,NA,60%,NA,61 degrees- relative humidity 60%- no wind,12/2/2012,20121202
+525,201212030was,Washington Redskins,17,New York Giants,16,55,NA,98%,1,55 degrees- relative humidity 98%- wind 1 mph,12/3/2012,20121203
+526,201212060rai,Oakland Raiders,13,Denver Broncos,26,57,NA,73%,7,57 degrees- relative humidity 73%- wind 7 mph,12/6/2012,20121206
+527,201212090cle,Cleveland Browns,30,Kansas City Chiefs,7,44,NA,70%,5,44 degrees- relative humidity 70%- wind 5 mph,12/9/2012,20121209
+528,201212090sfo,San Francisco 49ers,27,Miami Dolphins,13,62,NA,44%,3,62 degrees- relative humidity 44%- wind 3 mph,12/9/2012,20121209
+529,201212090pit,Pittsburgh Steelers,24,San Diego Chargers,34,45,NA,80%,1,45 degrees- relative humidity 80%- wind 1 mph,12/9/2012,20121209
+530,201212090gnb,Green Bay Packers,27,Detroit Lions,20,33,NA,92%,1,33 degrees- relative humidity 92%- wind 1 mph,12/9/2012,20121209
+531,201212090tam,Tampa Bay Buccaneers,21,Philadelphia Eagles,23,69,NA,92%,1,69 degrees- relative humidity 92%- wind 1 mph,12/9/2012,20121209
+532,201212090buf,Buffalo Bills,12,St. Louis Rams,15,37,NA,74%,1,37 degrees- relative humidity 74%- wind 1 mph,12/9/2012,20121209
+533,201212090car,Carolina Panthers,30,Atlanta Falcons,20,70,NA,50%,4,70 degrees- relative humidity 50%- wind 4 mph,12/9/2012,20121209
+534,201212090clt,Indianapolis Colts,27,Tennessee Titans,23,48,NA,NA,6,48 degrees- wind 6 mph,12/9/2012,20121209
+535,201212090nyg,New York Giants,52,New Orleans Saints,27,42,NA,88%,1,42 degrees- relative humidity 88%- wind 1 mph,12/9/2012,20121209
+536,201212090sea,Seattle Seahawks,58,Arizona Cardinals,0,48,NA,82%,8,48 degrees- relative humidity 82%- wind 8 mph,12/9/2012,20121209
+537,201212090was,Washington Redskins,31,Baltimore Ravens,28,51,NA,95%,7,51 degrees- relative humidity 95%- wind 7 mph,12/9/2012,20121209
+538,201212090cin,Cincinnati Bengals,19,Dallas Cowboys,20,53,NA,96%,6,53 degrees- relative humidity 96%- wind 6 mph,12/9/2012,20121209
+539,201212100nwe,New England Patriots,42,Houston Texans,14,59,NA,91%,7,59 degrees- relative humidity 91%- wind 7 mph,12/10/2012,20121210
+540,201212130phi,Philadelphia Eagles,13,Cincinnati Bengals,34,36,NA,55%,1,36 degrees- relative humidity 55%- wind 1 mph,12/13/2012,20121213
+541,201212160mia,Miami Dolphins,24,Jacksonville Jaguars,3,80,NA,60%,1,80 degrees- relative humidity 60%- wind 1 mph,12/16/2012,20121216
+542,201212160crd,Arizona Cardinals,38,Detroit Lions,10,57,NA,NA,3,57 degrees- wind 3 mph,12/16/2012,20121216
+543,201212160nor,New Orleans Saints,41,Tampa Bay Buccaneers,0,74,NA,NA,1,74 degrees- wind 1 mph,12/16/2012,20121216
+544,201212160dal,Dallas Cowboys,27,Pittsburgh Steelers,24,72,NA,NA,1,72 degrees- wind 1 mph,12/16/2012,20121216
+545,201212160rav,Baltimore Ravens,17,Denver Broncos,34,53,NA,74%,7,53 degrees- relative humidity 74%- wind 7 mph,12/16/2012,20121216
+546,201212160cle,Cleveland Browns,21,Washington Redskins,38,59,NA,67%,1,59 degrees- relative humidity 67%- wind 1 mph,12/16/2012,20121216
+547,201212160nwe,New England Patriots,34,San Francisco 49ers,41,34,NA,100%,5,34 degrees- relative humidity 100%- wind 5 mph,12/16/2012,20121216
+548,201212160chi,Chicago Bears,13,Green Bay Packers,21,44,NA,79%,9,44 degrees- relative humidity 79%- wind 9 mph,12/16/2012,20121216
+549,201212160rai,Oakland Raiders,15,Kansas City Chiefs,0,54,NA,77%,2,54 degrees- relative humidity 77%- wind 2 mph,12/16/2012,20121216
+550,201212160sdg,San Diego Chargers,7,Carolina Panthers,31,59,NA,64%,6,59 degrees- relative humidity 64%- wind 6 mph,12/16/2012,20121216
+551,201212170oti,Tennessee Titans,14,New York Jets,10,54,NA,83%,1,54 degrees- relative humidity 83%- wind 1 mph,12/17/2012,20121217
+552,201212230crd,Arizona Cardinals,13,Chicago Bears,28,62,NA,NA,NA,62 degrees- no wind,12/23/2012,20121223
+553,201212230rav,Baltimore Ravens,33,New York Giants,14,51,NA,33%,7,51 degrees- relative humidity 33%- wind 7 mph,12/23/2012,20121223
+554,201212230gnb,Green Bay Packers,55,Tennessee Titans,7,24,NA,68%,9,24 degrees- relative humidity 68%- wind 9 mph,12/23/2012,20121223
+555,201212230den,Denver Broncos,34,Cleveland Browns,12,51,NA,22%,1,51 degrees- relative humidity 22%- wind 1 mph,12/23/2012,20121223
+556,201212230phi,Philadelphia Eagles,20,Washington Redskins,27,40,NA,52%,1,40 degrees- relative humidity 52%- wind 1 mph,12/23/2012,20121223
+557,201212230car,Carolina Panthers,17,Oakland Raiders,6,53,NA,43%,3,53 degrees- relative humidity 43%- wind 3 mph,12/23/2012,20121223
+558,201212230nyj,New York Jets,17,San Diego Chargers,27,39,NA,54%,1,39 degrees- relative humidity 54%- wind 1 mph,12/23/2012,20121223
+559,201212230sea,Seattle Seahawks,42,San Francisco 49ers,13,45,NA,76%,3,45 degrees- relative humidity 76%- wind 3 mph,12/23/2012,20121223
+560,201212230dal,Dallas Cowboys,31,New Orleans Saints,34,63,NA,NA,1,63 degrees- wind 1 mph,12/23/2012,20121223
+561,201212230mia,Miami Dolphins,24,Buffalo Bills,10,73,NA,47%,8,73 degrees- relative humidity 47%- wind 8 mph,12/23/2012,20121223
+562,201212230htx,Houston Texans,6,Minnesota Vikings,23,73,NA,NA,1,73 degrees- wind 1 mph,12/23/2012,20121223
+563,201212230pit,Pittsburgh Steelers,10,Cincinnati Bengals,13,35,NA,56%,1,35 degrees- relative humidity 56%- wind 1 mph,12/23/2012,20121223
+564,201212230tam,Tampa Bay Buccaneers,13,St. Louis Rams,28,59,NA,28%,8,59 degrees- relative humidity 28%- wind 8 mph,12/23/2012,20121223
+565,201212230kan,Kansas City Chiefs,13,Indianapolis Colts,20,25,NA,74%,6,25 degrees- relative humidity 74%- wind 6 mph,12/23/2012,20121223
+566,201212300sdg,San Diego Chargers,24,Oakland Raiders,21,50,NA,80%,3,50 degrees- relative humidity 80%- wind 3 mph,12/30/2012,20121230
+567,201212300sea,Seattle Seahawks,20,St. Louis Rams,13,41,NA,77%,1,41 degrees- relative humidity 77%- wind 1 mph,12/30/2012,20121230
+568,201212300den,Denver Broncos,38,Kansas City Chiefs,3,35,NA,41%,1,35 degrees- relative humidity 41%- wind 1 mph,12/30/2012,20121230
+569,201212300nwe,New England Patriots,28,Miami Dolphins,0,28,NA,45%,1,28 degrees- relative humidity 45%- wind 1 mph,12/30/2012,20121230
+570,201212300nyg,New York Giants,42,Philadelphia Eagles,7,32,NA,50%,1,32 degrees- relative humidity 50%- wind 1 mph,12/30/2012,20121230
+571,201212300clt,Indianapolis Colts,28,Houston Texans,16,20,NA,NA,6,20 degrees- wind 6 mph,12/30/2012,20121230
+572,201212300oti,Tennessee Titans,38,Jacksonville Jaguars,20,39,NA,50%,4,39 degrees- relative humidity 50%- wind 4 mph,12/30/2012,20121230
+573,201212300sfo,San Francisco 49ers,27,Arizona Cardinals,13,50,NA,70%,5,50 degrees- relative humidity 70%- wind 5 mph,12/30/2012,20121230
+574,201212300nor,New Orleans Saints,38,Carolina Panthers,44,42,NA,NA,1,42 degrees- wind 1 mph,12/30/2012,20121230
+575,201212300was,Washington Redskins,28,Dallas Cowboys,18,37,NA,53%,9,37 degrees- relative humidity 53%- wind 9 mph,12/30/2012,20121230
+576,201212300pit,Pittsburgh Steelers,24,Cleveland Browns,10,28,NA,78%,1,28 degrees- relative humidity 78%- wind 1 mph,12/30/2012,20121230
+577,201212300buf,Buffalo Bills,28,New York Jets,9,28,NA,53%,1,28 degrees- relative humidity 53%- wind 1 mph,12/30/2012,20121230
+578,201212300cin,Cincinnati Bengals,23,Baltimore Ravens,17,26,NA,72%,8,26 degrees- relative humidity 72%- wind 8 mph,12/30/2012,20121230
+579,201301050gnb,Green Bay Packers,24,Minnesota Vikings,10,29,NA,78%,9,29 degrees- relative humidity 78%- wind 9 mph,1/5/2013,20130105
+580,201301050htx,Houston Texans,19,Cincinnati Bengals,13,46,NA,NA,6,46 degrees- wind 6 mph,1/5/2013,20130105
+581,201301060was,Washington Redskins,14,Seattle Seahawks,24,52,NA,44%,3,52 degrees- relative humidity 44%- wind 3 mph,1/6/2013,20130106
+582,201301060rav,Baltimore Ravens,24,Indianapolis Colts,9,49,NA,36%,8,49 degrees- relative humidity 36%- wind 8 mph,1/6/2013,20130106
+583,201301120den,Denver Broncos,35,Baltimore Ravens,38,13,NA,62%,8,13 degrees- relative humidity 62%- wind 8 mph,1/12/2013,20130112
+584,201301120sfo,San Francisco 49ers,45,Green Bay Packers,31,48,NA,50%,5,48 degrees- relative humidity 50%- wind 5 mph,1/12/2013,20130112
+585,201301130nwe,New England Patriots,41,Houston Texans,28,51,NA,87%,1,51 degrees- relative humidity 87%- wind 1 mph,1/13/2013,20130113
+586,201309050den,Denver Broncos,49,Baltimore Ravens,27,83,0,30%,7,83 degrees- relative humidity 30%- wind 7 mph- wind chill 0,9/5/2013,20130905
+587,201309080car,Carolina Panthers,7,Seattle Seahawks,12,87,0,48%,7,87 degrees- relative humidity 48%- wind 7 mph- wind chill 0,9/8/2013,20130908
+588,201309080jax,Jacksonville Jaguars,2,Kansas City Chiefs,28,85,0,55%,10,85 degrees- relative humidity 55%- wind 10 mph- wind chill 0,9/8/2013,20130908
+589,201309080clt,Indianapolis Colts,21,Oakland Raiders,17,88,0,47%,3,88 degrees- relative humidity 47%- wind 3 mph- wind chill 0,9/8/2013,20130908
+590,201309080sfo,San Francisco 49ers,34,Green Bay Packers,28,69,0,67%,6,69 degrees- relative humidity 67%- wind 6 mph- wind chill 0,9/8/2013,20130908
+591,201309080nyj,New York Jets,18,Tampa Bay Buccaneers,17,82,0,50%,9,82 degrees- relative humidity 50%- wind 9 mph- wind chill 0,9/8/2013,20130908
+592,201309080chi,Chicago Bears,24,Cincinnati Bengals,21,73,0,79%,11,73 degrees- relative humidity 79%- wind 11 mph- wind chill 0,9/8/2013,20130908
+593,201309080ram,St. Louis Rams,27,Arizona Cardinals,24,0,0,NA,NA,0 degrees- no wind- wind chill 0,9/8/2013,20130908
+594,201309080det,Detroit Lions,34,Minnesota Vikings,24,68,0,NA,NA,68 degrees- no wind- wind chill 0,9/8/2013,20130908
+595,201309080dal,Dallas Cowboys,36,New York Giants,31,96,0,NA,11,96 degrees- wind 11 mph- wind chill 0,9/8/2013,20130908
+596,201309080cle,Cleveland Browns,10,Miami Dolphins,23,70,0,80%,13,70 degrees- relative humidity 80%- wind 13 mph- wind chill 0,9/8/2013,20130908
+597,201309080buf,Buffalo Bills,21,New England Patriots,23,65,0,55%,11,65 degrees- relative humidity 55%- wind 11 mph- wind chill 0,9/8/2013,20130908
+598,201309080nor,New Orleans Saints,23,Atlanta Falcons,17,86,NA,71%,9,86 degrees- relative humidity 71%- wind 9 mph,9/8/2013,20130908
+599,201309080pit,Pittsburgh Steelers,9,Tennessee Titans,16,73,NA,76%,9,73 degrees- relative humidity 76%- wind 9 mph,9/8/2013,20130908
+600,201309090sdg,San Diego Chargers,28,Houston Texans,31,70,0,73%,10,70 degrees- relative humidity 73%- wind 10 mph- wind chill 0,9/9/2013,20130909
+601,201309090was,Washington Redskins,27,Philadelphia Eagles,33,80,0,52%,9,80 degrees- relative humidity 52%- wind 9 mph- wind chill 0,9/9/2013,20130909
+602,201309120nwe,New England Patriots,13,New York Jets,10,72,0,89%,8,72 degrees- relative humidity 89%- wind 8 mph- wind chill 0,9/12/2013,20130912
+603,201309150rav,Baltimore Ravens,14,Cleveland Browns,6,75,0,37%,6,75 degrees- relative humidity 37%- wind 6 mph- wind chill 0,9/15/2013,20130915
+604,201309150nyg,New York Giants,23,Denver Broncos,41,70,0,33%,3,70 degrees- relative humidity 33%- wind 3 mph- wind chill 0,9/15/2013,20130915
+605,201309150rai,Oakland Raiders,19,Jacksonville Jaguars,9,76,0,52%,10,76 degrees- relative humidity 52%- wind 10 mph- wind chill 0,9/15/2013,20130915
+606,201309150chi,Chicago Bears,31,Minnesota Vikings,30,60,0,76%,6,60 degrees- relative humidity 76%- wind 6 mph- wind chill 0,9/15/2013,20130915
+607,201309150htx,Houston Texans,30,Tennessee Titans,24,86,NA,54%,14,86 degrees- relative humidity 54%- wind 14 mph,9/15/2013,20130915
+608,201309150phi,Philadelphia Eagles,30,San Diego Chargers,33,71,0,40%,6,71 degrees- relative humidity 40%- wind 6 mph- wind chill 0,9/15/2013,20130915
+609,201309150atl,Atlanta Falcons,31,St. Louis Rams,24,0,0,NA,NA,0 degrees- no wind- wind chill 0,9/15/2013,20130915
+610,201309150tam,Tampa Bay Buccaneers,14,New Orleans Saints,16,93,NA,47%,8,93 degrees- relative humidity 47%- wind 8 mph,9/15/2013,20130915
+611,201309150crd,Arizona Cardinals,25,Detroit Lions,21,0,0,NA,NA,0 degrees- no wind- wind chill 0,9/15/2013,20130915
+612,201309150kan,Kansas City Chiefs,17,Dallas Cowboys,16,72,0,69%,6,72 degrees- relative humidity 69%- wind 6 mph- wind chill 0,9/15/2013,20130915
+613,201309150clt,Indianapolis Colts,20,Miami Dolphins,24,72,0,41%,9,72 degrees- relative humidity 41%- wind 9 mph- wind chill 0,9/15/2013,20130915
+614,201309150gnb,Green Bay Packers,38,Washington Redskins,20,56,0,100%,4,56 degrees- relative humidity 100%- wind 4 mph- wind chill 0,9/15/2013,20130915
+615,201309150buf,Buffalo Bills,24,Carolina Panthers,23,65,0,59%,10,65 degrees- relative humidity 59%- wind 10 mph- wind chill 0,9/15/2013,20130915
+616,201309150sea,Seattle Seahawks,29,San Francisco 49ers,3,64,0,81%,6,64 degrees- relative humidity 81%- wind 6 mph- wind chill 0,9/15/2013,20130915
+617,201309160cin,Cincinnati Bengals,20,Pittsburgh Steelers,10,62,0,75%,5,62 degrees- relative humidity 75%- wind 5 mph- wind chill 0,9/16/2013,20130916
+618,201309190phi,Philadelphia Eagles,16,Kansas City Chiefs,26,73,0,43%,4,73 degrees- relative humidity 43%- wind 4 mph- wind chill 0,9/19/2013,20130919
+619,201309220car,Carolina Panthers,38,New York Giants,0,75,0,52%,15,75 degrees- relative humidity 52%- wind 15 mph- wind chill 0,9/22/2013,20130922
+620,201309220pit,Pittsburgh Steelers,23,Chicago Bears,40,56,NA,72%,5,56 degrees- relative humidity 72%- wind 5 mph,9/22/2013,20130922
+621,201309220oti,Tennessee Titans,20,San Diego Chargers,17,72,0,46%,7,72 degrees- relative humidity 46%- wind 7 mph- wind chill 0,9/22/2013,20130922
+622,201309220nwe,New England Patriots,23,Tampa Bay Buccaneers,3,65,0,72%,9,65 degrees- relative humidity 72%- wind 9 mph- wind chill 0,9/22/2013,20130922
+623,201309220min,Minnesota Vikings,27,Cleveland Browns,31,67,0,0%,NA,67 degrees- relative humidity 0%- no wind- wind chill 0,9/22/2013,20130922
+624,201309220nyj,New York Jets,27,Buffalo Bills,20,67,0,46%,24,67 degrees- relative humidity 46%- wind 24 mph- wind chill 0,9/22/2013,20130922
+625,201309220mia,Miami Dolphins,27,Atlanta Falcons,23,89,0,58%,8,89 degrees- relative humidity 58%- wind 8 mph- wind chill 0,9/22/2013,20130922
+626,201309220sea,Seattle Seahawks,45,Jacksonville Jaguars,17,61,0,87%,17,61 degrees- relative humidity 87%- wind 17 mph- wind chill 0,9/22/2013,20130922
+627,201309220dal,Dallas Cowboys,31,St. Louis Rams,7,0,0,NA,NA,0 degrees- no wind- wind chill 0,9/22/2013,20130922
+628,201309220nor,New Orleans Saints,31,Arizona Cardinals,7,72,NA,87%,13,72 degrees- relative humidity 87%- wind 13 mph,9/22/2013,20130922
+629,201309220cin,Cincinnati Bengals,34,Green Bay Packers,30,63,0,52%,13,63 degrees- relative humidity 52%- wind 13 mph- wind chill 0,9/22/2013,20130922
+630,201309220sfo,San Francisco 49ers,7,Indianapolis Colts,27,66,0,63%,5,66 degrees- relative humidity 63%- wind 5 mph- wind chill 0,9/22/2013,20130922
+631,201309220rav,Baltimore Ravens,30,Houston Texans,9,73,0,44%,9,73 degrees- relative humidity 44%- wind 9 mph- wind chill 0,9/22/2013,20130922
+632,201309220was,Washington Redskins,20,Detroit Lions,27,72,0,51%,8,72 degrees- relative humidity 51%- wind 8 mph- wind chill 0,9/22/2013,20130922
+633,201309230den,Denver Broncos,37,Oakland Raiders,21,64,0,28%,16,64 degrees- relative humidity 28%- wind 16 mph- wind chill 0,9/23/2013,20130923
+634,201309260ram,St. Louis Rams,11,San Francisco 49ers,35,0,0,NA,NA,0 degrees- no wind- wind chill 0,9/26/2013,20130926
+635,201309290rai,Oakland Raiders,14,Washington Redskins,24,77,0,52%,13,77 degrees- relative humidity 52%- wind 13 mph- wind chill 0,9/29/2013,20130929
+636,201309290buf,Buffalo Bills,23,Baltimore Ravens,20,67,0,57%,15,67 degrees- relative humidity 57%- wind 15 mph- wind chill 0,9/29/2013,20130929
+637,201309290oti,Tennessee Titans,38,New York Jets,13,74,0,51%,4,74 degrees- relative humidity 51%- wind 4 mph- wind chill 0,9/29/2013,20130929
+638,201309290cle,Cleveland Browns,17,Cincinnati Bengals,6,68,0,67%,9,68 degrees- relative humidity 67%- wind 9 mph- wind chill 0,9/29/2013,20130929
+639,201309290kan,Kansas City Chiefs,31,New York Giants,7,66,0,65%,NA,66 degrees- relative humidity 65%- no wind- wind chill 0,9/29/2013,20130929
+640,201309290det,Detroit Lions,40,Chicago Bears,32,68,0,NA,NA,68 degrees- no wind- wind chill 0,9/29/2013,20130929
+641,201309290jax,Jacksonville Jaguars,3,Indianapolis Colts,37,80,0,65%,12,80 degrees- relative humidity 65%- wind 12 mph- wind chill 0,9/29/2013,20130929
+642,201309290sdg,San Diego Chargers,30,Dallas Cowboys,21,80,0,27%,7,80 degrees- relative humidity 27%- wind 7 mph- wind chill 0,9/29/2013,20130929
+643,201309290den,Denver Broncos,52,Philadelphia Eagles,20,76,0,16%,8,76 degrees- relative humidity 16%- wind 8 mph- wind chill 0,9/29/2013,20130929
+644,201309290tam,Tampa Bay Buccaneers,10,Arizona Cardinals,13,84,NA,55%,5,84 degrees- relative humidity 55%- wind 5 mph,9/29/2013,20130929
+645,201309290min,Minnesota Vikings,34,Pittsburgh Steelers,27,54,0,86%,11,54 degrees- relative humidity 86%- wind 11 mph- wind chill 0,9/29/2013,20130929
+646,201309290htx,Houston Texans,20,Seattle Seahawks,23,78,NA,90%,8,78 degrees- relative humidity 90%- wind 8 mph,9/29/2013,20130929
+647,201309290atl,Atlanta Falcons,23,New England Patriots,30,0,0,NA,NA,0 degrees- no wind- wind chill 0,9/29/2013,20130929
+648,201309300nor,New Orleans Saints,38,Miami Dolphins,17,79,NA,81%,3,79 degrees- relative humidity 81%- wind 3 mph,9/30/2013,20130930
+649,201310030cle,Cleveland Browns,37,Buffalo Bills,24,75,0,73%,6,75 degrees- relative humidity 73%- wind 6 mph- wind chill 0,10/3/2013,20131003
+650,201310060crd,Arizona Cardinals,22,Carolina Panthers,6,0,0,NA,NA,0 degrees- no wind- wind chill 0,10/6/2013,20131006
+651,201310060sfo,San Francisco 49ers,34,Houston Texans,3,76,0,40%,9,76 degrees- relative humidity 40%- wind 9 mph- wind chill 0,10/6/2013,20131006
+652,201310060mia,Miami Dolphins,23,Baltimore Ravens,26,87,0,56%,5,87 degrees- relative humidity 56%- wind 5 mph- wind chill 0,10/6/2013,20131006
+653,201310060gnb,Green Bay Packers,22,Detroit Lions,9,59,0,59%,10,59 degrees- relative humidity 59%- wind 10 mph- wind chill 0,10/6/2013,20131006
+654,201310060dal,Dallas Cowboys,48,Denver Broncos,51,0,0,NA,NA,0 degrees- no wind- wind chill 0,10/6/2013,20131006
+655,201310060oti,Tennessee Titans,17,Kansas City Chiefs,26,74,0,83%,10,74 degrees- relative humidity 83%- wind 10 mph- wind chill 0,10/6/2013,20131006
+656,201310060rai,Oakland Raiders,27,San Diego Chargers,17,70,0,0%,2,70 degrees- relative humidity 0%- wind 2 mph- wind chill 0,10/6/2013,20131006
+657,201310060cin,Cincinnati Bengals,13,New England Patriots,6,68,0,93%,7,68 degrees- relative humidity 93%- wind 7 mph- wind chill 0,10/6/2013,20131006
+658,201310060ram,St. Louis Rams,34,Jacksonville Jaguars,20,0,0,NA,NA,0 degrees- no wind- wind chill 0,10/6/2013,20131006
+659,201310060clt,Indianapolis Colts,34,Seattle Seahawks,28,56,0,90%,6,56 degrees- relative humidity 90%- wind 6 mph- wind chill 0,10/6/2013,20131006
+660,201310060nyg,New York Giants,21,Philadelphia Eagles,36,66,0,100%,6,66 degrees- relative humidity 100%- wind 6 mph- wind chill 0,10/6/2013,20131006
+661,201310060chi,Chicago Bears,18,New Orleans Saints,26,60,0,49%,10,60 degrees- relative humidity 49%- wind 10 mph- wind chill 0,10/6/2013,20131006
+662,201310070atl,Atlanta Falcons,28,New York Jets,30,0,0,NA,NA,0 degrees- no wind- wind chill 0,10/7/2013,20131007
+663,201310100chi,Chicago Bears,27,New York Giants,21,63,0,74%,10,63 degrees- relative humidity 74%- wind 10 mph- wind chill 0,10/10/2013,20131010
+664,201310130rav,Baltimore Ravens,17,Green Bay Packers,19,61,0,83%,10,61 degrees- relative humidity 83%- wind 10 mph- wind chill 0,10/13/2013,20131013
+665,201310130min,Minnesota Vikings,10,Carolina Panthers,35,64,0,0%,NA,64 degrees- relative humidity 0%- no wind- wind chill 0,10/13/2013,20131013
+666,201310130sfo,San Francisco 49ers,32,Arizona Cardinals,20,65,0,55%,5,65 degrees- relative humidity 55%- wind 5 mph- wind chill 0,10/13/2013,20131013
+667,201310130nwe,New England Patriots,30,New Orleans Saints,27,59,0,57%,7,59 degrees- relative humidity 57%- wind 7 mph- wind chill 0,10/13/2013,20131013
+668,201310130sea,Seattle Seahawks,20,Tennessee Titans,13,51,0,80%,4,51 degrees- relative humidity 80%- wind 4 mph- wind chill 0,10/13/2013,20131013
+669,201310130kan,Kansas City Chiefs,24,Oakland Raiders,7,63,0,41%,7,63 degrees- relative humidity 41%- wind 7 mph- wind chill 0,10/13/2013,20131013
+670,201310130tam,Tampa Bay Buccaneers,20,Philadelphia Eagles,31,82,NA,42%,3,82 degrees- relative humidity 42%- wind 3 mph,10/13/2013,20131013
+671,201310130cle,Cleveland Browns,17,Detroit Lions,31,66,0,78%,8,66 degrees- relative humidity 78%- wind 8 mph- wind chill 0,10/13/2013,20131013
+672,201310130dal,Dallas Cowboys,31,Washington Redskins,16,0,0,NA,NA,0 degrees- no wind- wind chill 0,10/13/2013,20131013
+673,201310130nyj,New York Jets,6,Pittsburgh Steelers,19,62,0,68%,10,62 degrees- relative humidity 68%- wind 10 mph- wind chill 0,10/13/2013,20131013
+674,201310130buf,Buffalo Bills,24,Cincinnati Bengals,27,65,0,70%,11,65 degrees- relative humidity 70%- wind 11 mph- wind chill 0,10/13/2013,20131013
+675,201310130den,Denver Broncos,35,Jacksonville Jaguars,19,59,0,53%,7,59 degrees- relative humidity 53%- wind 7 mph- wind chill 0,10/13/2013,20131013
+676,201310130htx,Houston Texans,13,St. Louis Rams,38,73,NA,94%,5,73 degrees- relative humidity 94%- wind 5 mph,10/13/2013,20131013
+677,201310140sdg,San Diego Chargers,19,Indianapolis Colts,9,69,0,69%,13,69 degrees- relative humidity 69%- wind 13 mph- wind chill 0,10/14/2013,20131014
+678,201310170crd,Arizona Cardinals,22,Seattle Seahawks,34,82,0,NA,7,82 degrees- wind 7 mph- wind chill 0,10/17/2013,20131017
+679,201310200atl,Atlanta Falcons,31,Tampa Bay Buccaneers,23,0,0,NA,NA,0 degrees- no wind- wind chill 0,10/20/2013,20131020
+680,201310200car,Carolina Panthers,30,St. Louis Rams,15,68,0,42%,4,68 degrees- relative humidity 42%- wind 4 mph- wind chill 0,10/20/2013,20131020
+681,201310200pit,Pittsburgh Steelers,19,Baltimore Ravens,16,57,NA,49%,14,57 degrees- relative humidity 49%- wind 14 mph,10/20/2013,20131020
+682,201310200gnb,Green Bay Packers,31,Cleveland Browns,13,46,NA,65%,8,46 degrees- relative humidity 65%- wind 8 mph,10/20/2013,20131020
+683,201310200phi,Philadelphia Eagles,3,Dallas Cowboys,17,60,0,39%,13,60 degrees- relative humidity 39%- wind 13 mph- wind chill 0,10/20/2013,20131020
+684,201310200jax,Jacksonville Jaguars,6,San Diego Chargers,24,73,0,0%,12,73 degrees- relative humidity 0%- wind 12 mph- wind chill 0,10/20/2013,20131020
+685,201310200det,Detroit Lions,24,Cincinnati Bengals,27,68,0,NA,NA,68 degrees- no wind- wind chill 0,10/20/2013,20131020
+686,201310200nyj,New York Jets,30,New England Patriots,27,63,0,36%,11,63 degrees- relative humidity 36%- wind 11 mph- wind chill 0,10/20/2013,20131020
+687,201310200kan,Kansas City Chiefs,17,Houston Texans,16,70,0,36%,15,70 degrees- relative humidity 36%- wind 15 mph- wind chill 0,10/20/2013,20131020
+688,201310200clt,Indianapolis Colts,39,Denver Broncos,33,57,0,51%,11,57 degrees- relative humidity 51%- wind 11 mph- wind chill 0,10/20/2013,20131020
+689,201310200mia,Miami Dolphins,21,Buffalo Bills,23,87,0,57%,5,87 degrees- relative humidity 57%- wind 5 mph- wind chill 0,10/20/2013,20131020
+690,201310200oti,Tennessee Titans,17,San Francisco 49ers,31,68,NA,32%,3,68 degrees- relative humidity 32%- wind 3 mph,10/20/2013,20131020
+691,201310200was,Washington Redskins,45,Chicago Bears,41,61,0,39%,13,61 degrees- relative humidity 39%- wind 13 mph- wind chill 0,10/20/2013,20131020
+692,201310210nyg,New York Giants,23,Minnesota Vikings,7,57,0,63%,4,57 degrees- relative humidity 63%- wind 4 mph- wind chill 0,10/21/2013,20131021
+693,201310240tam,Tampa Bay Buccaneers,13,Carolina Panthers,31,70,NA,53%,5,70 degrees- relative humidity 53%- wind 5 mph,10/24/2013,20131024
+694,201310270min,Minnesota Vikings,31,Green Bay Packers,44,65,0,0%,NA,65 degrees- relative humidity 0%- no wind- wind chill 0,10/27/2013,20131027
+695,201310270crd,Arizona Cardinals,27,Atlanta Falcons,13,0,0,NA,NA,0 degrees- no wind- wind chill 0,10/27/2013,20131027
+696,201310270nwe,New England Patriots,27,Miami Dolphins,17,53,0,45%,13,53 degrees- relative humidity 45%- wind 13 mph- wind chill 0,10/27/2013,20131027
+697,201310270rai,Oakland Raiders,21,Pittsburgh Steelers,18,56,0,81%,17,56 degrees- relative humidity 81%- wind 17 mph- wind chill 0,10/27/2013,20131027
+698,201310270cin,Cincinnati Bengals,49,New York Jets,9,57,0,45%,3,57 degrees- relative humidity 45%- wind 3 mph- wind chill 0,10/27/2013,20131027
+699,201310270nor,New Orleans Saints,35,Buffalo Bills,17,69,NA,70%,2,69 degrees- relative humidity 70%- wind 2 mph,10/27/2013,20131027
+700,201310270jax,Jacksonville Jaguars,10,San Francisco 49ers,42,60,0,63%,13,60 degrees- relative humidity 63%- wind 13 mph- wind chill 0,10/27/2013,20131027
+701,201310270det,Detroit Lions,31,Dallas Cowboys,30,68,0,NA,NA,68 degrees- no wind- wind chill 0,10/27/2013,20131027
+702,201310270den,Denver Broncos,45,Washington Redskins,21,69,0,14%,8,69 degrees- relative humidity 14%- wind 8 mph- wind chill 0,10/27/2013,20131027
+703,201310270phi,Philadelphia Eagles,7,New York Giants,15,56,0,40%,13,56 degrees- relative humidity 40%- wind 13 mph- wind chill 0,10/27/2013,20131027
+704,201310270kan,Kansas City Chiefs,23,Cleveland Browns,17,52,0,46%,4,52 degrees- relative humidity 46%- wind 4 mph- wind chill 0,10/27/2013,20131027
+705,201310280ram,St. Louis Rams,9,Seattle Seahawks,14,0,0,NA,NA,0 degrees- no wind- wind chill 0,10/28/2013,20131028
+706,201310310mia,Miami Dolphins,22,Cincinnati Bengals,20,79,0,76%,8,79 degrees- relative humidity 76%- wind 8 mph- wind chill 0,10/31/2013,20131031
+707,201311030htx,Houston Texans,24,Indianapolis Colts,27,60,NA,78%,6,60 degrees- relative humidity 78%- wind 6 mph,11/3/2013,20131103
+708,201311030was,Washington Redskins,30,San Diego Chargers,24,57,0,41%,20,57 degrees- relative humidity 41%- wind 20 mph- wind chill 0,11/3/2013,20131103
+709,201311030nyj,New York Jets,26,New Orleans Saints,20,48,NA,53%,14,48 degrees- relative humidity 53%- wind 14 mph,11/3/2013,20131103
+710,201311030car,Carolina Panthers,34,Atlanta Falcons,10,62,0,41%,12,62 degrees- relative humidity 41%- wind 12 mph- wind chill 0,11/3/2013,20131103
+711,201311030ram,St. Louis Rams,21,Tennessee Titans,28,0,0,NA,NA,0 degrees- no wind- wind chill 0,11/3/2013,20131103
+712,201311030dal,Dallas Cowboys,27,Minnesota Vikings,23,61,0,NA,6,61 degrees- wind 6 mph- wind chill 0,11/3/2013,20131103
+713,201311030cle,Cleveland Browns,24,Baltimore Ravens,18,46,NA,54%,9,46 degrees- relative humidity 54%- wind 9 mph,11/3/2013,20131103
+714,201311030sea,Seattle Seahawks,27,Tampa Bay Buccaneers,24,48,NA,68%,4,48 degrees- relative humidity 68%- wind 4 mph,11/3/2013,20131103
+715,201311030nwe,New England Patriots,55,Pittsburgh Steelers,31,44,NA,44%,6,44 degrees- relative humidity 44%- wind 6 mph,11/3/2013,20131103
+716,201311030rai,Oakland Raiders,20,Philadelphia Eagles,49,62,0,30%,6,62 degrees- relative humidity 30%- wind 6 mph- wind chill 0,11/3/2013,20131103
+717,201311030buf,Buffalo Bills,13,Kansas City Chiefs,23,36,30,58%,7,36 degrees- relative humidity 58%- wind 7 mph- wind chill 30,11/3/2013,20131103
+718,201311040gnb,Green Bay Packers,20,Chicago Bears,27,49,NA,77%,14,49 degrees- relative humidity 77%- wind 14 mph,11/4/2013,20131104
+719,201311070min,Minnesota Vikings,34,Washington Redskins,27,0,0,0%,NA,0 degrees- relative humidity 0%- no wind- wind chill 0,11/7/2013,20131107
+720,201311100clt,Indianapolis Colts,8,St. Louis Rams,38,45,NA,54%,11,45 degrees- relative humidity 54%- wind 11 mph,11/10/2013,20131110
+721,201311100atl,Atlanta Falcons,10,Seattle Seahawks,33,0,0,NA,NA,0 degrees- no wind- wind chill 0,11/10/2013,20131110
+722,201311100sdg,San Diego Chargers,20,Denver Broncos,28,78,0,14%,6,78 degrees- relative humidity 14%- wind 6 mph- wind chill 0,11/10/2013,20131110
+723,201311100oti,Tennessee Titans,27,Jacksonville Jaguars,29,62,0,40%,6,62 degrees- relative humidity 40%- wind 6 mph- wind chill 0,11/10/2013,20131110
+724,201311100sfo,San Francisco 49ers,9,Carolina Panthers,10,62,0,65%,6,62 degrees- relative humidity 65%- wind 6 mph- wind chill 0,11/10/2013,20131110
+725,201311100gnb,Green Bay Packers,13,Philadelphia Eagles,27,45,NA,48%,12,45 degrees- relative humidity 48%- wind 12 mph,11/10/2013,20131110
+726,201311100crd,Arizona Cardinals,27,Houston Texans,24,0,0,NA,NA,0 degrees- no wind- wind chill 0,11/10/2013,20131110
+727,201311100nyg,New York Giants,24,Oakland Raiders,20,49,NA,71%,14,49 degrees- relative humidity 71%- wind 14 mph,11/10/2013,20131110
+728,201311100chi,Chicago Bears,19,Detroit Lions,21,47,NA,51%,6,47 degrees- relative humidity 51%- wind 6 mph,11/10/2013,20131110
+729,201311100nor,New Orleans Saints,49,Dallas Cowboys,17,69,NA,65%,2,69 degrees- relative humidity 65%- wind 2 mph,11/10/2013,20131110
+730,201311100rav,Baltimore Ravens,20,Cincinnati Bengals,17,60,0,36%,17,60 degrees- relative humidity 36%- wind 17 mph- wind chill 0,11/10/2013,20131110
+731,201311100pit,Pittsburgh Steelers,23,Buffalo Bills,10,46,NA,56%,21,46 degrees- relative humidity 56%- wind 21 mph,11/10/2013,20131110
+732,201311110tam,Tampa Bay Buccaneers,22,Miami Dolphins,19,73,NA,74%,5,73 degrees- relative humidity 74%- wind 5 mph,11/11/2013,20131111
+733,201311140oti,Tennessee Titans,27,Indianapolis Colts,30,44,NA,36%,3,44 degrees- relative humidity 36%- wind 3 mph,11/14/2013,20131114
+734,201311170htx,Houston Texans,23,Oakland Raiders,28,82,NA,75%,3,82 degrees- relative humidity 75%- wind 3 mph,11/17/2013,20131117
+735,201311170pit,Pittsburgh Steelers,37,Detroit Lions,27,60,NA,87%,12,60 degrees- relative humidity 87%- wind 12 mph,11/17/2013,20131117
+736,201311170nor,New Orleans Saints,23,San Francisco 49ers,20,79,NA,NA,10,79 degrees- wind 10 mph,11/17/2013,20131117
+737,201311170tam,Tampa Bay Buccaneers,41,Atlanta Falcons,28,79,NA,74%,6,79 degrees- relative humidity 74%- wind 6 mph,11/17/2013,20131117
+738,201311170sea,Seattle Seahawks,41,Minnesota Vikings,20,50,NA,81%,14,50 degrees- relative humidity 81%- wind 14 mph,11/17/2013,20131117
+739,201311170nyg,New York Giants,27,Green Bay Packers,13,59,0,100%,2,59 degrees- relative humidity 100%- wind 2 mph- wind chill 0,11/17/2013,20131117
+740,201311170chi,Chicago Bears,23,Baltimore Ravens,20,68,0,82%,17,68 degrees- relative humidity 82%- wind 17 mph- wind chill 0,11/17/2013,20131117
+741,201311170jax,Jacksonville Jaguars,14,Arizona Cardinals,27,76,0,0%,8,76 degrees- relative humidity 0%- wind 8 mph- wind chill 0,11/17/2013,20131117
+742,201311170mia,Miami Dolphins,20,San Diego Chargers,16,81,0,67%,12,81 degrees- relative humidity 67%- wind 12 mph- wind chill 0,11/17/2013,20131117
+743,201311170den,Denver Broncos,27,Kansas City Chiefs,17,43,NA,34%,6,43 degrees- relative humidity 34%- wind 6 mph,11/17/2013,20131117
+744,201311170cin,Cincinnati Bengals,41,Cleveland Browns,20,62,0,92%,7,62 degrees- relative humidity 92%- wind 7 mph- wind chill 0,11/17/2013,20131117
+745,201311170buf,Buffalo Bills,37,New York Jets,14,62,0,71%,14,62 degrees- relative humidity 71%- wind 14 mph- wind chill 0,11/17/2013,20131117
+746,201311170phi,Philadelphia Eagles,24,Washington Redskins,16,64,0,71%,7,64 degrees- relative humidity 71%- wind 7 mph- wind chill 0,11/17/2013,20131117
+747,201311180car,Carolina Panthers,24,New England Patriots,20,59,0,35%,8,59 degrees- relative humidity 35%- wind 8 mph- wind chill 0,11/18/2013,20131118
+748,201311210atl,Atlanta Falcons,13,New Orleans Saints,17,0,0,NA,NA,0 degrees- no wind- wind chill 0,11/21/2013,20131121
+749,201311240ram,St. Louis Rams,42,Chicago Bears,21,0,0,NA,NA,0 degrees- no wind- wind chill 0,11/24/2013,20131124
+750,201311240rav,Baltimore Ravens,19,New York Jets,3,33,20,23%,26,33 degrees- relative humidity 23%- wind 26 mph- wind chill 20,11/24/2013,20131124
+751,201311240htx,Houston Texans,6,Jacksonville Jaguars,13,45,NA,55%,15,45 degrees- relative humidity 55%- wind 15 mph,11/24/2013,20131124
+752,201311240rai,Oakland Raiders,19,Tennessee Titans,23,58,0,56%,5,58 degrees- relative humidity 56%- wind 5 mph- wind chill 0,11/24/2013,20131124
+753,201311240mia,Miami Dolphins,16,Carolina Panthers,20,82,0,55%,13,82 degrees- relative humidity 55%- wind 13 mph- wind chill 0,11/24/2013,20131124
+754,201311240crd,Arizona Cardinals,40,Indianapolis Colts,11,0,0,NA,NA,0 degrees- no wind- wind chill 0,11/24/2013,20131124
+755,201311240det,Detroit Lions,21,Tampa Bay Buccaneers,24,68,0,NA,NA,68 degrees- no wind- wind chill 0,11/24/2013,20131124
+756,201311240gnb,Green Bay Packers,26,Minnesota Vikings,26,19,7,52%,10,19 degrees- relative humidity 52%- wind 10 mph- wind chill 7,11/24/2013,20131124
+757,201311240kan,Kansas City Chiefs,38,San Diego Chargers,41,24,15,50%,3,24 degrees- relative humidity 50%- wind 3 mph- wind chill 15,11/24/2013,20131124
+758,201311240nwe,New England Patriots,34,Denver Broncos,31,22,6,29%,22,22 degrees- relative humidity 29%- wind 22 mph- wind chill 6,11/24/2013,20131124
+759,201311240nyg,New York Giants,21,Dallas Cowboys,24,25,18,40%,6,25 degrees- relative humidity 40%- wind 6 mph- wind chill 18,11/24/2013,20131124
+760,201311240cle,Cleveland Browns,11,Pittsburgh Steelers,27,20,1,84%,31,20 degrees- relative humidity 84%- wind 31 mph- wind chill 1,11/24/2013,20131124
+761,201311250was,Washington Redskins,6,San Francisco 49ers,27,35,27,37%,12,35 degrees- relative humidity 37%- wind 12 mph- wind chill 27,11/25/2013,20131125
+762,201311280rav,Baltimore Ravens,22,Pittsburgh Steelers,20,37,0,39%,2,37 degrees- relative humidity 39%- wind 2 mph- wind chill 0,11/28/2013,20131128
+763,201311280det,Detroit Lions,40,Green Bay Packers,10,68,0,NA,NA,68 degrees- no wind- wind chill 0,11/28/2013,20131128
+764,201311280dal,Dallas Cowboys,31,Oakland Raiders,24,0,0,NA,NA,0 degrees- no wind- wind chill 0,11/28/2013,20131128
+765,201312010htx,Houston Texans,31,New England Patriots,34,64,NA,72%,7,64 degrees- relative humidity 72%- wind 7 mph,12/1/2013,20131201
+766,201312010min,Minnesota Vikings,23,Chicago Bears,20,66,0,0%,NA,66 degrees- relative humidity 0%- no wind- wind chill 0,12/1/2013,20131201
+767,201312010clt,Indianapolis Colts,22,Tennessee Titans,14,51,NA,53%,7,51 degrees- relative humidity 53%- wind 7 mph,12/1/2013,20131201
+768,201312010phi,Philadelphia Eagles,24,Arizona Cardinals,21,46,NA,53%,4,46 degrees- relative humidity 53%- wind 4 mph,12/1/2013,20131201
+769,201312010car,Carolina Panthers,27,Tampa Bay Buccaneers,6,56,0,55%,2,56 degrees- relative humidity 55%- wind 2 mph- wind chill 0,12/1/2013,20131201
+770,201312010sfo,San Francisco 49ers,23,St. Louis Rams,13,59,0,72%,6,59 degrees- relative humidity 72%- wind 6 mph- wind chill 0,12/1/2013,20131201
+771,201312010cle,Cleveland Browns,28,Jacksonville Jaguars,32,40,NA,61%,7,40 degrees- relative humidity 61%- wind 7 mph,12/1/2013,20131201
+772,201312010kan,Kansas City Chiefs,28,Denver Broncos,35,55,0,47%,4,55 degrees- relative humidity 47%- wind 4 mph- wind chill 0,12/1/2013,20131201
+773,201312010buf,Buffalo Bills,31,Atlanta Falcons,34,0,0,NA,NA,0 degrees- no wind- wind chill 0,12/1/2013,20131201
+774,201312010sdg,San Diego Chargers,10,Cincinnati Bengals,17,77,0,26%,5,77 degrees- relative humidity 26%- wind 5 mph- wind chill 0,12/1/2013,20131201
+775,201312010nyj,New York Jets,3,Miami Dolphins,23,48,NA,59%,4,48 degrees- relative humidity 59%- wind 4 mph,12/1/2013,20131201
+776,201312010was,Washington Redskins,17,New York Giants,24,43,0,72%,NA,43 degrees- relative humidity 72%- no wind- wind chill 0,12/1/2013,20131201
+777,201312020sea,Seattle Seahawks,34,New Orleans Saints,7,41,NA,62%,6,41 degrees- relative humidity 62%- wind 6 mph,12/2/2013,20131202
+778,201312050jax,Jacksonville Jaguars,27,Houston Texans,20,72,0,73%,7,72 degrees- relative humidity 73%- wind 7 mph- wind chill 0,12/5/2013,20131205
+779,201312080sdg,San Diego Chargers,37,New York Giants,14,53,0,53%,8,53 degrees- relative humidity 53%- wind 8 mph- wind chill 0,12/8/2013,20131208
+780,201312080sfo,San Francisco 49ers,19,Seattle Seahawks,17,43,0,49%,5,43 degrees- relative humidity 49%- wind 5 mph- wind chill 0,12/8/2013,20131208
+781,201312080pit,Pittsburgh Steelers,28,Miami Dolphins,34,25,16,73%,9,25 degrees- relative humidity 73%- wind 9 mph- wind chill 16,12/8/2013,20131208
+782,201312080nwe,New England Patriots,27,Cleveland Browns,26,30,25,46%,5,30 degrees- relative humidity 46%- wind 5 mph- wind chill 25,12/8/2013,20131208
+783,201312080phi,Philadelphia Eagles,34,Detroit Lions,20,27,20,56%,6,27 degrees- relative humidity 56%- wind 6 mph- wind chill 20,12/8/2013,20131208
+784,201312080gnb,Green Bay Packers,22,Atlanta Falcons,21,9,-1,80%,6,9 degrees- relative humidity 80%- wind 6 mph- wind chill -1,12/8/2013,20131208
+785,201312080was,Washington Redskins,10,Kansas City Chiefs,45,30,21,79%,10,30 degrees- relative humidity 79%- wind 10 mph- wind chill 21,12/8/2013,20131208
+786,201312080cin,Cincinnati Bengals,42,Indianapolis Colts,28,25,17,85%,7,25 degrees- relative humidity 85%- wind 7 mph- wind chill 17,12/8/2013,20131208
+787,201312080den,Denver Broncos,51,Tennessee Titans,28,18,11,63%,5,18 degrees- relative humidity 63%- wind 5 mph- wind chill 11,12/8/2013,20131208
+788,201312080nyj,New York Jets,37,Oakland Raiders,27,33,27,51%,6,33 degrees- relative humidity 51%- wind 6 mph- wind chill 27,12/8/2013,20131208
+789,201312080crd,Arizona Cardinals,30,St. Louis Rams,10,0,0,NA,12,0 degrees- wind 12 mph- wind chill 0,12/8/2013,20131208
+790,201312080rav,Baltimore Ravens,29,Minnesota Vikings,26,33,28,67%,7,33 degrees- relative humidity 67%- wind 7 mph- wind chill 28,12/8/2013,20131208
+791,201312080tam,Tampa Bay Buccaneers,27,Buffalo Bills,6,82,NA,62%,13,82 degrees- relative humidity 62%- wind 13 mph,12/8/2013,20131208
+792,201312080nor,New Orleans Saints,31,Carolina Panthers,13,52,NA,NA,5,52 degrees- wind 5 mph,12/8/2013,20131208
+793,201312090chi,Chicago Bears,45,Dallas Cowboys,28,8,-9,63%,14,8 degrees- relative humidity 63%- wind 14 mph- wind chill -9,12/9/2013,20131209
+794,201312120den,Denver Broncos,20,San Diego Chargers,27,37,0,50%,2,37 degrees- relative humidity 50%- wind 2 mph- wind chill 0,12/12/2013,20131212
+795,201312150clt,Indianapolis Colts,25,Houston Texans,3,20,7,64%,13,20 degrees- relative humidity 64%- wind 13 mph- wind chill 7,12/15/2013,20131215
+796,201312150pit,Pittsburgh Steelers,30,Cincinnati Bengals,20,26,12,66%,20,26 degrees- relative humidity 66%- wind 20 mph- wind chill 12,12/15/2013,20131215
+797,201312150mia,Miami Dolphins,24,New England Patriots,20,84,0,70%,14,84 degrees- relative humidity 70%- wind 14 mph- wind chill 0,12/15/2013,20131215
+798,201312150jax,Jacksonville Jaguars,20,Buffalo Bills,27,60,0,0%,20,60 degrees- relative humidity 0%- wind 20 mph- wind chill 0,12/15/2013,20131215
+799,201312150tam,Tampa Bay Buccaneers,14,San Francisco 49ers,33,70,NA,64%,7,70 degrees- relative humidity 64%- wind 7 mph,12/15/2013,20131215
+800,201312150min,Minnesota Vikings,48,Philadelphia Eagles,30,66,0,0%,NA,66 degrees- relative humidity 0%- no wind- wind chill 0,12/15/2013,20131215
+801,201312150dal,Dallas Cowboys,36,Green Bay Packers,37,0,0,NA,NA,0 degrees- no wind- wind chill 0,12/15/2013,20131215
+802,201312150ram,St. Louis Rams,27,New Orleans Saints,16,0,0,NA,NA,0 degrees- no wind- wind chill 0,12/15/2013,20131215
+803,201312150atl,Atlanta Falcons,27,Washington Redskins,26,0,0,NA,NA,0 degrees- no wind- wind chill 0,12/15/2013,20131215
+804,201312150nyg,New York Giants,0,Seattle Seahawks,23,36,30,88%,7,36 degrees- relative humidity 88%- wind 7 mph- wind chill 30,12/15/2013,20131215
+805,201312150car,Carolina Panthers,30,New York Jets,20,54,0,47%,11,54 degrees- relative humidity 47%- wind 11 mph- wind chill 0,12/15/2013,20131215
+806,201312150cle,Cleveland Browns,31,Chicago Bears,38,25,14,82%,12,25 degrees- relative humidity 82%- wind 12 mph- wind chill 14,12/15/2013,20131215
+807,201312150rai,Oakland Raiders,31,Kansas City Chiefs,56,64,0,39%,6,64 degrees- relative humidity 39%- wind 6 mph- wind chill 0,12/15/2013,20131215
+808,201312150oti,Tennessee Titans,34,Arizona Cardinals,37,37,NA,64%,4,37 degrees- relative humidity 64%- wind 4 mph,12/15/2013,20131215
+809,201312160det,Detroit Lions,16,Baltimore Ravens,18,68,0,NA,NA,68 degrees- no wind- wind chill 0,12/16/2013,20131216
+810,201312220kan,Kansas City Chiefs,7,Indianapolis Colts,23,22,11,84%,10,22 degrees- relative humidity 84%- wind 10 mph- wind chill 11,12/22/2013,20131222
+811,201312220det,Detroit Lions,20,New York Giants,23,68,0,NA,NA,68 degrees- no wind- wind chill 0,12/22/2013,20131222
+812,201312220htx,Houston Texans,13,Denver Broncos,37,58,NA,79%,3,58 degrees- relative humidity 79%- wind 3 mph,12/22/2013,20131222
+813,201312220ram,St. Louis Rams,23,Tampa Bay Buccaneers,13,0,0,NA,NA,0 degrees- no wind- wind chill 0,12/22/2013,20131222
+814,201312220cin,Cincinnati Bengals,42,Minnesota Vikings,14,53,0,80%,11,53 degrees- relative humidity 80%- wind 11 mph- wind chill 0,12/22/2013,20131222
+815,201312220sea,Seattle Seahawks,10,Arizona Cardinals,17,48,NA,94%,6,48 degrees- relative humidity 94%- wind 6 mph,12/22/2013,20131222
+816,201312220nyj,New York Jets,24,Cleveland Browns,13,70,0,65%,12,70 degrees- relative humidity 65%- wind 12 mph- wind chill 0,12/22/2013,20131222
+817,201312220buf,Buffalo Bills,19,Miami Dolphins,0,41,NA,79%,8,41 degrees- relative humidity 79%- wind 8 mph,12/22/2013,20131222
+818,201312220jax,Jacksonville Jaguars,16,Tennessee Titans,20,79,0,0%,13,79 degrees- relative humidity 0%- wind 13 mph- wind chill 0,12/22/2013,20131222
+819,201312220was,Washington Redskins,23,Dallas Cowboys,24,65,0,92%,5,65 degrees- relative humidity 92%- wind 5 mph- wind chill 0,12/22/2013,20131222
+820,201312220car,Carolina Panthers,17,New Orleans Saints,13,72,0,84%,18,72 degrees- relative humidity 84%- wind 18 mph- wind chill 0,12/22/2013,20131222
+821,201312220sdg,San Diego Chargers,26,Oakland Raiders,13,67,0,45%,7,67 degrees- relative humidity 45%- wind 7 mph- wind chill 0,12/22/2013,20131222
+822,201312220rav,Baltimore Ravens,7,New England Patriots,41,65,0,75%,8,65 degrees- relative humidity 75%- wind 8 mph- wind chill 0,12/22/2013,20131222
+823,201312220gnb,Green Bay Packers,31,Pittsburgh Steelers,38,23,11,78%,13,23 degrees- relative humidity 78%- wind 13 mph- wind chill 11,12/22/2013,20131222
+824,201312220phi,Philadelphia Eagles,54,Chicago Bears,11,62,0,82%,11,62 degrees- relative humidity 82%- wind 11 mph- wind chill 0,12/22/2013,20131222
+825,201312230sfo,San Francisco 49ers,34,Atlanta Falcons,24,60,0,49%,NA,60 degrees- relative humidity 49%- no wind- wind chill 0,12/23/2013,20131223
+826,201312290sea,Seattle Seahawks,27,St. Louis Rams,9,40,NA,93%,5,40 degrees- relative humidity 93%- wind 5 mph,12/29/2013,20131229
+827,201312290crd,Arizona Cardinals,20,San Francisco 49ers,23,64,0,NA,5,64 degrees- wind 5 mph- wind chill 0,12/29/2013,20131229
+828,201312290dal,Dallas Cowboys,22,Philadelphia Eagles,24,0,0,NA,NA,0 degrees- no wind- wind chill 0,12/29/2013,20131229
+829,201312290chi,Chicago Bears,28,Green Bay Packers,33,26,14,88%,16,26 degrees- relative humidity 88%- wind 16 mph- wind chill 14,12/29/2013,20131229
+830,201312290oti,Tennessee Titans,16,Houston Texans,10,53,NA,61%,4,53 degrees- relative humidity 61%- wind 4 mph,12/29/2013,20131229
+831,201312290sdg,San Diego Chargers,27,Kansas City Chiefs,24,73,0,14%,1,73 degrees- relative humidity 14%- wind 1 mph- wind chill 0,12/29/2013,20131229
+832,201312290nor,New Orleans Saints,42,Tampa Bay Buccaneers,17,56,NA,NA,7,56 degrees- wind 7 mph,12/29/2013,20131229
+833,201312290nyg,New York Giants,20,Washington Redskins,6,40,0,100%,2,40 degrees- relative humidity 100%- wind 2 mph- wind chill 0,12/29/2013,20131229
+834,201312290clt,Indianapolis Colts,30,Jacksonville Jaguars,10,43,NA,68%,13,43 degrees- relative humidity 68%- wind 13 mph,12/29/2013,20131229
+835,201312290cin,Cincinnati Bengals,34,Baltimore Ravens,17,43,NA,93%,3,43 degrees- relative humidity 93%- wind 3 mph,12/29/2013,20131229
+836,201312290min,Minnesota Vikings,14,Detroit Lions,13,0,0,0%,NA,0 degrees- relative humidity 0%- no wind- wind chill 0,12/29/2013,20131229
+837,201312290nwe,New England Patriots,34,Buffalo Bills,20,39,NA,100%,8,39 degrees- relative humidity 100%- wind 8 mph,12/29/2013,20131229
+838,201312290atl,Atlanta Falcons,20,Carolina Panthers,21,0,0,NA,NA,0 degrees- no wind- wind chill 0,12/29/2013,20131229
+839,201312290pit,Pittsburgh Steelers,20,Cleveland Browns,7,40,NA,93%,5,40 degrees- relative humidity 93%- wind 5 mph,12/29/2013,20131229
+840,201312290rai,Oakland Raiders,14,Denver Broncos,34,70,0,16%,8,70 degrees- relative humidity 16%- wind 8 mph- wind chill 0,12/29/2013,20131229
+841,201312290mia,Miami Dolphins,7,New York Jets,20,79,0,84%,12,79 degrees- relative humidity 84%- wind 12 mph- wind chill 0,12/29/2013,20131229

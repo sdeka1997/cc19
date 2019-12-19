@@ -1,0 +1,1687 @@
+# Analysis on NFL Offensive Strategy: Did the New York Giants get lucky?
+
+Swapnav Deka
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r, include=FALSE}
+library(RSQLite)
+library(dplyr)
+library(stringr)
+library(scales)
+library(ggplot2)
+library(knitr)
+library(grid)
+library(gridBase)
+```
+
+```{r,include=FALSE,results='hide'}
+NFL2010 <- read.csv("2010_nfl_pbp_data.csv")
+NFL2011 <- read.csv("2011_nfl_pbp_data.csv")
+NFL2012 <- read.csv("2012_nfl_pbp_data.csv")
+NFL2013 <- read.csv("2013_nfl_pbp_data_through_wk_12.csv")
+teams <- read.csv("teams.csv")
+weather_table <- read.csv(paste0("weather.csv"))
+merged <- readxl::read_excel("AllMerged.xlsx")
+
+
+dcon <- dbConnect(SQLite(), dbname = "STAT405_605.sqlite")
+dbSendQuery(conn = dcon, "
+PRAGMA foreign_keys = ON;
+            ")
+dbWriteTable(dcon,"NFL13",NFL2013,overwrite=TRUE)
+
+#combine 2010-2012 datasets 
+NFL10_12 <- rbind(NFL2010,NFL2011,NFL2012)
+dbWriteTable(dcon,"NFL10to12",NFL10_12,overwrite=TRUE)
+dbWriteTable(dcon,"Teams",teams,overwrite=TRUE)
+
+#remove columns from 2013 dataset that are not included in 2010-2012 
+# datasets 
+res <- dbSendQuery(conn = dcon, "
+SELECT gameid, qtr, min, sec, off, def,
+down, togo, ydline, description, offscore,
+defscore, season
+FROM NFL13;
+                   ")
+mydf13 <- dbFetch(res,-1)
+dbClearResult(res)
+
+res <- dbSendQuery(conn = dcon, "
+                   SELECT *
+                   FROM NFL10to12;
+                   ")
+mydf10_12 <- dbFetch(res,-1)
+dbClearResult(res)
+
+#combine 2010-2012 and 2013 datasets 
+mydf <- rbind(mydf10_12,mydf13)
+
+#add scorediff column to dataset 
+mydf <- mydf %>% 
+  mutate(scorediff=offscore-defscore)
+
+#add home column to dataset
+home <- function(gameid){
+  if (str_sub(gameid,-3,-3)=='@'){
+    str_sub(gameid,-2,-1)
+  }
+  else{
+    str_sub(gameid,-3,-1)
+  }
+}
+mydf <- mydf %>% 
+  mutate(home = sapply(gameid,home))
+
+#add lead column to dataset 
+lead <- function(scorediff){
+  if (is.na(scorediff)) {
+    NA
+  } #include possibility of NA because one row where scorediff is NA 
+  ifelse (scorediff > 0,1,0)
+}
+mydf <- mydf %>% 
+  mutate(lead = sapply(scorediff,lead))
+
+#add playtype column to dataset
+playtype <- function(description){
+  if (!is.na(str_locate(description,'TWO-POINT')[[1]])){
+    '2-pt conversion'
+  }
+  else if (!is.na(str_locate(description,'kicks|extra point|punt|field goal')[[1]])){
+    'kick'
+  }
+  else if (!is.na(str_locate(description,'pass|sack')[[1]])){
+    'pass'
+  }
+  else if(!is.na(str_locate(description,'left end|right end|left tackle|right tackle|left guard|right guard|up the middle|scramble|Aborted|FUMBLES')[[1]])){
+    'run'
+  }
+  else if(!is.na(str_locate(description, 'No Play')[[1]])){
+    'no play'
+  }
+  else{
+    NA
+  }
+}
+mydf <- mydf %>% 
+  mutate(playtype = sapply(description,playtype))
+
+#add redzone column to dataset 
+redzone <- function(ydline){
+  if (is.na(ydline)){
+    NA
+  }
+  else if(ydline <= 20){
+    1
+  }
+  else{
+    0
+  }
+}
+mydf <- mydf %>% 
+  mutate(redzone = sapply(ydline,redzone))
+
+#add penalty column to dataset
+penalty <- function(description){
+  if (!is.na(str_locate(description,fixed('penalty',ignore_case = TRUE))[[1]])){
+    1
+  }
+  else {
+    0
+  }
+}
+mydf <- mydf %>% 
+  mutate(penalty = sapply(description,penalty))
+
+#add yards gained column to dataset
+ydgained <- mydf$ydline[1:length(mydf$ydline)-1]-mydf$ydline[2:length(mydf$ydline)]
+ydgained[mydf$playtype!='pass' & mydf$playtype!='run'] <- NA
+touchdown <- function(description){
+  if(!is.na(str_locate(description,'TOUCHDOWN')[[1]])){
+    TRUE
+  }
+  else{
+    FALSE
+  }
+}
+ydgained[sapply(mydf$description,touchdown)] <- mydf$ydline[sapply(mydf$description,touchdown)]
+mydf <- mydf %>% 
+  mutate(ydgained = ydgained)
+
+#add date column to dataset
+date <- function(gameid){
+  substr(gameid,1,8)
+}
+mydf <- mydf %>% 
+  mutate(date=sapply(gameid,date))
+
+#turn mydf into csv to import into SQL
+write.csv(mydf,file='maindata.csv')
+```
+
+```{r create_sql_tables, include=FALSE}
+dbSendQuery(conn = dcon, "DROP TABLE IF EXISTS maindata;")
+dbSendQuery(conn = dcon, "
+CREATE TABLE maindata (
+            gameid TEXT,
+            qtr numeric,
+            min numeric,
+            sec numeric,
+            off TEXT,
+            def TEXT,
+            down numeric,
+            togo numeric,
+            ydline numeric,
+            description TEXT,
+            offscore numeric,
+            defscore numeric,
+            season numeric,
+            scorediff numeric,
+            home TEXT,
+            lead numeric,
+            playtype TEXT,
+            redzone numeric,
+            penalty numeric,
+            ydgained numeric,
+            date numeric
+);
+")
+dbWriteTable(conn = dcon, name = "maindata", mydf, append=TRUE, row.names=FALSE)
+
+dbSendQuery(conn = dcon, "DROP TABLE IF EXISTS weather;")
+dbSendQuery(conn = dcon, "
+CREATE TABLE weather (
+            id text NOT NULL,
+            home_team text,
+            home_score numeric,
+            away_team text,
+            away_score numeric,
+            temperature numeric,
+            wind_chill numeric,
+            humidity numeric,
+            wind_mph numeric,
+            weather TEXT,
+            date DATE,
+            date_format TEXT,
+            PRIMARY KEY (id)
+);
+")
+
+dbWriteTable(conn = dcon, name = "weather", weather_table[,2:ncol(weather_table)],
+             append = TRUE, row.names = FALSE)
+
+```
+
+## Introduction {.smaller}
+- Datasets (2010-2013 NFL Season)
+    - Main Dataset: Basic Game and Play Dataset (2010-2013) = 177739 obs, 18 var
+    - Auxiliary 1: Detailed Play-by-Play Data = 166599 obs, 102 var
+    - Auxiliary 2: Game Day Weather Data = 841 obs, 12 var
+    - Auxiliary 3: Game Day Attendance Data = 128 obs, 22 var
+- Application
+    - NFL far behind other leagues as far as sports analytics - eye-test
+    - What truly affects a team's ability to win a game?
+- Investigation
+    - Super Bowl XLVI - Mario Manningham
+
+# Effect of Game Conditions on Play Type {.vcenter .flexbox}
+
+## Game Condition Analysis {.smaller}
+- I analyzed the effect of a few factors on the distribution of play types in NFL games.
+
+- Play Types [Categories]
+    - No Play (Penalties)
+    - Kick
+    - Pass
+    - Run
+
+- Game Condition Variables [Explanatory]
+    - Yards to First Down
+    - Number of Downs
+    - Score Difference
+    - Time in Game
+
+- Proportional Distribution of Play Types [Response]
+
+## Number of Downs and Yards to First Down {.smaller .flexbox .vcenter}
+```{r,echo=FALSE,warning=FALSE,message=FALSE}
+### Distribution of Play Types by Yards to First Down
+res <- dbSendQuery(conn = dcon, "
+SELECT n.togo as togo, n.playtype as playtype, COUNT(*) as count
+FROM maindata n
+WHERE n.playtype IS NOT NULL and n.playtype != '2-pt conversion' and n.togo IS NOT NULL
+GROUP BY n.togo, n.playtype;
+")
+
+togo_result_frame <- dbFetch(res, -1)
+
+togo_plot <- ggplot(data = togo_result_frame, aes(x=togo, y=count, fill=playtype)) + 
+  geom_bar(position="fill", stat="identity") +
+  scale_y_continuous(labels = percent) +
+  scale_x_continuous(breaks=seq(0,40, by=5), limits=c(0,40)) +
+  labs(x="Yards to First Down",
+       y="Percentage Of Plays",
+       title="Play Types by Yards to Go",
+       fill="Play Type") +
+  theme(plot.title = element_text(hjust = 0.5, size=12, face="bold"), 
+        axis.title.x = element_text(size=10, face="bold"),
+        axis.title.y = element_text(size=10, face="bold"),
+        legend.title = element_text(size=9),
+        legend.text = element_text(size=9), 
+        plot.margin = unit(c(0,0,0,0),"null"))
+
+### Distribution of Play Types by Number of Downs
+res <- dbSendQuery(conn = dcon, "
+SELECT n.down as down, n.playtype as playtype, COUNT(*) as count
+  FROM maindata n
+  WHERE n.playtype IS NOT NULL and n.playtype != '2-pt conversion' and n.down IS NOT NULL
+  GROUP BY n.down, n.playtype;
+  ")
+
+down_result_frame <- dbFetch(res, -1)
+
+down_plot <- ggplot(data = down_result_frame, aes(x=down, y=count, fill=playtype)) + 
+  geom_bar(position="fill", stat="identity") +
+  scale_y_continuous(labels = percent) +
+  labs(x="Number of Downs",
+       y="Percentage of Plays",
+       title="Play Types by Downs",
+       fill="Play Type") +
+  theme(plot.title = element_text(hjust = 0.5, size=12, face="bold"), 
+        axis.title.x = element_text(size=10, face="bold"),
+        axis.title.y = element_text(size=10, face="bold"),
+        legend.title = element_text(size=9),
+        legend.text = element_text(size=9),
+        plot.margin = unit(c(0,0,0,0),"null"))
+
+
+vp1 <- viewport(x=0, y=0.0, width = 0.5, height = 1,
+                just = c("left", "bottom"))
+
+vp2 <- viewport(x=0.5, y=0, width=0.5, height=1,
+                just = c("left","bottom"))
+grid.newpage()
+print(down_plot, vp = vp1)
+print(togo_plot, vp = vp2)
+```
+
+- As teams have more downs, they pass the ball more (with the obvious exception of 4th Down)
+- As teams get closer to first down, they run the ball more
+
+## Score Difference {.smaller .flexbox .vcenter}
+
+```{r, echo=FALSE,warning=FALSE,message=FALSE}
+### Play Types by Score Diff
+res <- dbSendQuery(conn = dcon, "
+SELECT n.scorediff as scorediff, n.playtype as playtype, COUNT(*) as count
+                   FROM maindata n
+                   WHERE n.playtype IS NOT NULL and n.playtype != '2-pt conversion' and n.scorediff IS NOT NULL
+                   GROUP BY n.scorediff, n.playtype;
+                   ")
+
+scorediff_result_frame <- dbFetch(res, -1)
+
+scorediff_plot <- ggplot(data = scorediff_result_frame, aes(x=scorediff, y=count, fill=playtype)) + 
+  geom_bar(position="fill", stat="identity") +
+  scale_y_continuous(labels = percent) +
+  labs(x="Score Difference for Offensive Team",
+       y="Percentage Of Plays",
+       title="Play Types by Score Difference",
+       fill="Play Type") +
+  theme(plot.title = element_text(hjust = 0.5, size=14, face="bold"), 
+        axis.title.x = element_text(size=12, face="bold"),
+        axis.title.y = element_text(size=12, face="bold"),
+        legend.title = element_text(size=10),
+        legend.text = element_text(size=10),
+        plot.margin = unit(c(0,0,0,0),"null"))
+
+scorediff_plot
+
+```
+
+- As teams gain a bigger lead over their opponents, they run the ball more and pass the ball less.
+
+## Time {.smaller .flexbox .vcenter}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+### Play Types by Time
+res <- dbSendQuery(conn = dcon, "
+WITH seconds AS (
+SELECT *, (60*60) - ((min*60) + sec) AS sec_in_game
+FROM maindata n
+WHERE n.playtype IS NOT NULL and n.playtype != '2-pt conversion' and n.ydline IS NOT NULL
+), minutes AS (
+SELECT *, sec_in_game / 60 AS minute_in_game
+FROM seconds
+), total_counts AS (
+SELECT m.minute_in_game as minute_in_game, COUNT(*) as count
+FROM minutes m
+WHERE m.playtype IS NOT NULL and m.playtype != '2-pt conversion' and m.minute_in_game IS NOT NULL
+GROUP BY m.minute_in_game
+)
+SELECT m.minute_in_game as minute_in_game, m.playtype as playtype, CAST(COUNT(*) AS FLOAT) / CAST(tc.count AS FLOAT) as prop
+FROM minutes m
+INNER JOIN total_counts tc on tc.minute_in_game = m.minute_in_game
+WHERE m.playtype IS NOT NULL and m.playtype != '2-pt conversion' and m.minute_in_game IS NOT NULL
+GROUP BY m.minute_in_game, m.playtype;
+")
+
+time_data_frame <- dbFetch(res,-1)
+
+### Line graph for Proportion of Plays vs Time
+ggplot(data=time_data_frame,aes(x=minute_in_game, y = prop, color=playtype)) + 
+  geom_line() + 
+  scale_y_continuous(labels = percent, limits = c(0,1.0)) +
+  scale_x_continuous(breaks=seq(0,75, by=5)) + 
+  labs(x="Minute in Game",
+       y="Percentage of Plays",
+       title="Play Types by Minute in Game",
+       color="Play Type") +
+  theme(plot.title = element_text(hjust = 0.5, size=14, face="bold"), 
+        axis.title.x = element_text(size=12, face="bold"),
+        axis.title.y = element_text(size=12, face="bold"),
+        legend.title = element_text(size=10),
+        legend.text = element_text(size=10),
+        plot.margin = unit(c(0,0,0,0),"null"))
+```
+
+- Passes increase around the 30 minute and 60 minute mark because teams are trying to score quickly before the period ends.
+
+# Effect of Weather Conditions on Play Type
+
+## Weather Condition Analysis
+- I analyzed the effect of weather factors on the distribution of play types in NFL games.
+
+- Play Types [Categories]
+    - No Play (Penalties)
+    - Kick
+    - Pass
+    - Run
+
+- Weather Condition Variables [Explanatory]
+    - Temperature
+    - Humidity
+    - Wind Speeds
+
+- Proportional Distribution of Play Types [Response]
+
+## Effect of Weather Conditions on Play Type {.smaller .flexbox .vcenter}
+```{r,echo=FALSE,results='hide', warning=FALSE, message=FALSE}
+res <- dbSendQuery(conn = dcon, "
+WITH weather_with_home AS (
+  SELECT w.id, w.home_team, w.home_score, w.away_team, w.away_score, w.temperature, 
+        w.wind_chill, w.humidity, w.wind_mph, w.weather, w.date_format, t.abbrev as home_abbrev
+  FROM weather w
+  INNER JOIN Teams t on w.home_team = t.team_name
+)
+SELECT w.temperature as temperature, n.playtype as playtype, COUNT(*) as count
+FROM maindata n
+INNER JOIN weather_with_home w on w.date_format = n.date AND w.home_abbrev = n.home
+WHERE n.playtype IS NOT NULL and n.playtype != '2-pt conversion'
+GROUP BY w.temperature, n.playtype;
+")
+
+temperature_result_frame <- dbFetch(res, -1)
+
+temperature_plot <- ggplot(data = temperature_result_frame, aes(x=temperature, y=count, fill=playtype)) + 
+  geom_bar(position="fill", stat="identity") +
+  scale_y_continuous(labels = percent) +
+  labs(x="Temperature in Fahrenheit",
+       y="Percentage Of Plays",
+       title="Play Types by Temperature",
+       fill="Play Type") +
+  theme(plot.title = element_text(hjust = 0.5, size=10, face="bold"), 
+        axis.title.x = element_text(size=8, face="bold"),
+        axis.title.y = element_text(size=8, face="bold"),
+        legend.title = element_text(size=7),
+        legend.text = element_text(size=7),
+        plot.margin = unit(c(0,0,0,0),"null"))
+
+res <- dbSendQuery(conn = dcon, "
+WITH weather_with_home AS (
+                   SELECT w.id, w.home_team, w.home_score, w.away_team, w.away_score, w.temperature, 
+                   w.wind_chill, w.humidity, w.wind_mph, w.weather, w.date_format, t.abbrev as home_abbrev
+                   FROM weather w
+                   INNER JOIN Teams t on w.home_team = t.team_name
+)
+SELECT w.humidity as humidity, n.playtype as playtype, COUNT(*) as count
+FROM maindata n
+INNER JOIN weather_with_home w on w.date_format = n.date AND w.home_abbrev = n.home
+WHERE n.playtype IS NOT NULL and n.playtype != '2-pt conversion' and w.humidity IS NOT NULL
+GROUP BY w.humidity, n.playtype;
+")
+
+humidity_result_frame <- dbFetch(res, -1)
+humidity_result_frame$humidity <- as.numeric(sub("%","",humidity_result_frame$humidity))
+
+humidity_plot <- ggplot(data = humidity_result_frame, aes(x=humidity, y=count, fill=playtype)) + 
+  geom_bar(position="fill", stat="identity") +
+  scale_y_continuous(labels = percent) +
+  scale_x_continuous(breaks=seq(0,100, by=20)) +
+  labs(x="Humidity Percentage",
+       y="Percentage Of Plays",
+       title="Play Types by Humidity",
+       fill="Play Type") +
+  theme(plot.title = element_text(hjust = 0.5, size=10, face="bold"), 
+        axis.title.x = element_text(size=8, face="bold"),
+        axis.title.y = element_text(size=8, face="bold"),
+        legend.title = element_text(size=7),
+        legend.text = element_text(size=7),
+        plot.margin = unit(c(0,0,0,0),"null"))
+
+res <- dbSendQuery(conn = dcon, "
+WITH weather_with_home AS (
+                   SELECT w.id, w.home_team, w.home_score, w.away_team, w.away_score, w.temperature, 
+                   w.wind_chill, w.humidity, w.wind_mph, w.weather, w.date_format, t.abbrev as home_abbrev
+                   FROM weather w
+                   INNER JOIN Teams t on w.home_team = t.team_name
+)
+SELECT w.wind_mph as wind_mph, n.playtype as playtype, COUNT(*) as count
+FROM maindata n
+INNER JOIN weather_with_home w on w.date_format = n.date AND w.home_abbrev = n.home
+WHERE n.playtype IS NOT NULL and n.playtype != '2-pt conversion' and w.wind_mph IS NOT NULL
+GROUP BY w.wind_mph, n.playtype;
+")
+
+wind_result_frame <- dbFetch(res, -1)
+
+wind_plot <- ggplot(data = wind_result_frame, aes(x=wind_mph, y=count, fill=playtype)) + 
+  geom_bar(position="fill", stat="identity") +
+  scale_y_continuous(labels = percent) +
+  scale_x_continuous(breaks=seq(0,100, by=5)) +
+  labs(x="Wind MPH",
+       y="Percentage Of Plays",
+       title="Play Types by Wind Speed",
+       fill="Play Type") +
+  theme(plot.title = element_text(hjust = 0.5, size=10, face="bold"), 
+        axis.title.x = element_text(size=8, face="bold"),
+        axis.title.y = element_text(size=8, face="bold"),
+        legend.title = element_text(size=7),
+        legend.text = element_text(size=7),
+        plot.margin = unit(c(0,0,0,0),"null"))
+
+
+vp1 <- viewport(x=0, y=0.5, width = 1, height = 0.49,
+                just = c("left", "bottom"))
+
+vp2 <- viewport(x=0.0, y=0.0, width=0.5, height=0.49,
+                just = c("left","bottom"))
+
+vp3 <- viewport(x=0.5, y=0, width = 0.5, height = 0.49,
+                just = c("left", "bottom"))
+
+grid.newpage()
+print(temperature_plot,vp = vp1)
+print(humidity_plot, vp = vp2)
+print(wind_plot, vp = vp3)
+```
+
+- Does not seem to be any correlation between weather factors and play type distribution.
+
+## Multiple Regression on Proportion of Pass Plays
+```{r,echo=FALSE, warning=FALSE, message=FALSE, results='hide'}
+res <- dbSendQuery(conn = dcon, "
+WITH weather_with_home AS (
+  SELECT w.id, w.home_team, w.home_score, w.away_team, w.away_score, w.temperature, 
+        w.wind_chill, w.humidity, w.wind_mph, w.weather, w.date_format, t.abbrev as home_abbrev
+  FROM weather w
+  INNER JOIN Teams t on w.home_team = t.team_name
+), total_counts AS (
+  SELECT w.temperature as temperature, w.humidity as humidity, w.wind_mph as wind_mph, COUNT(*) as count
+  FROM maindata n
+  INNER JOIN weather_with_home w on w.date_format = n.date AND w.home_abbrev = n.home
+  WHERE n.playtype IS NOT NULL and n.playtype != '2-pt conversion'
+  GROUP BY w.temperature, w.humidity, w.wind_mph
+)
+SELECT w.temperature as temperature, w.humidity as humidity, w.wind_mph as wind_mph, 
+  n.playtype as playtype, CAST(COUNT(*) AS FLOAT) / CAST(tc.count AS FLOAT) as prop
+FROM maindata n
+INNER JOIN weather_with_home w on w.date_format = n.date AND w.home_abbrev = n.home
+INNER JOIN total_counts tc on tc.temperature = w.temperature and tc.humidity = w.humidity and tc.wind_mph = w.wind_mph
+WHERE n.playtype IS NOT NULL and n.playtype != '2-pt conversion' and w.wind_mph IS NOT NULL and w.humidity IS NOT NULL
+GROUP BY w.temperature, w.humidity, w.wind_mph, n.playtype;
+")
+
+temp_prop_frame <- dbFetch(res, -1)
+temp_prop_frame$humidity <- as.numeric(sub("%","",temp_prop_frame$humidity))
+
+pass_data <- subset(temp_prop_frame, str_detect(temp_prop_frame$playtype, "pass"))
+run_data <- subset(temp_prop_frame, str_detect(temp_prop_frame$playtype, "run"))
+
+names(pass_data)[names(pass_data) == 'prop'] <- 'pass_prop'
+names(run_data)[names(run_data) == 'prop'] <- 'run_prop'
+
+#plot(select(pass_data, temperature, humidity, wind_mph, pass_prop))
+#plot(select(run_data, temperature, humidity, wind_mph, run_prop))
+
+pass_lm <- lm(formula=pass_prop~temperature + humidity + wind_mph, data=pass_data)
+run_lm <- lm(formula=run_prop~temperature + humidity + wind_mph, data=run_data)
+```
+
+```{r,echo=FALSE, warning=FALSE, message=FALSE}
+summary_pass <- summary(pass_lm)
+table1 <- data.frame(
+  'Estimate' = summary_pass$coefficients[,1],
+  'SE' = summary_pass$coefficients[,2],
+  't' = summary_pass$coefficients[,3],
+  'p-value' = summary_pass$coefficients[,4]
+)
+kable(table1)
+```
+
+- Temperature variable is statistically significant.
+
+## Multiple Regression on Proportion of Run Plays
+```{r,echo=FALSE,warning=FALSE,message=FALSE}
+summary_run <- summary(run_lm)
+table2 <- data.frame(
+  'Estimate' = summary_run$coefficients[,1],
+  'SE' = summary_run$coefficients[,2],
+  't' = summary_run$coefficients[,3],
+  'p-value' = summary_run$coefficients[,4]
+)
+kable(table2)
+```
+
+- Temperature variable is statistically significant.
+
+## Simple Regression: Effect of Home Attendance
+```{r,echo=FALSE,warning=FALSE,message=FALSE}
+play_merged <- subset(merged, playtype == "pass" | playtype == "run")
+play_merged <- mutate(play_merged, is_pass = ifelse(play_merged$playtype == "pass", 1, 0))
+
+attendance_model <- lm(Yards.Gained ~ `HomeAttendance`, data=merged)
+attendance_model2 <- lm(AirYards ~ `HomeAttendance`, data=merged)
+attendance_model3 <- lm(is_pass ~ `HomeAttendance`, data=play_merged)
+
+summary_a1 <- summary(attendance_model)
+summary_a2 <- summary(attendance_model2)
+summary_a3 <- summary(attendance_model3)
+
+table1 <- data.frame(
+  'Estimate' = summary_a1$coefficients[,1],
+  'SE' = summary_a1$coefficients[,2],
+  't' = summary_a1$coefficients[,3],
+  'p-value' = summary_a1$coefficients[,4]
+)
+
+table2 <- data.frame(
+  'Estimate' = summary_a2$coefficients[,1],
+  'SE' = summary_a2$coefficients[,2],
+  't' = summary_a2$coefficients[,3],
+  'p-value' = summary_a2$coefficients[,4]
+)
+
+table3 <- data.frame(
+  'Estimate' = summary_a3$coefficients[,1],
+  'SE' = summary_a3$coefficients[,2],
+  't' = summary_a3$coefficients[,3],
+  'p-value' = summary_a3$coefficients[,4]
+)
+row.names(table1) <- c("(Intercept)", "y=Yards Gained")
+row.names(table2) <- c("(Intercept)", "y=Air Yards")
+row.names(table3) <- c("(Intercept)", "y=Pass Proportion")
+kable(table1)
+kable(table2)
+kable(table3)
+```
+
+
+# Success of Runs vs Passes {.vcenter .flexbox}
+
+## Hypothesis Testing
+```{r,echo=FALSE,results='hide', warning=FALSE, message=FALSE}
+res <- dbSendQuery(conn = dcon, "
+                   SELECT *
+                   FROM maindata
+                   WHERE 'run' = playtype;
+                   ")
+mydf_run <- dbFetch(res,-1)
+dbClearResult(res)
+
+res <- dbSendQuery(conn = dcon, "
+                   SELECT *
+                   FROM maindata
+                   WHERE 'pass' = playtype;
+                   ")
+mydf_pass <- dbFetch(res,-1)
+dbClearResult(res)
+
+res <- dbSendQuery(conn = dcon, "
+            CREATE TABLE IF NOT EXISTS runs3 (
+            gameid TEXT,
+            qtr numeric,
+            min numeric,
+            sec numeric,
+            off TEXT,
+            def TEXT,
+            down numeric,
+            togo numeric,
+            ydline numeric,
+            description TEXT,
+            offscore numeric,
+            defscore numeric,
+            season numeric,
+            scorediff numeric,
+            home TEXT,
+            lead numeric,
+            playtype TEXT,
+            redzone numeric,
+            penalty numeric,
+            ydgained numeric,
+            date numeric
+            );
+")
+dbClearResult(res)
+dbWriteTable(conn = dcon, name = 'runs3', mydf_run, append = TRUE, row.names = FALSE)
+
+res <- dbSendQuery(conn = dcon, "
+            CREATE TABLE IF NOT EXISTS passes2(
+            gameid TEXT,
+            qtr numeric,
+            min numeric,
+            sec numeric,
+            off TEXT,
+            def TEXT,
+            down numeric,
+            togo numeric,
+            ydline numeric,
+            description TEXT,
+            offscore numeric,
+            defscore numeric,
+            season numeric,
+            scorediff numeric,
+            home TEXT,
+            lead numeric,
+            playtype TEXT,
+            redzone numeric,
+            penalty numeric,
+            ydgained numeric,
+            date numeric
+            );
+            ")
+dbClearResult(res)
+dbWriteTable(conn = dcon, name = 'passes2', mydf_pass, append=TRUE,row.names=FALSE)
+
+#E[ydgained|pass] = 6.365867
+##this is different value from HW 7; method used in HW 7 failed
+## to include some passes, so this is the accurate number 
+res <- dbSendQuery(conn = dcon, "
+                   SELECT AVG (ydgained)
+                   FROM passes2;
+                   ")
+E_pass_ydgained <- dbFetch(res,-1)
+dbClearResult(res)
+
+#E[ydgained|run] = 3.96905
+##this is different value from HW 7 because kneels were counted
+##as runs in HW 7
+res <- dbSendQuery(conn = dcon, "
+                   SELECT AVG (ydgained)
+                   FROM runs3;
+                   ")
+E_run_ydgained <- dbFetch(res,-1)
+dbClearResult(res)
+
+#t test
+res <- dbSendQuery(conn = dcon, "
+                   SELECT ydgained
+                   FROM passes2;
+                   ")
+pass_ydgained <- dbFetch(res,-1)
+dbClearResult(res)
+
+res <- dbSendQuery(conn = dcon, "
+                   SELECT ydgained
+                   FROM runs3;
+                   ")
+run_ydgained <- dbFetch(res,-1)
+dbClearResult(res)
+
+t.test(pass_ydgained,run_ydgained,alt='greater')
+```
+- Conventional Wisdom: Pass plays have more potential and run plays are safer
+- Null Hypothesis: E[yards gained|pass] = E[yards gained|run]
+- Alternative Hypothesis: E[yards gained|pass] > E[yards gained|run]
+
+    - Sample Mean Yards Gained When Passing = 6.3659
+    - Sample Mean Yards Gained When Running = 3.9691
+    - Degrees of Freedom: 138970
+    - t = 37.992
+    - p-value = < 2.2e-16
+
+- The null hypothesis is rejected, confirming the Alternative Hypothesis.
+
+## Why Do Teams Run? {.smaller}
+
+```{r,echo=FALSE, fig.height=3, fig.width=3, fig.align="center", warning=FALSE}
+pass.togo <- function(togo){
+  length(which(mydf_pass$ydgained>=togo)) /
+    length(mydf_pass$ydgained)
+}
+run.togo <- function(togo){
+  length(which(mydf_run$ydgained>=togo)) /
+    length(mydf_run$ydgained)
+}
+
+pass.p.togo <- sapply(1:10,pass.togo)
+run.p.togo <- sapply(1:10,run.togo)
+togo.table <- data_frame('Yards to First Down' = 1:10,
+                         'P(First Down|pass)' = pass.p.togo,
+                         'P(First Down|run)' = run.p.togo)
+
+kable(togo.table)
+```
+
+- Running the ball has a higher success rate for a shorter amount of yards.
+
+# Simulation
+
+## Super Bowl XLVI - 38-Yd Manningham Catch
+<iframe src='https://gfycat.com/ifr/AdeptSpanishBrocketdeer' frameborder='0' scrolling='no' width='1280' height='704' allowfullscreen></iframe>
+
+## Simulation Explanation
+- 5 Linear Models:
+    - Probability that a Play is a Pass or Run Play
+    - Pass Completion Percentage
+    - Expected Air Yards from a Pass Play
+    - Expected Yards Gained from a Pass Play
+    - Expected Yards Gained from a Run Play
+- 3 Situations Explored
+    - What would've happened had the Giants not completed the 38-yard pass?
+    - What else could the Giants have done after the completed 38-yard pass?
+    - What could have happened if the 38-yard pass was never attempted?
+
+## Simulation Models {.flexbox .vcenter}
+```{r}
+reg.table <- data.frame('Score Difference' = c('Yes','No','Yes','Yes',"Yes"),
+                        'Yards Until 1st Down' = rep('Yes',5),
+                        'Down' = c('Yes','No','Yes','Yes','Yes'),
+                        'Time' = c('Yes','Yes','Yes','No','Yes'),
+                        'Yardline' = c('No','No','No','No','Yes'),
+                        'Giants' = c('Yes','Yes','Yes','No','No'),
+                        'Temperature' = c('Yes','No','Yes','No','Yes'))
+rownames(reg.table) <- c('Pass Probability','Air Yards','Completion Probability','Pass Yards Gained', 'Run Yards Gained')
+kable(reg.table)
+```
+
+## Simulation - Risky Pass was Incomplete {.flexbox .vcenter}
+46.5% Touchdown Rate on 1000 trials...one example simulation shown
+```{r, echo=FALSE,warning=FALSE,message=FALSE}
+dcon <- dbConnect(SQLite(), dbname = "STAT405_605.sqlite")
+
+res <- dbSendQuery(conn = dcon, "
+                   SELECT w.id, w.home_team, w.home_score, w.away_team, w.away_score, w.temperature, 
+                   w.wind_chill, w.humidity, w.wind_mph, w.weather, w.date_format, t.abbrev as home
+                   FROM weather w
+                   INNER JOIN Teams t on w.home_team = t.team_name
+                   ")
+
+weather_with_home <- dbFetch(res, -1)
+
+merged_pass <- mutate(merged[merged$playtype == "pass",])
+merged_pass <- mutate(merged_pass, NYG=ifelse(merged_pass$off=="NYG", 1, 0))
+merged_pass$down.y <- as.numeric(merged_pass$down.y)
+merged_pass$togo <- as.numeric(merged_pass$togo)
+merged_pass$ydline <- as.numeric(merged_pass$ydline)
+merged_2 <- mutate(merged, date_format = substr(PlayID, 1, 8), minute_in_game = (60*60) - ((min*60) + sec))
+merged_final <- merge(merged_2, weather_with_home, by = c("date_format", "home"))
+
+
+res <- dbSendQuery(conn = dcon, "
+WITH weather_with_home AS (
+                   SELECT w.id, w.home_team, w.home_score, w.away_team, w.away_score, w.temperature, 
+                   w.wind_chill, w.humidity, w.wind_mph, w.weather, w.date_format, t.abbrev as home_abbrev
+                   FROM weather w
+                   INNER JOIN Teams t on w.home_team = t.team_name
+)
+SELECT w.temperature as temperature, n.scorediff as scorediff, n.down as down, n.togo as togo,
+(60*60) - ((n.min*60) + n.sec) as minute_in_game, n.ydgained as ydgained, n.playtype as playtype
+FROM maindata n
+INNER JOIN weather_with_home w on w.date_format = n.date AND w.home_abbrev = n.home
+WHERE n.playtype IS NOT NULL and n.playtype != '2-pt conversion';
+")
+
+data <- dbFetch(res, -1)
+run_pass_data <- data[data$playtype == "pass" | data$playtype == "run",]
+run_pass_binary <- mutate(run_pass_data, is_pass = ifelse(run_pass_data$playtype == "pass", 1, 0))
+
+is_pass_model <- lm(is_pass ~ scorediff + togo + temperature + down + minute_in_game, data=run_pass_binary)
+
+
+### percentage that the team tries a pass play [COMPELTE]
+### IF PASS - pass completion percentage
+thing <- merged_final[merged_final$playtype == "pass" &
+                        (merged_final$PassOutcome == "Complete" | merged_final$PassOutcome == "Incomplete Pass"),]
+thing2 <- mutate(thing, pass_complete = ifelse(thing$PassOutcome == "Complete", 1, 0))
+
+thing2$togo <- as.numeric(thing2$togo)
+thing2$down.x <- as.numeric(thing2$down.x)
+
+pass_complete_model <- lm(pass_complete ~ scorediff + togo + temperature + down.x + minute_in_game + AirYards, 
+                          data=thing2)
+
+### IF PASS - expected number of yards gained from pass
+fit_AirYards <- lm(AirYards~down.y+togo+ydline+min+NYG, 
+                   data=merged_pass)
+
+fit_E.ydgained_pass <- lm(Yards.Gained~Reception+AirYards+togo,
+                          data=merged_pass)
+
+### IF RUN - expected number of yards gained from run
+only_runs <- merged_final[merged_final$playtype == "run",]
+only_runs_2 <- mutate(only_runs, RunGap = ifelse(RunLocation == "middle", "middle", RunGap))
+only_runs_2 <- only_runs_2[only_runs_2$RunGap != "NA" & only_runs_2$RunLocation != "NA",]
+only_runs_2$togo <- as.numeric(only_runs_2$togo)
+only_runs_2$down.x <- as.numeric(only_runs_2$down.x)
+only_runs_2$ydline <- as.numeric(only_runs_2$ydline)
+only_runs_2 <- only_runs_2[only_runs_2$RunLocation != "middle",]
+
+
+run_yds_gained_model <- lm(ydgained ~ togo + temperature + down.x + minute_in_game + ydline,
+                     data = only_runs_2)
+
+
+simulate_play <- function(is_pass_model, pass_comp_model, pass_yd_gained_model, run_yd_gained_model, airyards_model, init_scorediff, init_togo, init_temp, init_down, init_minute_in_game) {
+  grid.newpage()
+  # team names in end zones
+  left_endzone_vp <- viewport(x=0.025, y = 0.5, width = 0.05, height=1)
+  pushViewport(left_endzone_vp)
+  grid.rect(gp=gpar(fill='darkblue'))
+  popViewport()
+  right_endzone_vp <- viewport(x=0.975, y = 0.5, width = 0.05, height=1)
+  pushViewport(right_endzone_vp)
+  grid.rect(gp=gpar(fill='darkblue'))
+  popViewport()
+  grid.text("GIANTS", x=unit(0.975,'npc'),y=unit(0.5,'npc'), rot=270, gp=gpar(fontsize=20,col='white'))
+  grid.text("PATRIOTS", x=unit(0.025,'npc'),y=unit(0.5,'npc'), rot=90, gp=gpar(fontsize=20,col='white'))
+  
+  main_vp <- viewport(x = 0.5, y = 0.5, width = 0.9, height = 1)
+  pushViewport(main_vp)
+  grid.rect(gp=gpar(fill='darkgreen'))
+  
+  ### Plot field
+  grid.lines(x=0)
+  grid.lines(x=1)
+  grid.lines(y=0.5)
+  # yard lines
+  for (i in 1:10) {
+    grid.lines(x=i / 10, y=unit(c(0,1), 'npc'), gp=gpar(col='white'))
+  }
+  # yard line markers
+  for (i in 1:5) {
+    grid.text(paste0(i * 10), x=unit(i / 10, 'npc'), y=unit(0.1, 'npc'), gp=gpar(col='white'))
+    grid.text(paste0(i * 10), x=unit(1 - i / 10, 'npc'), y=unit(0.1, 'npc'), gp=gpar(col='white'))
+    grid.text(paste0(i * 10), x=unit(i / 10, 'npc'), y=unit(0.9, 'npc'), rot=180, gp=gpar(col='white'))
+    grid.text(paste0(i * 10), x=unit(1 - i / 10, 'npc'), y=unit(0.9, 'npc'), rot=180, gp=gpar(col='white'))
+  }
+  # yard tick marks
+  for (i in 1:50) {
+    grid.lines(x=i * 2 / 100, y = unit(c(0.15, 0.2), 'npc'), gp=gpar(col='white'))
+    grid.lines(x=i * 2 / 100, y = unit(c(0.8, 0.85), 'npc'), gp=gpar(col='white'))
+  }
+  grid.text("Real", x=unit(0.01, 'npc'), y=unit(0.55, 'npc'), just='left', gp=gpar(col='white'))
+  grid.text("Simulate", x=unit(0.01, 'npc'), y=unit(0.45, 'npc'), just='left', gp=gpar(col='white'))
+
+  yds_gained_on_drive <- 0
+  ydline <- 88
+  this_down <- init_down
+  
+  rect_height <- 0.08
+  rect_width <- 0.01
+  line_width <- 0.001
+  first_down_y_line <- 0.375-rect_height/2-rect_height/8
+  second_down_y_line <- first_down_y_line-rect_height/8 - rect_height-rect_height/8
+  third_down_y_line <- second_down_y_line-rect_height/8 - rect_height-rect_height/8
+  fourth_down_y_line <- third_down_y_line-rect_height/8 - rect_height-rect_height/8
+  
+  first_down_y_rect <- 0.375
+  second_down_y_rect <- first_down_y_rect-rect_height/2-rect_height/4 - rect_height/2
+  third_down_y_rect <- second_down_y_rect-rect_height/2-rect_height/4 - rect_height/2
+  fourth_down_y_rect <- third_down_y_rect-rect_height/2-rect_height/4 - rect_height/2
+  
+  down_y_grid_line <- c(first_down_y_line, second_down_y_line, third_down_y_line, fourth_down_y_line)
+  down_y_grid_rect <- c(first_down_y_rect, second_down_y_rect, third_down_y_rect, fourth_down_y_rect)
+  
+  incomp_pass_height <- rect_height / 4
+  
+  vp <- viewport(x = .12, y = .625, width = .01, height = .25)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='blue', fill='blue'))
+  input_v <- c(-3,10,72,1,57)
+  # output <- as.numeric(estimate_fun(input_v,is_pass_model))
+  # vp_sub <- viewport(x = .5, y = output/2, width = 1, height = output)
+  # pushViewport(vp_sub)
+  # grid.rect(gp=gpar(fill='yellow'))
+  # popViewport()
+  # vp_sub <- viewport(x = .5, y = mean(c(1,output)), width = 1, height = 1-output)
+  # pushViewport(vp_sub)
+  # grid.rect(gp=gpar(fill='turquoise1'))
+  # popViewport()
+  popViewport()
+  vp <- viewport(x = .12, y = .375, width = .01, height = .25)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='red', fill='darkred'))
+  popViewport()
+  vp <- viewport(x = .31, y = .625, width = .37, height = .001)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='yellow'))
+  popViewport()
+  vp <- viewport(x = .5, y = .625, width = .01, height = .125)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='blue',fill='blue'))
+  popViewport()
+  vp <- viewport(x = .5, y = .625+.125/2+.125/4, width = .001, height = .125/2)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='yellow'))
+  popViewport()
+  vp <- viewport(x = .5, y = .625+.125/2+.125, width = .01, height = .125)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='blue', fill='blue'))
+  popViewport()
+  vp <- viewport(x = .58, y = .625+.125/2+.125, width = .15, height = .001)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='yellow'))
+  popViewport()
+  vp <- viewport(x = .66, y = .625+.125/2+.125, width = .01, height = .125)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='blue',fill='blue'))
+  popViewport()
+  vp <- viewport(x = .67, y = .625+.125/2+.125, width = .01, height = .001)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='yellow'))
+  popViewport()
+  vp <- viewport(x = .68, y = .625+.125/2+.125, width = .01, height = .125)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='blue',fill='blue'))
+  popViewport()
+  vp <- viewport(x = .75, y = .625+.125/2+.125, width = .13, height = .001)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='yellow'))
+  popViewport()
+  vp <- viewport(x = .82, y = .625+.125/2+.125, width = .01, height = .125)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='blue',fill='blue'))
+  popViewport()
+  vp <- viewport(x = .855, y = .625+.125/2+.125, width = .06, height = .001)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='turquoise1'))
+  popViewport()
+  vp <- viewport(x = .89, y = .625+.125/2+.125, width = .01, height = .125)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='blue',fill='blue'))
+  popViewport()
+  vp <- viewport(x = .91, y = .625+.125/2+.125, width = .03, height = .001)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='yellow'))
+  popViewport()
+  vp <- viewport(x = .93, y = .625+.125/2+.125, width = .01, height = .125)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='blue',fill='blue'))
+  popViewport()
+  vp <- viewport(x = .935, y = .625+.125/2+.125, width = 0, height = .001)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='turquoise1'))
+  popViewport()
+  vp <- viewport(x = .94, y = .625+.125/2+.125, width = .01, height = .125)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='blue',fill='blue'))
+  popViewport()
+  vp <- viewport(x = .97, y = .625+.125/2+.125, width = .05, height = .001)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='turquoise1'))
+  popViewport()
+  
+  flag <- 0
+
+  while (yds_gained_on_drive < 10 & this_down < 5 & ydline > 0) {
+    if (flag == 1) {
+      vp <- viewport(x = (100 - ydline) / 100, y = down_y_grid_rect[this_down], 
+                     width = rect_width, height = rect_height)
+      pushViewport(vp)
+      grid.rect(gp=gpar(col='red', fill='darkred'))
+      popViewport()
+    }
+    flag <- 1
+    
+    
+    pass_pct_df <- data.frame(scorediff=init_scorediff, togo=10-yds_gained_on_drive, temperature=init_temp,
+                           down=this_down, minute_in_game=init_minute_in_game)
+    pass_pct <- predict(is_pass_model, pass_pct_df)
+    rng <- runif(1)
+    
+    
+    ### Shade in the percentages
+    #vp_sub <- viewport(x = .5, y = pass_pct/2, width = 1, height = output)
+    #pushViewport(vp_sub)
+    #grid.rect(gp=gpar(fill='yellow'))
+    #popViewport()
+    
+    #vp_sub <- viewport(x = .5, y = mean(c(1,pass_pct)), width = 1, height = 1-pass_pct)
+    #pushViewport(vp_sub)
+    #grid.rect(gp=gpar(fill='green'))
+    #popViewport(2)
+    #popViewport()
+    
+    
+    #print(paste0("Down: ", this_down, " Togo: ", 10 - yds_gained_on_drive, " Ydline: ", ydline))
+    
+    if (rng < pass_pct) { # I choose to make a pass play
+      ### determine if it's a complete pass or not
+      airyards_df <- data.frame(down.y=this_down, togo=10 - yds_gained_on_drive, ydline=ydline, min = init_minute_in_game, NYG=1)
+      predict_airyards <- predict(airyards_model, airyards_df)
+      
+      pass_comp_df <- data.frame(scorediff=init_scorediff, togo=10 - yds_gained_on_drive, temperature=init_temp, down.x=this_down,
+                                 minute_in_game = init_minute_in_game, AirYards=predict_airyards)
+      pass_comp_pct <- predict(pass_comp_model, pass_comp_df)
+      
+      rng_pass_comp <- runif(1)
+      if (rng_pass_comp < pass_comp_pct) { ### the pass is complete
+         pass_yd_gained_df <- data.frame(Reception = 1, AirYards=predict_airyards, togo=10-yds_gained_on_drive)
+         pass_yd_gained <- predict(pass_yd_gained_model, pass_yd_gained_df)
+         yds_gained_on_drive <- yds_gained_on_drive + pass_yd_gained
+         ydline <- ydline - pass_yd_gained
+         #print(paste0("Pass Complete: ", pass_yd_gained, " Yards."))
+         
+         ### graph it
+         vp <- viewport(x = (100 - ydline - pass_yd_gained) / 100, y = down_y_grid_rect[this_down], 
+                        width = pass_yd_gained / 100, height = line_width)
+         pushViewport(vp)
+         grid.rect(gp=gpar(col='yellow'), just="left")
+         popViewport()
+      } else { ### the pass is incomplete
+        #print("Incomplete Pass")
+        
+        ### graph it
+        if (this_down != 4) {
+          vp <- viewport(x = (100 - ydline) / 100, y = down_y_grid_line[this_down], 
+                         width = line_width, height = rect_height / 4)
+          pushViewport(vp)
+          grid.rect(gp=gpar(col='yellow'), just="left")
+          popViewport()
+        }
+      }
+      
+    } else { # I choose to make a run play
+      ### find the number of yards gained from the run
+      run_df <- data.frame(togo = 10 - yds_gained_on_drive, temperature=init_temp, down.x=this_down,
+                           minute_in_game=init_minute_in_game, ydline=ydline)
+      run_yds_gained <- predict(run_yd_gained_model, run_df)
+      
+      yds_gained_on_drive <- yds_gained_on_drive + run_yds_gained
+      ydline <- ydline - run_yds_gained
+      
+      #print(paste0("Run Play: ", run_yds_gained, " Yards."))
+      
+      
+      ### Graph it
+      vp <- viewport(x = (100 - ydline - run_yds_gained) / 100, y = down_y_grid_rect[this_down], 
+                     width = run_yds_gained / 100, height = line_width)
+      pushViewport(vp)
+      grid.rect(gp=gpar(col='turquoise1'), just="left")
+      popViewport()
+    }
+    
+
+    
+      if (10 - yds_gained_on_drive <= 0) { ## First down!
+        this_down <- 1
+        yds_gained_on_drive <- 0
+      } else {
+        this_down <- this_down + 1
+      }
+    
+  }
+  
+  
+  
+}
+
+set.seed(3)
+simulate_play(is_pass_model, pass_complete_model, fit_E.ydgained_pass, run_yds_gained_model, fit_AirYards, 
+              init_scorediff=-3, init_togo=10, init_temp=72, init_down=2, init_minute_in_game=57)
+```
+
+## Simulation - Risky Pass is Complete {.flexbox .vcenter}
+61.3% Touchdown Rate on 1000 trials...one example simulation shown
+```{r, echo=FALSE,warning=FALSE,message=FALSE}
+simulate_play <- function(is_pass_model, pass_comp_model, pass_yd_gained_model, run_yd_gained_model, airyards_model, init_scorediff, init_togo, init_temp, init_down, init_minute_in_game) {
+  grid.newpage()
+  # team names in end zones
+  left_endzone_vp <- viewport(x=0.025, y = 0.5, width = 0.05, height=1)
+  pushViewport(left_endzone_vp)
+  grid.rect(gp=gpar(fill='darkblue'))
+  popViewport()
+  right_endzone_vp <- viewport(x=0.975, y = 0.5, width = 0.05, height=1)
+  pushViewport(right_endzone_vp)
+  grid.rect(gp=gpar(fill='darkblue'))
+  popViewport()
+  grid.text("GIANTS", x=unit(0.975,'npc'),y=unit(0.5,'npc'), rot=270, gp=gpar(fontsize=20,col='white'))
+  grid.text("PATRIOTS", x=unit(0.025,'npc'),y=unit(0.5,'npc'), rot=90, gp=gpar(fontsize=20,col='white'))
+  
+  main_vp <- viewport(x = 0.5, y = 0.5, width = 0.9, height = 1)
+  pushViewport(main_vp)
+  grid.rect(gp=gpar(fill='darkgreen'))
+  
+  ### Plot field
+  grid.lines(x=0)
+  grid.lines(x=1)
+  grid.lines(y=0.5)
+  # yard lines
+  for (i in 1:10) {
+    grid.lines(x=i / 10, y=unit(c(0,1), 'npc'), gp=gpar(col='white'))
+  }
+  # yard line markers
+  for (i in 1:5) {
+    grid.text(paste0(i * 10), x=unit(i / 10, 'npc'), y=unit(0.1, 'npc'), gp=gpar(col='white'))
+    grid.text(paste0(i * 10), x=unit(1 - i / 10, 'npc'), y=unit(0.1, 'npc'), gp=gpar(col='white'))
+    grid.text(paste0(i * 10), x=unit(i / 10, 'npc'), y=unit(0.9, 'npc'), rot=180, gp=gpar(col='white'))
+    grid.text(paste0(i * 10), x=unit(1 - i / 10, 'npc'), y=unit(0.9, 'npc'), rot=180, gp=gpar(col='white'))
+  }
+  # yard tick marks
+  for (i in 1:50) {
+    grid.lines(x=i * 2 / 100, y = unit(c(0.15, 0.2), 'npc'), gp=gpar(col='white'))
+    grid.lines(x=i * 2 / 100, y = unit(c(0.8, 0.85), 'npc'), gp=gpar(col='white'))
+  }
+  grid.text("Real", x=unit(0.01, 'npc'), y=unit(0.55, 'npc'), just='left', gp=gpar(col='white'))
+  grid.text("Simulate", x=unit(0.01, 'npc'), y=unit(0.45, 'npc'), just='left', gp=gpar(col='white'))
+
+  yds_gained_on_drive <- 0
+  ydline <- 50
+  this_down <- init_down
+  
+  rect_height <- 0.08
+  rect_width <- 0.01
+  line_width <- 0.001
+  first_down_y_line <- 0.375-rect_height/2-rect_height/8
+  second_down_y_line <- first_down_y_line-rect_height/8 - rect_height-rect_height/8
+  third_down_y_line <- second_down_y_line-rect_height/8 - rect_height-rect_height/8
+  fourth_down_y_line <- third_down_y_line-rect_height/8 - rect_height-rect_height/8
+  
+  first_down_y_rect <- 0.375
+  second_down_y_rect <- first_down_y_rect-rect_height/2-rect_height/4 - rect_height/2
+  third_down_y_rect <- second_down_y_rect-rect_height/2-rect_height/4 - rect_height/2
+  fourth_down_y_rect <- third_down_y_rect-rect_height/2-rect_height/4 - rect_height/2
+  
+  down_y_grid_line <- c(first_down_y_line, second_down_y_line, third_down_y_line, fourth_down_y_line)
+  down_y_grid_rect <- c(first_down_y_rect, second_down_y_rect, third_down_y_rect, fourth_down_y_rect)
+  
+  incomp_pass_height <- rect_height / 4
+  
+  vp <- viewport(x = .12, y = .625, width = .01, height = .25)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='blue', fill='blue'))
+  input_v <- c(-3,10,72,1,57)
+  # output <- as.numeric(estimate_fun(input_v,is_pass_model))
+  # vp_sub <- viewport(x = .5, y = output/2, width = 1, height = output)
+  # pushViewport(vp_sub)
+  # grid.rect(gp=gpar(fill='yellow'))
+  # popViewport()
+  # vp_sub <- viewport(x = .5, y = mean(c(1,output)), width = 1, height = 1-output)
+  # pushViewport(vp_sub)
+  # grid.rect(gp=gpar(fill='turquoise1'))
+  # popViewport()
+  popViewport()
+  vp <- viewport(x = .5, y = .375, width = .01, height = .25)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='red', fill='darkred'))
+  popViewport()
+  vp <- viewport(x = .31, y = .625, width = .37, height = .001)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='yellow'))
+  popViewport()
+  vp <- viewport(x = .5, y = .625, width = .01, height = .125)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='blue',fill='blue'))
+  popViewport()
+  vp <- viewport(x = .5, y = .625+.125/2+.125/4, width = .001, height = .125/2)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='yellow'))
+  popViewport()
+  vp <- viewport(x = .5, y = .625+.125/2+.125, width = .01, height = .125)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='blue', fill='blue'))
+  popViewport()
+  vp <- viewport(x = .58, y = .625+.125/2+.125, width = .15, height = .001)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='yellow'))
+  popViewport()
+  vp <- viewport(x = .66, y = .625+.125/2+.125, width = .01, height = .125)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='blue',fill='blue'))
+  popViewport()
+  vp <- viewport(x = .67, y = .625+.125/2+.125, width = .01, height = .001)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='yellow'))
+  popViewport()
+  vp <- viewport(x = .68, y = .625+.125/2+.125, width = .01, height = .125)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='blue',fill='blue'))
+  popViewport()
+  vp <- viewport(x = .75, y = .625+.125/2+.125, width = .13, height = .001)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='yellow'))
+  popViewport()
+  vp <- viewport(x = .82, y = .625+.125/2+.125, width = .01, height = .125)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='blue',fill='blue'))
+  popViewport()
+  vp <- viewport(x = .855, y = .625+.125/2+.125, width = .06, height = .001)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='turquoise1'))
+  popViewport()
+  vp <- viewport(x = .89, y = .625+.125/2+.125, width = .01, height = .125)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='blue',fill='blue'))
+  popViewport()
+  vp <- viewport(x = .91, y = .625+.125/2+.125, width = .03, height = .001)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='yellow'))
+  popViewport()
+  vp <- viewport(x = .93, y = .625+.125/2+.125, width = .01, height = .125)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='blue',fill='blue'))
+  popViewport()
+  vp <- viewport(x = .935, y = .625+.125/2+.125, width = 0, height = .001)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='turquoise1'))
+  popViewport()
+  vp <- viewport(x = .94, y = .625+.125/2+.125, width = .01, height = .125)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='blue',fill='blue'))
+  popViewport()
+  vp <- viewport(x = .97, y = .625+.125/2+.125, width = .05, height = .001)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='turquoise1'))
+  popViewport()
+  
+  flag <- 0
+
+  while (yds_gained_on_drive < 10 & this_down < 5 & ydline > 0) {
+    if (flag == 1) {
+      vp <- viewport(x = (100 - ydline) / 100, y = down_y_grid_rect[this_down], 
+                     width = rect_width, height = rect_height)
+      pushViewport(vp)
+      grid.rect(gp=gpar(col='red', fill='darkred'))
+      popViewport()
+    }
+    flag <- 1
+    
+    
+    pass_pct_df <- data.frame(scorediff=init_scorediff, togo=10-yds_gained_on_drive, temperature=init_temp,
+                           down=this_down, minute_in_game=init_minute_in_game)
+    pass_pct <- predict(is_pass_model, pass_pct_df)
+    rng <- runif(1)
+    
+    
+    ### Shade in the percentages
+    #vp_sub <- viewport(x = .5, y = pass_pct/2, width = 1, height = output)
+    #pushViewport(vp_sub)
+    #grid.rect(gp=gpar(fill='yellow'))
+    #popViewport()
+    
+    #vp_sub <- viewport(x = .5, y = mean(c(1,pass_pct)), width = 1, height = 1-pass_pct)
+    #pushViewport(vp_sub)
+    #grid.rect(gp=gpar(fill='green'))
+    #popViewport(2)
+    #popViewport()
+    
+    
+    #print(paste0("Down: ", this_down, " Togo: ", 10 - yds_gained_on_drive, " Ydline: ", ydline))
+    
+    if (rng < pass_pct) { # I choose to make a pass play
+      ### determine if it's a complete pass or not
+      airyards_df <- data.frame(down.y=this_down, togo=10 - yds_gained_on_drive, ydline=ydline, min = init_minute_in_game, NYG=1)
+      predict_airyards <- predict(airyards_model, airyards_df)
+      
+      pass_comp_df <- data.frame(scorediff=init_scorediff, togo=10 - yds_gained_on_drive, temperature=init_temp, down.x=this_down,
+                                 minute_in_game = init_minute_in_game, AirYards=predict_airyards)
+      pass_comp_pct <- predict(pass_comp_model, pass_comp_df)
+      
+      rng_pass_comp <- runif(1)
+      if (rng_pass_comp < pass_comp_pct) { ### the pass is complete
+         pass_yd_gained_df <- data.frame(Reception = 1, AirYards=predict_airyards, togo=10-yds_gained_on_drive)
+         pass_yd_gained <- predict(pass_yd_gained_model, pass_yd_gained_df)
+         yds_gained_on_drive <- yds_gained_on_drive + pass_yd_gained
+         ydline <- ydline - pass_yd_gained
+         #print(paste0("Pass Complete: ", pass_yd_gained, " Yards."))
+         
+         ### graph it
+         vp <- viewport(x = (100 - ydline - pass_yd_gained) / 100, y = down_y_grid_rect[this_down], 
+                        width = pass_yd_gained / 100, height = line_width)
+         pushViewport(vp)
+         grid.rect(gp=gpar(col='yellow'), just="left")
+         popViewport()
+      } else { ### the pass is incomplete
+        #print("Incomplete Pass")
+        
+        ### graph it
+        if (this_down != 4) {
+          vp <- viewport(x = (100 - ydline) / 100, y = down_y_grid_line[this_down], 
+                         width = line_width, height = rect_height / 4)
+          pushViewport(vp)
+          grid.rect(gp=gpar(col='yellow'), just="left")
+          popViewport()
+        }
+      }
+      
+    } else { # I choose to make a run play
+      ### find the number of yards gained from the run
+      run_df <- data.frame(togo = 10 - yds_gained_on_drive, temperature=init_temp, down.x=this_down,
+                           minute_in_game=init_minute_in_game, ydline=ydline)
+      run_yds_gained <- predict(run_yd_gained_model, run_df)
+      
+      yds_gained_on_drive <- yds_gained_on_drive + run_yds_gained
+      ydline <- ydline - run_yds_gained
+      
+      #print(paste0("Run Play: ", run_yds_gained, " Yards."))
+      
+      
+      ### Graph it
+      vp <- viewport(x = (100 - ydline - run_yds_gained) / 100, y = down_y_grid_rect[this_down], 
+                     width = run_yds_gained / 100, height = line_width)
+      pushViewport(vp)
+      grid.rect(gp=gpar(col='turquoise1'), just="left")
+      popViewport()
+    }
+    
+
+    
+      if (10 - yds_gained_on_drive <= 0) { ## First down!
+        this_down <- 1
+        yds_gained_on_drive <- 0
+      } else {
+        this_down <- this_down + 1
+      }
+    
+  }
+  
+  
+  
+}
+
+set.seed(6)
+simulate_play(is_pass_model, pass_complete_model, fit_E.ydgained_pass, run_yds_gained_model, fit_AirYards, 
+              init_scorediff=-3, init_togo=10, init_temp=72, init_down=1, init_minute_in_game=57)
+```
+
+## Simulation - Computer-Selected First Play {.flexbox .vcenter}
+50.8% Touchdown Rate on 1000 trials...one example simulation shown
+```{r, echo=FALSE,warning=FALSE,message=FALSE}
+simulate_play <- function(is_pass_model, pass_comp_model, pass_yd_gained_model, run_yd_gained_model, airyards_model, init_scorediff, init_togo, init_temp, init_down, init_minute_in_game) {
+  grid.newpage()
+  # team names in end zones
+  left_endzone_vp <- viewport(x=0.025, y = 0.5, width = 0.05, height=1)
+  pushViewport(left_endzone_vp)
+  grid.rect(gp=gpar(fill='darkblue'))
+  popViewport()
+  right_endzone_vp <- viewport(x=0.975, y = 0.5, width = 0.05, height=1)
+  pushViewport(right_endzone_vp)
+  grid.rect(gp=gpar(fill='darkblue'))
+  popViewport()
+  grid.text("GIANTS", x=unit(0.975,'npc'),y=unit(0.5,'npc'), rot=270, gp=gpar(fontsize=20,col='white'))
+  grid.text("PATRIOTS", x=unit(0.025,'npc'),y=unit(0.5,'npc'), rot=90, gp=gpar(fontsize=20,col='white'))
+  
+  main_vp <- viewport(x = 0.5, y = 0.5, width = 0.9, height = 1)
+  pushViewport(main_vp)
+  grid.rect(gp=gpar(fill='darkgreen'))
+  
+  ### Plot field
+  grid.lines(x=0)
+  grid.lines(x=1)
+  grid.lines(y=0.5)
+  # yard lines
+  for (i in 1:10) {
+    grid.lines(x=i / 10, y=unit(c(0,1), 'npc'), gp=gpar(col='white'))
+  }
+  # yard line markers
+  for (i in 1:5) {
+    grid.text(paste0(i * 10), x=unit(i / 10, 'npc'), y=unit(0.1, 'npc'), gp=gpar(col='white'))
+    grid.text(paste0(i * 10), x=unit(1 - i / 10, 'npc'), y=unit(0.1, 'npc'), gp=gpar(col='white'))
+    grid.text(paste0(i * 10), x=unit(i / 10, 'npc'), y=unit(0.9, 'npc'), rot=180, gp=gpar(col='white'))
+    grid.text(paste0(i * 10), x=unit(1 - i / 10, 'npc'), y=unit(0.9, 'npc'), rot=180, gp=gpar(col='white'))
+  }
+  # yard tick marks
+  for (i in 1:50) {
+    grid.lines(x=i * 2 / 100, y = unit(c(0.15, 0.2), 'npc'), gp=gpar(col='white'))
+    grid.lines(x=i * 2 / 100, y = unit(c(0.8, 0.85), 'npc'), gp=gpar(col='white'))
+  }
+  grid.text("Real", x=unit(0.01, 'npc'), y=unit(0.55, 'npc'), just='left', gp=gpar(col='white'))
+  grid.text("Simulate", x=unit(0.01, 'npc'), y=unit(0.45, 'npc'), just='left', gp=gpar(col='white'))
+
+  yds_gained_on_drive <- 0
+  ydline <- 88
+  this_down <- init_down
+  
+  rect_height <- 0.08
+  rect_width <- 0.01
+  line_width <- 0.001
+  first_down_y_line <- 0.375-rect_height/2-rect_height/8
+  second_down_y_line <- first_down_y_line-rect_height/8 - rect_height-rect_height/8
+  third_down_y_line <- second_down_y_line-rect_height/8 - rect_height-rect_height/8
+  fourth_down_y_line <- third_down_y_line-rect_height/8 - rect_height-rect_height/8
+  
+  first_down_y_rect <- 0.375
+  second_down_y_rect <- first_down_y_rect-rect_height/2-rect_height/4 - rect_height/2
+  third_down_y_rect <- second_down_y_rect-rect_height/2-rect_height/4 - rect_height/2
+  fourth_down_y_rect <- third_down_y_rect-rect_height/2-rect_height/4 - rect_height/2
+  
+  down_y_grid_line <- c(first_down_y_line, second_down_y_line, third_down_y_line, fourth_down_y_line)
+  down_y_grid_rect <- c(first_down_y_rect, second_down_y_rect, third_down_y_rect, fourth_down_y_rect)
+  
+  incomp_pass_height <- rect_height / 4
+  
+  vp <- viewport(x = .12, y = .625, width = .01, height = .25)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='blue', fill='blue'))
+  input_v <- c(-3,10,72,1,57)
+  # output <- as.numeric(estimate_fun(input_v,is_pass_model))
+  # vp_sub <- viewport(x = .5, y = output/2, width = 1, height = output)
+  # pushViewport(vp_sub)
+  # grid.rect(gp=gpar(fill='yellow'))
+  # popViewport()
+  # vp_sub <- viewport(x = .5, y = mean(c(1,output)), width = 1, height = 1-output)
+  # pushViewport(vp_sub)
+  # grid.rect(gp=gpar(fill='turquoise1'))
+  # popViewport()
+  popViewport()
+  vp <- viewport(x = .12, y = .375, width = .01, height = .25)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='red', fill='darkred'))
+  popViewport()
+  vp <- viewport(x = .31, y = .625, width = .37, height = .001)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='yellow'))
+  popViewport()
+  vp <- viewport(x = .5, y = .625, width = .01, height = .125)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='blue',fill='blue'))
+  popViewport()
+  vp <- viewport(x = .5, y = .625+.125/2+.125/4, width = .001, height = .125/2)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='yellow'))
+  popViewport()
+  vp <- viewport(x = .5, y = .625+.125/2+.125, width = .01, height = .125)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='blue', fill='blue'))
+  popViewport()
+  vp <- viewport(x = .58, y = .625+.125/2+.125, width = .15, height = .001)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='yellow'))
+  popViewport()
+  vp <- viewport(x = .66, y = .625+.125/2+.125, width = .01, height = .125)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='blue',fill='blue'))
+  popViewport()
+  vp <- viewport(x = .67, y = .625+.125/2+.125, width = .01, height = .001)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='yellow'))
+  popViewport()
+  vp <- viewport(x = .68, y = .625+.125/2+.125, width = .01, height = .125)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='blue',fill='blue'))
+  popViewport()
+  vp <- viewport(x = .75, y = .625+.125/2+.125, width = .13, height = .001)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='yellow'))
+  popViewport()
+  vp <- viewport(x = .82, y = .625+.125/2+.125, width = .01, height = .125)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='blue',fill='blue'))
+  popViewport()
+  vp <- viewport(x = .855, y = .625+.125/2+.125, width = .06, height = .001)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='turquoise1'))
+  popViewport()
+  vp <- viewport(x = .89, y = .625+.125/2+.125, width = .01, height = .125)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='blue',fill='blue'))
+  popViewport()
+  vp <- viewport(x = .91, y = .625+.125/2+.125, width = .03, height = .001)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='yellow'))
+  popViewport()
+  vp <- viewport(x = .93, y = .625+.125/2+.125, width = .01, height = .125)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='blue',fill='blue'))
+  popViewport()
+  vp <- viewport(x = .935, y = .625+.125/2+.125, width = 0, height = .001)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='turquoise1'))
+  popViewport()
+  vp <- viewport(x = .94, y = .625+.125/2+.125, width = .01, height = .125)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='blue',fill='blue'))
+  popViewport()
+  vp <- viewport(x = .97, y = .625+.125/2+.125, width = .05, height = .001)
+  pushViewport(vp)
+  grid.rect(gp=gpar(col='turquoise1'))
+  popViewport()
+  
+  flag <- 0
+
+  while (yds_gained_on_drive < 10 & this_down < 5 & ydline > 0) {
+    if (flag == 1) {
+      vp <- viewport(x = (100 - ydline) / 100, y = down_y_grid_rect[this_down], 
+                     width = rect_width, height = rect_height)
+      pushViewport(vp)
+      grid.rect(gp=gpar(col='red', fill='darkred'))
+      popViewport()
+    }
+    flag <- 1
+    
+    
+    pass_pct_df <- data.frame(scorediff=init_scorediff, togo=10-yds_gained_on_drive, temperature=init_temp,
+                           down=this_down, minute_in_game=init_minute_in_game)
+    pass_pct <- predict(is_pass_model, pass_pct_df)
+    rng <- runif(1)
+    
+    
+    ### Shade in the percentages
+    #vp_sub <- viewport(x = .5, y = pass_pct/2, width = 1, height = output)
+    #pushViewport(vp_sub)
+    #grid.rect(gp=gpar(fill='yellow'))
+    #popViewport()
+    
+    #vp_sub <- viewport(x = .5, y = mean(c(1,pass_pct)), width = 1, height = 1-pass_pct)
+    #pushViewport(vp_sub)
+    #grid.rect(gp=gpar(fill='green'))
+    #popViewport(2)
+    #popViewport()
+    
+    
+    #print(paste0("Down: ", this_down, " Togo: ", 10 - yds_gained_on_drive, " Ydline: ", ydline))
+    
+    if (rng < pass_pct) { # I choose to make a pass play
+      ### determine if it's a complete pass or not
+      airyards_df <- data.frame(down.y=this_down, togo=10 - yds_gained_on_drive, ydline=ydline, min = init_minute_in_game, NYG=1)
+      predict_airyards <- predict(airyards_model, airyards_df)
+      
+      pass_comp_df <- data.frame(scorediff=init_scorediff, togo=10 - yds_gained_on_drive, temperature=init_temp, down.x=this_down,
+                                 minute_in_game = init_minute_in_game, AirYards=predict_airyards)
+      pass_comp_pct <- predict(pass_comp_model, pass_comp_df)
+      
+      rng_pass_comp <- runif(1)
+      if (rng_pass_comp < pass_comp_pct) { ### the pass is complete
+         pass_yd_gained_df <- data.frame(Reception = 1, AirYards=predict_airyards, togo=10-yds_gained_on_drive)
+         pass_yd_gained <- predict(pass_yd_gained_model, pass_yd_gained_df)
+         yds_gained_on_drive <- yds_gained_on_drive + pass_yd_gained
+         ydline <- ydline - pass_yd_gained
+         #print(paste0("Pass Complete: ", pass_yd_gained, " Yards."))
+         
+         ### graph it
+         vp <- viewport(x = (100 - ydline - pass_yd_gained) / 100, y = down_y_grid_rect[this_down], 
+                        width = pass_yd_gained / 100, height = line_width)
+         pushViewport(vp)
+         grid.rect(gp=gpar(col='yellow'), just="left")
+         popViewport()
+      } else { ### the pass is incomplete
+        #print("Incomplete Pass")
+        
+        ### graph it
+        if (this_down != 4) {
+          vp <- viewport(x = (100 - ydline) / 100, y = down_y_grid_line[this_down], 
+                         width = line_width, height = rect_height / 4)
+          pushViewport(vp)
+          grid.rect(gp=gpar(col='yellow'), just="left")
+          popViewport()
+        }
+      }
+      
+    } else { # I choose to make a run play
+      ### find the number of yards gained from the run
+      run_df <- data.frame(togo = 10 - yds_gained_on_drive, temperature=init_temp, down.x=this_down,
+                           minute_in_game=init_minute_in_game, ydline=ydline)
+      run_yds_gained <- predict(run_yd_gained_model, run_df)
+      
+      yds_gained_on_drive <- yds_gained_on_drive + run_yds_gained
+      ydline <- ydline - run_yds_gained
+      
+      #print(paste0("Run Play: ", run_yds_gained, " Yards."))
+      
+      
+      ### Graph it
+      vp <- viewport(x = (100 - ydline - run_yds_gained) / 100, y = down_y_grid_rect[this_down], 
+                     width = run_yds_gained / 100, height = line_width)
+      pushViewport(vp)
+      grid.rect(gp=gpar(col='turquoise1'), just="left")
+      popViewport()
+    }
+    
+
+    
+      if (10 - yds_gained_on_drive <= 0) { ## First down!
+        this_down <- 1
+        yds_gained_on_drive <- 0
+      } else {
+        this_down <- this_down + 1
+      }
+    
+  }
+  
+  
+  
+}
+
+set.seed(6)
+simulate_play(is_pass_model, pass_complete_model, fit_E.ydgained_pass, run_yds_gained_model, fit_AirYards, 
+              init_scorediff=-3, init_togo=10, init_temp=72, init_down=1, init_minute_in_game=57)
+```
+
+
+## Conclusion
+- From the Pass Completion Model: Probability of completing risky play to Manningham = 32.1%
+
+- From the simulations:
+    - Probability of scoring TD given risky play was attempted: 0.321 x 0.613 + 0.679 x 0.465 = 51.3%
+    - Probability of scoring TD when simulation chooses first play: 50.8%
+    - T-test tells us that the difference between these two percentages is not statistically significant.
+        - p-value = 0.59
+
+- Verdict:
+    - Decision to call the risky 38-yard pass to Manningham did not significantly improve or reduce Giants' chances of winning Super Bowl
+
+
+# Questions
