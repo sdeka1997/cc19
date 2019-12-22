@@ -80,6 +80,7 @@ rmd_files: [
   'ice_cream_survey.Rmd',
   'askamanager_salary_survey.Rmd',
   'senate.Rmd',
+  'nfl_strat_analysis.Rmd',
 
    # Part IX: Translation
   'Stringr_introduction_chinese_version.Rmd', # do not move
