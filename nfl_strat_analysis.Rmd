@@ -18,13 +18,21 @@ library(gridBase)
 ```
 
 ```{r,include=FALSE,results='hide'}
-NFL2010 <- read.csv("https://drive.google.com/open?id=1VCxo53CKGq1IMj2Pn2c7tel8F6pJSXtx")
-NFL2011 <- read.csv("https://drive.google.com/open?id=1b3iXgSrxkpNcjOCm9ukWWFXsW5jwCUDW")
-NFL2012 <- read.csv("https://drive.google.com/open?id=1vYpj25dLsoOow9DOrR4z8dBzwu4oNxNW")
-NFL2013 <- read.csv("https://drive.google.com/open?id=1xjouqScJMqM5qBju1xM6R0JrD_rGb_yV")
-teams <- read.csv("https://drive.google.com/open?id=1NzBXDkChZd41oBWnWo4PRGZlvETFtdbY")
-weather_table <- read.csv(paste0("https://drive.google.com/open?id=1LkJzZ72RzwrER3NpYEr8DdncQHiE7730"))
-merged <- read.csv("https://drive.google.com/open?id=1E0Ill7A_a3lHFBhgG0dAP4rQRCWb6g5Y")
+NFL2010 <- read.csv(paste0("https://docs.google.com/uc?id=","1VCxo53CKGq1IMj2Pn2c7tel8F6pJSXtx","&export=download"))
+NFL2011 <- read.csv(paste0("https://docs.google.com/uc?id=","1b3iXgSrxkpNcjOCm9ukWWFXsW5jwCUDW","&export=download"))
+NFL2012 <- read.csv(paste0("https://docs.google.com/uc?id=","1vYpj25dLsoOow9DOrR4z8dBzwu4oNxNW","&export=download"))
+NFL2013 <- read.csv(paste0("https://docs.google.com/uc?id=","1xjouqScJMqM5qBju1xM6R0JrD_rGb_yV","&export=download"))
+teams <- read.csv(paste0("https://docs.google.com/uc?id=","1NzBXDkChZd41oBWnWo4PRGZlvETFtdbY","&export=download"))
+weather_table <- read.csv(paste0("https://docs.google.com/uc?id=","1LkJzZ72RzwrER3NpYEr8DdncQHiE7730","&export=download"))
+merged <- read.csv(paste0("https://docs.google.com/uc?id=","1E0Ill7A_a3lHFBhgG0dAP4rQRCWb6g5Y","&export=download"))
+
+# NFL2010 <-read.csv("https://drive.google.com/open?id=1VCxo53CKGq1IMj2Pn2c7tel8F6pJSXtx")
+# NFL2011 <- read.csv("https://drive.google.com/open?id=1b3iXgSrxkpNcjOCm9ukWWFXsW5jwCUDW")
+# NFL2012 <- read.csv("https://drive.google.com/open?id=1vYpj25dLsoOow9DOrR4z8dBzwu4oNxNW")
+# NFL2013 <- read.csv("https://drive.google.com/open?id=1xjouqScJMqM5qBju1xM6R0JrD_rGb_yV")
+# teams <- read.csv("https://drive.google.com/open?id=1NzBXDkChZd41oBWnWo4PRGZlvETFtdbY")
+# weather_table <- read.csv(paste0("https://drive.google.com/open?id=1LkJzZ72RzwrER3NpYEr8DdncQHiE7730"))
+# merged <- read.csv("https://drive.google.com/open?id=1E0Ill7A_a3lHFBhgG0dAP4rQRCWb6g5Y")
 
 
 dcon <- dbConnect(SQLite(), dbname = "nfl.sqlite")
